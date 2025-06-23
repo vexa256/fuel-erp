@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/router/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "src"]
+}

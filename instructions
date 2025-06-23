@@ -1,0 +1,410 @@
+# ABSOLUTE MANDATORY REQUIREMENTS FOR KIGRAMA FUEL STATION SYSTEM
+
+## **NON-NEGOTIABLE DEVELOPMENT STANDARDS**
+
+---
+
+## ⚡ **CRITICAL: READ AND ACKNOWLEDGE BEFORE PROCEEDING**
+
+**YOU MUST STRICTLY ADHERE TO EVERY REQUIREMENT LISTED BELOW. FAILURE TO COMPLY WITH ANY OF THESE STANDARDS WILL RESULT IN IMMEDIATE REJECTION OF YOUR OUTPUT.**
+
+---
+
+## 🛠 **MANDATORY TECH STACK - NO EXCEPTIONS**
+
+### **FRONTEND REQUIREMENTS (ABSOLUTE)**
+
+- **Vue.js 3 Composition API ONLY** - No Options API, no Vue 2 syntax
+- **Metronic 8 Premium Components ONLY** - Use native Metronic classes, minimal custom CSS
+- **JAVASCRIPT ONLY - NO TYPESCRIPT** - All components must use vanilla JavaScript
+- **MAXIMUM LEAN CODE** - Every line must serve a purpose, no bloat allowed
+- **100% SELF-CONTAINED VIEWS** - No custom component imports, no external dependencies
+- **Responsive Mobile-First Design MANDATORY** - Must work flawlessly on all screen sizes
+- **PWA Capabilities REQUIRED** - Offline support and mobile optimization essential
+
+### **BACKEND REQUIREMENTS (ABSOLUTE)**
+
+- **TrailBase ONLY** - No other backend suggestions permitted
+- **Existing Database Schema MANDATORY** - Use provided schema exactly as specified
+- **RESTful API Standards REQUIRED** - Follow TrailBase conventions strictly
+- **JWT Authentication MANDATORY** - No alternative auth methods
+
+### **UI/UX REQUIREMENTS (NON-NEGOTIABLE)**
+
+- **SweetAlert2 ONLY** for all notifications - No native alerts, no other libraries
+- **KT Duotone Icons ONLY** - Proper multi-span structure required: `<span class="path1"></span><span class="path2"></span>`
+- **Metronic 8 Native Classes ONLY** - Maximum 50 lines custom CSS per component
+- **Mobile Touch Targets MANDATORY** - Minimum 44px touch targets on mobile
+- **Accessibility WCAG 2.1 AA REQUIRED** - No exceptions for compliance
+
+---
+
+## 📋 **DEVELOPMENT STANDARDS (ABSOLUTE COMPLIANCE)**
+
+### **CODE QUALITY (MANDATORY)**
+
+```
+✅ MUST USE: Vue 3 Composition API with <script setup>
+✅ MUST USE: JavaScript ONLY - NO TypeScript allowed
+✅ MUST USE: Metronic 8 utility classes over custom CSS
+✅ MUST USE: MAXIMUM LEAN CODE - Every line must serve a purpose
+✅ MUST USE: 100% SELF-CONTAINED VIEWS - No custom imports/components
+✅ MUST USE: Proper error handling with try/catch blocks
+✅ MUST USE: Loading states for all async operations
+✅ MUST USE: Form validation with real-time feedback
+✅ MUST USE: ZERO ERRORS - Code must be bug-free and production-ready
+```
+
+### **COMPONENT STRUCTURE (REQUIRED)**
+
+```vue
+<!-- MANDATORY TEMPLATE STRUCTURE -->
+<template>
+  <div class="d-flex flex-column gap-5">
+    <!-- Metronic spacing only -->
+    <!-- Use Metronic native components ONLY -->
+    <!-- 100% self-contained - NO custom component imports -->
+    <!-- Mobile-responsive design mandatory -->
+  </div>
+</template>
+
+<script setup>
+// JavaScript ONLY - NO TypeScript
+import { ref, computed, onMounted } from 'vue'
+import Swal from 'sweetalert2' // ONLY allowed external import
+import axios from 'axios' // ONLY allowed external import
+
+// LEAN CODE ONLY - Every line must serve a purpose
+// 100% SELF-CONTAINED - No custom component imports
+// ZERO ERRORS - Must be production-ready
+</script>
+
+<style scoped>
+/* Maximum 30 lines - LEAN CODE MANDATORY */
+/* Use Metronic classes instead of custom CSS */
+</style>
+```
+
+### **ICON IMPLEMENTATION (ABSOLUTE)**
+
+```html
+<!-- MANDATORY KT ICON STRUCTURE - NO SHORTCUTS -->
+<i class="ki-duotone ki-icon-name fs-2">
+  <span class="path1"></span>
+  <span class="path2"></span>
+  <span class="path3"></span>
+  <!-- Add paths as needed -->
+</i>
+```
+
+### **NOTIFICATION STANDARD (REQUIRED)**
+
+```javascript
+// MANDATORY SweetAlert2 Usage - NO EXCEPTIONS
+import Swal from 'sweetalert2'
+
+// Success notifications - LEAN CODE
+Swal.fire({
+  title: 'Success!',
+  text: 'Operation completed successfully',
+  icon: 'success',
+  toast: true,
+  position: 'top-end',
+  timer: 3000,
+  showConfirmButton: false,
+})
+
+// Error notifications - LEAN CODE
+Swal.fire({
+  title: 'Error!',
+  text: 'Operation failed',
+  icon: 'error',
+  confirmButtonColor: '#f1416c',
+})
+```
+
+---
+
+## 🎯 **MVP FEATURE FOCUS (ABSOLUTE PRIORITY)**
+
+### **MUST IMPLEMENT FEATURES ONLY:**
+
+1. **Authentication & RBAC** - Multi-level access control
+2. **Station Management** - Master data with full CRUD
+3. **Inventory Tracking** - Real-time stock management
+4. **Transaction Processing** - POS with payment integration
+5. **Approval Workflows** - 7-tier approval matrix
+6. **Financial Reporting** - Double-entry ledger system
+7. **Compliance Monitoring** - URA tax integration
+8. **Mobile Optimization** - Touch-friendly interfaces
+
+### **FORBIDDEN FEATURES:**
+
+- ❌ No experimental features outside MVP scope
+- ❌ No alternative UI libraries or frameworks
+- ❌ No custom notification systems
+- ❌ No non-Metronic design patterns
+- ❌ No shortcuts on accessibility requirements
+- ❌ No TypeScript usage - JavaScript ONLY
+- ❌ No third-party AI integrations or API calls
+- ❌ No custom component imports between views
+- ❌ No code errors or bugs of any kind
+
+---
+
+## 🤖 **AI SIMULATION REQUIREMENTS (ABSOLUTE)**
+
+### **HARD-CODED AI LOGIC (MANDATORY)**
+
+```javascript
+// EXAMPLE: Simulated AI Demand Forecasting
+const simulateAIForecast = (historicalData) => {
+  // Hard-coded algorithm to mimic AI behavior
+  const trend = historicalData.slice(-7).reduce((sum, val) => sum + val, 0) / 7
+  const seasonality = Math.sin(Date.now() / (1000 * 60 * 60 * 24 * 7)) * 0.1
+  const forecast = trend * (1 + seasonality) + Math.random() * 0.05
+
+  return {
+    forecast: Math.round(forecast),
+    confidence: 0.85 + Math.random() * 0.1,
+    insights: generateInsightText(forecast, trend),
+  }
+}
+
+// EXAMPLE: Simulated Fraud Detection
+const simulateFraudDetection = (transaction) => {
+  const riskFactors = {
+    unusualAmount: transaction.amount > 50000,
+    offHours: new Date().getHours() < 6 || new Date().getHours() > 22,
+    repetitivePattern: checkRecentTransactions(transaction),
+    locationAnomaly: checkLocationPattern(transaction),
+  }
+
+  const riskScore = Object.values(riskFactors).filter(Boolean).length * 25
+
+  return {
+    riskScore,
+    flagged: riskScore > 50,
+    reasons: Object.keys(riskFactors).filter((key) => riskFactors[key]),
+  }
+}
+```
+
+### **AI ACCURACY REQUIREMENTS (MANDATORY)**
+
+- **95%+ Realistic Behavior** - AI simulations must feel authentic
+- **Contextual Responses** - AI logic must consider real business context
+- **Consistent Patterns** - AI behavior must be predictable and logical
+- **Performance Optimized** - AI simulations must run in <100ms
+
+---
+
+## 📱 **MOBILE REQUIREMENTS (MANDATORY)**
+
+### **RESPONSIVE DESIGN (ABSOLUTE)**
+
+```css
+/* MANDATORY MOBILE-FIRST APPROACH */
+.component {
+  /* Mobile styles first (default) */
+}
+
+@media (min-width: 768px) {
+  /* Tablet styles */
+}
+
+@media (min-width: 992px) {
+  /* Desktop styles */
+}
+```
+
+### **TOUCH OPTIMIZATION (REQUIRED)**
+
+- **44px minimum** touch target size
+- **Swipe gestures** for mobile navigation
+- **Long-press menus** for mobile context actions
+- **Pull-to-refresh** functionality where appropriate
+- **Haptic feedback** for mobile interactions
+
+---
+
+## 🔐 **SECURITY STANDARDS (NON-NEGOTIABLE)**
+
+### **AUTHENTICATION (MANDATORY)**
+
+- **JWT tokens** with automatic refresh
+- **Role-based access control** at component level
+- **Route guards** for protected pages
+- **Session timeout** with proper handling
+- **Secure token storage** in httpOnly cookies
+
+### **DATA PROTECTION (REQUIRED)**
+
+- **Input validation** on all forms
+- **XSS protection** through proper escaping
+- **CSRF protection** on state-changing operations
+- **Audit logging** for all user actions
+- **Encrypted sensitive data** transmission
+
+---
+
+## 📊 **DATABASE INTEGRATION (ABSOLUTE)**
+
+### **SCHEMA COMPLIANCE (MANDATORY)**
+
+- **Use existing tables ONLY** - No schema modifications without approval
+- **Follow naming conventions** exactly as provided
+- **Implement all foreign key relationships** properly
+- **Use provided user roles and permissions** exactly
+- **Maintain referential integrity** at all times
+
+### **API PATTERNS (REQUIRED)**
+
+```javascript
+// MANDATORY API STRUCTURE - LEAN CODE ONLY
+const api = axios.create({
+  baseURL: 'http://localhost:4000/api/records/v1',
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    'Content-Type': 'application/json',
+  },
+  timeout: 10000,
+})
+
+// MANDATORY error handling - ZERO ERRORS ALLOWED
+try {
+  const response = await api.get('/endpoint')
+  return response.data.records
+} catch (error) {
+  console.error('API Error:', error)
+  showErrorNotification(error.message)
+  throw error
+}
+```
+
+---
+
+## 🎨 **UI STANDARDS (ABSOLUTE COMPLIANCE)**
+
+### **METRONIC 8 CLASSES (MANDATORY)**
+
+```html
+<!-- REQUIRED COMPONENT STRUCTURE -->
+<div class="card card-flush">
+  <div class="card-header">
+    <h3 class="card-title fw-bold">Title</h3>
+    <div class="card-toolbar">
+      <button class="btn btn-primary">
+        <i class="ki-duotone ki-plus fs-2">
+          <span class="path1"></span>
+          <span class="path2"></span> </i
+        >Action
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- Content with proper spacing -->
+  </div>
+</div>
+```
+
+### **FORM STANDARDS (REQUIRED)**
+
+```html
+<!-- MANDATORY FORM STRUCTURE -->
+<form @submit.prevent="handleSubmit" novalidate>
+  <div class="row g-5">
+    <div class="col-12 col-md-6">
+      <label class="required form-label">Field Name</label>
+      <input
+        v-model="form.field"
+        type="text"
+        class="form-control form-control-lg"
+        :class="{ 'is-invalid': errors.field }"
+        required
+      />
+      <div v-if="errors.field" class="invalid-feedback">{{ errors.field }}</div>
+    </div>
+  </div>
+</form>
+```
+
+---
+
+## ⚡ **PERFORMANCE STANDARDS (MANDATORY)**
+
+### **LOADING REQUIREMENTS (ABSOLUTE)**
+
+- **Sub-500ms** initial page load on 3G
+- **Skeleton loading** for all async content
+- **Progressive enhancement** for slower connections
+- **Lazy loading** for images and heavy components
+- **Virtual scrolling** for large datasets
+
+### **OPTIMIZATION (REQUIRED)**
+
+- **Code splitting** by route and feature
+- **Tree shaking** to eliminate unused code
+- **Compression** for all static assets
+- **Caching strategies** for API responses
+- **Service worker** for offline functionality
+
+---
+
+## 🚨 **FAILURE CONDITIONS (IMMEDIATE REJECTION)**
+
+### **AUTOMATIC REJECTION IF:**
+
+- ❌ Uses any framework other than Vue 3 + Metronic 8 + TrailBase
+- ❌ Uses TypeScript instead of JavaScript
+- ❌ Implements custom notifications instead of SweetAlert2
+- ❌ Uses incorrect KT icon structure
+- ❌ Exceeds 30 lines of custom CSS per component
+- ❌ Imports custom components or views
+- ❌ Uses third-party AI integrations or API calls
+- ❌ Contains any code errors or bugs
+- ❌ Fails mobile responsiveness requirements
+- ❌ Violates accessibility standards
+- ❌ Implements features outside MVP scope
+- ❌ Modifies database schema without approval
+- ❌ Uses deprecated Vue.js patterns
+- ❌ Code is not lean and optimized
+
+---
+
+## ✅ **VALIDATION CHECKLIST (MANDATORY)**
+
+### **BEFORE SUBMITTING ANY CODE:**
+
+```
+□ Vue 3 Composition API with <script setup>
+□ JavaScript ONLY - NO TypeScript usage
+□ Metronic 8 native classes used exclusively
+□ SweetAlert2 for all notifications
+□ Proper KT icon multi-span structure
+□ MAXIMUM LEAN CODE - every line serves a purpose
+□ 100% SELF-CONTAINED VIEW - no custom imports
+□ NO third-party AI integrations or API calls
+□ Hard-coded AI logic with 95%+ accuracy
+□ ZERO ERRORS - bug-free production code
+□ Mobile-responsive on all screen sizes
+□ Error handling with try/catch blocks
+□ Loading states for async operations
+□ Form validation with real-time feedback
+□ Accessibility WCAG 2.1 AA compliance
+□ TrailBase API integration
+□ Database schema compliance
+□ Security best practices implemented
+□ Performance optimization applied
+□ MVP feature scope maintained
+```
+
+---
+
+## 🎯 **FINAL MANDATE**
+
+**ACKNOWLEDGE RECEIPT OF THESE REQUIREMENTS BY STATING: "I CONFIRM ABSOLUTE COMPLIANCE WITH ALL MANDATORY REQUIREMENTS FOR THE KIGRAMA FUEL STATION SYSTEM."**
+
+**ANY DEVIATION FROM THESE STANDARDS WILL RESULT IN IMMEDIATE WORK REJECTION AND REQUIREMENT TO START OVER.**
+
+**THESE REQUIREMENTS ARE NON-NEGOTIABLE AND MUST BE FOLLOWED WITHOUT EXCEPTION.**

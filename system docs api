@@ -1,0 +1,325 @@
+I confirm absolute compliance with all mandatory requirements for the Kigrama Fuel Station System.
+
+Okay, I will generate a comprehensive document outlining the API interaction guidelines for TrailBase, tailored to your specific database schema and project requirements. This document is intended for another AI or developer to ensure consistent and correct implementation of Vue.js views and API calls for the Kigrama Fuel Station System .
+
+The document will emphasize:
+
+1. **Base API Endpoint Structure:** Consistent use of `http://localhost:4000/api/records/v1/`.
+2. **Table Naming Conventions:** Strict adherence to the exact case and spelling of table names as defined in the database schema (e.g., `Suppliers`, `SupplierCreditAccounts`, `Transactions`).
+3. **HTTP Methods:** Correct usage of `GET` (list/read), `POST` (create), `PATCH` (update), and `DELETE` (delete).
+4. **Authentication:** Mandatory inclusion of the JWT `Authorization: Bearer <TOKEN>` header for all requests.
+5. **Headers:** Standard `Content-Type: application/json` for `POST` and `PATCH` requests.
+6. **Data Payloads:** JSON format for request bodies, matching the column names and data types of the respective tables.
+7. **Error Handling:** Anticipating API error responses and implementing appropriate user feedback (e.g., using SweetAlert2).
+8. **Specific Table Endpoints:** Examples for key tables to illustrate the pattern.
+9. **Vue.js Integration Best Practices:** How to structure `fetch` calls within Vue 3 `setup` script, manage loading states, and handle responses.
+10. **Mandatory Fields & Data Integrity:** Highlighting required fields for creation/updates based on common database constraints (though the schema itself is the ultimate source of truth).
+
+Here is the documentation:
+
+---
+
+## Kigrama Fuel Station System: TrailBase API Integration Guide for Vue.js Development
+
+**Version:** 1.0
+**Date:** June 18, 2025
+
+**Objective:** This document provides strict guidelines for interacting with the TrailBase backend API for the Kigrama Fuel Station System. Adherence to these guidelines is mandatory to ensure consistency, correctness, and maintainability of all Vue.js views and associated API calls.
+
+### 1. Core API Principles & Mandatory Requirements
+
+- **Base URL:** All API requests must target the following base endpoint:
+  `http://localhost:4000/api/records/v1/`
+- **Table Naming:** API endpoints for specific tables MUST use the **exact table name** from the database schema, including capitalization. For example, for the `Suppliers` table, the endpoint is `/Suppliers`. For `SupplierCreditAccounts`, it is `/SupplierCreditAccounts`. **No alterations to table names are permitted.**
+- **Authentication:** Every API request MUST include an `Authorization` header with a valid JWT token:
+  `Authorization: Bearer <YOUR_JWT_TOKEN>`
+  The token should be retrieved from secure storage (e.g., `localStorage` or a Vuex store after login).
+- **Content-Type:** For `POST` and `PATCH` requests that include a JSON body, the `Content-Type` header MUST be set to:
+  `Content-Type: application/json`
+- **HTTP Methods:**
+
+- `GET`: To retrieve a list of records or a single record.
+- `POST`: To create a new record.
+- `PATCH`: To update an existing record.
+- `DELETE`: To delete a record.
+
+- **Data Format:** All request and response bodies are in JSON format. Field names in the JSON payload MUST exactly match the column names in the database schema.
+- **Error Handling:** All API calls within Vue components must be wrapped in `try...catch` blocks. User-facing errors should be displayed using `SweetAlert2`.
+- **Lean Code:** API interaction logic should be concise and purposeful. Avoid unnecessary complexity.
+
+### 2. Standard API Request Structures
+
+The following examples illustrate the standard request structure. Replace `<TABLE_NAME>` with the actual, case-sensitive table name and `<RECORD_ID>` with the specific record's primary key.
+
+#### 2.1. List Records (GET)
+
+- **Endpoint:** `GET /<TABLE_NAME>`
+- **Example (Suppliers):** `GET http://localhost:4000/api/records/v1/Suppliers`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response:** A JSON object containing a `records` array.
+
+```json
+{
+  "records": [
+    { "SupplierID": 1, "Name": "FuelCo", ... },
+    { "SupplierID": 2, "Name": "OilMax", ... }
+  ]
+}
+```
+
+- **Query Parameters (Optional):**
+
+- `sort=<COLUMN_NAME>` or `sort=-<COLUMN_NAME>` for ascending/descending sort.
+- `limit=<NUMBER>`
+- `offset=<NUMBER>`
+- `<COLUMN_NAME>=<VALUE>` for filtering (exact match).
+
+#### 2.2. Read Single Record (GET)
+
+- **Endpoint:** `GET /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Supplier with ID 1):** `GET http://localhost:4000/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response:** A JSON object representing the single record.
+
+```json
+{ "SupplierID": 1, "Name": "FuelCo", "ContactPerson": "Jane Doe", ... }
+```
+
+#### 2.3. Create Record (POST)
+
+- **Endpoint:** `POST /<TABLE_NAME>`
+- **Example (Create Supplier):** `POST http://localhost:4000/api/records/v1/Suppliers`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+- `Content-Type: application/json`
+
+- **Request Body (JSON):**
+
+```json
+{
+  "Name": "New Supplier Inc.",
+  "ContactPerson": "John Smith",
+  "Phone": "+256700123456",
+  "Email": "john.smith@newsupplier.com",
+  "Address": "123 Main St, Kampala",
+  "TaxIdentificationNumber": "TIN12345XYZ",
+  "IsGlobal": "0", // '0' for false/Local, '1' for true/Global
+  "Status": "Active"
+  // Include all relevant fields. TrailBase might auto-populate CreatedAt, UpdatedAt.
+  // "CreatedAt": "2025-06-18T12:00:00Z", // Often handled by backend
+  // "UpdatedAt": "2025-06-18T12:00:00Z"  // Often handled by backend
+}
+```
+
+- **Note:** Ensure all required fields as per the database schema are included. `CreatedAt` and `UpdatedAt` are typically handled by TrailBase automatically upon record creation/modification. If your TrailBase setup requires them explicitly on creation, include them.
+
+- **Response (Success - 201 Created):** Typically the newly created record object, including its assigned ID.
+
+#### 2.4. Update Record (PATCH)
+
+- **Endpoint:** `PATCH /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Update Supplier with ID 1):** `PATCH http://localhost:4000/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+- `Content-Type: application/json`
+
+- **Request Body (JSON):** Include only the fields to be updated.
+
+```json
+{
+  "ContactPerson": "Janet Smith",
+  "Phone": "+256700654321"
+  // "UpdatedAt": "2025-06-18T13:00:00Z" // Often handled by backend
+}
+```
+
+- **Note:** `UpdatedAt` is typically handled by TrailBase automatically.
+
+- **Response (Success - 200 OK):** Typically the updated record object.
+
+#### 2.5. Delete Record (DELETE)
+
+- **Endpoint:** `DELETE /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Delete Supplier with ID 1):** `DELETE http://localhost:4000/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response (Success - 204 No Content or 200 OK with a confirmation message):** Varies by TrailBase configuration.
+
+### 3. Database Tables & Endpoints
+
+This is a non-exhaustive list of key tables. **Always refer to the complete database schema for all table names and their exact casing.**
+
+- `/ApprovalActions`
+- `/ApprovalAttachments`
+- `/Approvals`
+- `/AuditLogs`
+- `/CashDrawers`
+- `/CustomerCreditAccounts`
+- `/CustomerCreditPayments`
+- `/Customers`
+- `/DailyReadings`
+- `/Departments`
+- `/InventoryHistory`
+- `/JobGrades`
+- `/LedgerEntries`
+- `/Notifications`
+- `/Permissions`
+- `/Positions`
+- `/Products`
+- `/Pumps`
+- `/RolePermissions`
+- `/Roles`
+- `/StationInventory`
+- `/StationTransfers`
+- `/Stations`
+- `/SupplierCreditAccounts`
+- `/SupplierCreditTransactions`
+- `/SupplierInvoices`
+- `/SupplierPaymentAllocations`
+- `/SupplierPayments`
+- `/Suppliers`
+- `/Tanks`
+- `/TaxRecords`
+- `/TaxTypes`
+- `/TransactionItems`
+- `/Transactions`
+- `/TransferItems`
+- `/UserLoginHistory`
+- `/UserPositions`
+- `/UserRoles`
+- `/UserStations`
+- `/users`
+- _(and others as per the full schema)_
+
+### 4. Vue.js 3 Integration Example (`<script setup>`)
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+import Swal from 'sweetalert2' // Mandatory for notifications
+
+const suppliers = ref([])
+const loading = ref(false)
+const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+// Retrieve JWT from a secure source (e.g., localStorage, Pinia store)
+const JWT_TOKEN = localStorage.getItem('jwt') || 'YOUR_FALLBACK_TEST_TOKEN'
+
+const fetchSuppliers = async () => {
+  loading.value = true
+  try {
+    const response = await fetch(`${API_BASE_URL}/Suppliers`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${JWT_TOKEN}`,
+      },
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({})) // Try to parse error
+      throw new Error(errorData.message || `Failed to fetch suppliers. Status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    suppliers.value = data.records || []
+  } catch (error) {
+    console.error('Error fetching suppliers:', error)
+    Swal.fire({
+      title: 'Error!',
+      text: error.message || 'Could not load supplier data.',
+      icon: 'error',
+      confirmButtonColor: '#D9214E', // Use project's defined error color
+    })
+    suppliers.value = [] // Clear data on error
+  } finally {
+    loading.value = false
+  }
+}
+
+const createSupplier = async (supplierData) => {
+  loading.value = true
+  // Set indicator for Metronic button if applicable
+  // document.querySelector('[data-kt-indicator="on"]')?.setAttribute('data-kt-indicator', 'on');
+  try {
+    const response = await fetch(`${API_BASE_URL}/Suppliers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${JWT_TOKEN}`,
+      },
+      body: JSON.stringify(supplierData), // Ensure CreatedAt/UpdatedAt are handled as per TrailBase
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.message || `Failed to create supplier. Status: ${response.status}`)
+    }
+    // const newSupplier = await response.json(); // Get created record
+    Swal.fire({
+      title: 'Success!',
+      text: 'Supplier created successfully.',
+      icon: 'success',
+      toast: true, // iOS-like toast
+      position: 'top-end',
+      timer: 2000,
+      showConfirmButton: false,
+    })
+    await fetchSuppliers() // Refresh list
+  } catch (error) {
+    console.error('Error creating supplier:', error)
+    Swal.fire({
+      title: 'Creation Failed!',
+      text: error.message || 'Could not create the supplier.',
+      icon: 'error',
+      confirmButtonColor: '#D9214E',
+    })
+  } finally {
+    loading.value = false
+    // document.querySelector('[data-kt-indicator="on"]')?.setAttribute('data-kt-indicator', 'off');
+  }
+}
+
+onMounted(() => {
+  fetchSuppliers()
+})
+</script>
+```
+
+### 5. Data Integrity and Validation
+
+- **Client-Side Validation:** Implement basic client-side validation for required fields and data formats (e.g., email, phone) to provide immediate user feedback. This does NOT replace backend validation.
+- **Required Fields:** Consult the database schema for `NOT NULL` constraints. These fields are mandatory in `POST` requests.
+- **Data Types:** Ensure data sent to the API matches the expected data types of the table columns (e.g., strings, numbers, booleans represented as '0' or '1' if applicable, ISO date strings for date/time fields).
+
+### 6. iOS Design and Mobile-First Considerations
+
+- When fetching data, implement loading states (e.g., spinners, skeleton screens) that are visually consistent with iOS design patterns.
+- Error messages (via SweetAlert2) should be styled to be clear and non-disruptive on mobile screens.
+- API calls should be optimized to minimize data transfer for faster mobile performance. Request only necessary fields if possible (TrailBase may or may not support field selection).
+- Pagination (`limit`, `offset`) should be used for long lists to improve mobile load times and user experience.
+
+### 7. Final Checklist Before API Implementation
+
+1. Is the **Base URL** correct?
+2. Is the **Table Name** exactly matching the schema, including case?
+3. Is the `Authorization: Bearer <TOKEN>` header included?
+4. Is `Content-Type: application/json` set for `POST`/`PATCH`?
+5. Is the correct **HTTP Method** being used?
+6. Does the JSON payload (if any) match the **column names and data types**?
+7. Are all **mandatory fields** included for `POST` requests?
+8. Is there `try...catch` error handling?
+9. Is `SweetAlert2` used for user-facing notifications?
+10. Is the API call and subsequent UI update optimized for mobile performance?
+
+---
+
+By strictly following these guidelines, developers and AI assistants can ensure that all API interactions within the Kigrama Fuel Station System are robust, secure, and aligned with the project's high standards.
