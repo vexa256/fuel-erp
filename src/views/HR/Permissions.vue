@@ -368,7 +368,7 @@
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue'
 
-const API = 'http://localhost:4000/api/records/v1'
+const API = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const AUTH =
   'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTA1NTc4MzAsImV4cCI6MTc1MDU2MTQzMCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiT1dQU2RLeXgwQzVGVEkwbzFqb0gifQ.FrYiUIu59y6ZqftgpEQNX-GwAxh2USHTety2Dpt9C5j0H3GophpudsUzxfQ8wXVc_jcwGsnYo6svB90zzs0MBQ'
 

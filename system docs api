@@ -4,7 +4,7 @@ Okay, I will generate a comprehensive document outlining the API interaction gui
 
 The document will emphasize:
 
-1. **Base API Endpoint Structure:** Consistent use of `http://localhost:4000/api/records/v1/`.
+1. **Base API Endpoint Structure:** Consistent use of `https://backend.cloudfuelstationmis.com/api/records/v1/`.
 2. **Table Naming Conventions:** Strict adherence to the exact case and spelling of table names as defined in the database schema (e.g., `Suppliers`, `SupplierCreditAccounts`, `Transactions`).
 3. **HTTP Methods:** Correct usage of `GET` (list/read), `POST` (create), `PATCH` (update), and `DELETE` (delete).
 4. **Authentication:** Mandatory inclusion of the JWT `Authorization: Bearer <TOKEN>` header for all requests.
@@ -29,7 +29,7 @@ Here is the documentation:
 ### 1. Core API Principles & Mandatory Requirements
 
 - **Base URL:** All API requests must target the following base endpoint:
-  `http://localhost:4000/api/records/v1/`
+  `https://backend.cloudfuelstationmis.com/api/records/v1/`
 - **Table Naming:** API endpoints for specific tables MUST use the **exact table name** from the database schema, including capitalization. For example, for the `Suppliers` table, the endpoint is `/Suppliers`. For `SupplierCreditAccounts`, it is `/SupplierCreditAccounts`. **No alterations to table names are permitted.**
 - **Authentication:** Every API request MUST include an `Authorization` header with a valid JWT token:
   `Authorization: Bearer <YOUR_JWT_TOKEN>`
@@ -54,7 +54,7 @@ The following examples illustrate the standard request structure. Replace `<TABL
 #### 2.1. List Records (GET)
 
 - **Endpoint:** `GET /<TABLE_NAME>`
-- **Example (Suppliers):** `GET http://localhost:4000/api/records/v1/Suppliers`
+- **Example (Suppliers):** `GET https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers`
 - **Headers:**
 
 - `Authorization: Bearer <TOKEN>`
@@ -80,7 +80,7 @@ The following examples illustrate the standard request structure. Replace `<TABL
 #### 2.2. Read Single Record (GET)
 
 - **Endpoint:** `GET /<TABLE_NAME>/<RECORD_ID>`
-- **Example (Supplier with ID 1):** `GET http://localhost:4000/api/records/v1/Suppliers/1`
+- **Example (Supplier with ID 1):** `GET https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
 - **Headers:**
 
 - `Authorization: Bearer <TOKEN>`
@@ -94,7 +94,7 @@ The following examples illustrate the standard request structure. Replace `<TABL
 #### 2.3. Create Record (POST)
 
 - **Endpoint:** `POST /<TABLE_NAME>`
-- **Example (Create Supplier):** `POST http://localhost:4000/api/records/v1/Suppliers`
+- **Example (Create Supplier):** `POST https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers`
 - **Headers:**
 
 - `Authorization: Bearer <TOKEN>`
@@ -125,7 +125,7 @@ The following examples illustrate the standard request structure. Replace `<TABL
 #### 2.4. Update Record (PATCH)
 
 - **Endpoint:** `PATCH /<TABLE_NAME>/<RECORD_ID>`
-- **Example (Update Supplier with ID 1):** `PATCH http://localhost:4000/api/records/v1/Suppliers/1`
+- **Example (Update Supplier with ID 1):** `PATCH https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
 - **Headers:**
 
 - `Authorization: Bearer <TOKEN>`
@@ -148,7 +148,7 @@ The following examples illustrate the standard request structure. Replace `<TABL
 #### 2.5. Delete Record (DELETE)
 
 - **Endpoint:** `DELETE /<TABLE_NAME>/<RECORD_ID>`
-- **Example (Delete Supplier with ID 1):** `DELETE http://localhost:4000/api/records/v1/Suppliers/1`
+- **Example (Delete Supplier with ID 1):** `DELETE https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
 - **Headers:**
 
 - `Authorization: Bearer <TOKEN>`
@@ -210,7 +210,7 @@ import Swal from 'sweetalert2' // Mandatory for notifications
 
 const suppliers = ref([])
 const loading = ref(false)
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 // Retrieve JWT from a secure source (e.g., localStorage, Pinia store)
 const JWT_TOKEN = localStorage.getItem('jwt') || 'YOUR_FALLBACK_TEST_TOKEN'
 

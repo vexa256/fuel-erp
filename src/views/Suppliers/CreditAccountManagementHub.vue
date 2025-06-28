@@ -567,7 +567,7 @@ import { ref, reactive, computed, onMounted, watch } from 'vue'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:4000/api/records/v1'
+const API_BASE = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const jwt = localStorage.getItem('jwt') || ''
 const showCreditInfo = ref(false)
 

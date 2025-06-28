@@ -918,10 +918,13 @@ const getAuthHeaders = () => {
 
 const apiRequest = async (endpoint, options = {}) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/records/v1${endpoint}`, {
-      headers: getAuthHeaders(),
-      ...options,
-    })
+    const response = await fetch(
+      `https://backend.cloudfuelstationmis.com/api/records/v1${endpoint}`,
+      {
+        headers: getAuthHeaders(),
+        ...options,
+      },
+    )
 
     if (!response.ok) {
       let errorMessage = `HTTP ${response.status}: ${response.statusText}`

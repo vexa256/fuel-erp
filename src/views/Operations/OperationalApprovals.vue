@@ -705,7 +705,7 @@ import { ref, reactive, computed, onMounted, watch, nextTick } from 'vue'
 import Swal from 'sweetalert2'
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 
 // Enhanced Reactive State
 const loading = ref(false)

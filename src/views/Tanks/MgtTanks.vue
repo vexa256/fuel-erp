@@ -739,7 +739,7 @@ const form = ref({ ...initialFormState })
 
 // API client
 const api = axios.create({
-  baseURL: 'http://localhost:4000/api/records/v1',
+  baseURL: 'https://backend.cloudfuelstationmis.com/api/records/v1',
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('jwt')}`,

@@ -2,11 +2,72 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
-  { path: '/', name: 'home', component: HomeView },
+  {
+    path: '/', component: () => import('@/views/Operations/FuelPOS.vue')
+  },
+  {
+    path: '/station-operations/cash-drawer-and-variance',
+    name: 'stationOperationsCashDrawerAndVariance',
+    component: () => import('@/views/StationOperations/CashDrawerAndVariance.vue')
+  }, {
+    path: '/station-operations/customer-credit-accounts-management',
+    name: 'stationOperationsCustomerCreditAccountsManagement',
+    component: () => import('@/views/StationOperations/CustomerCreditAccountsManagement.vue')
+  }
+  ,
+
+  {
+    path: '/station-operations/variance-analysis',
+    name: 'stationOperationsVarianceAnalysis',
+    component: () => import('@/views/StationOperations/VarianceAnalysis.vue')
+  }, {
+    path: '/station-operations/financial-statement',
+    name: 'stationOperationsFinancialStatement',
+    component: () => import('@/views/StationOperations/FinancialStatement.vue')
+  }
+  ,
+
+  {
+    path: '/station-operations/aging-analysis',
+    name: 'stationOperationsAgingAnalysis',
+    component: () => import('@/views/StationOperations/AgingAnalysis.vue')
+  }
+  ,
+  {
+    path: '/station-operations/tanked-inventory-adjustment',
+    name: 'stationOperationsTankedInventoryAdjustment',
+    component: () => import('@/views/StationOperations/TankedInventoryAdjustment.vue')
+  }
+  ,
   {
     path: '/operations/fuel-pos',
     name: 'operationsFuelPOS',
     component: () => import('@/views/Operations/FuelPOS.vue')
+  }, {
+    path: '/station-operations/inventory-adjustement',
+    name: 'stationOperationsInventoryAdjustement',
+    component: () => import('@/views/StationOperations/InventoryAdjustement.vue')
+  }
+  , {
+    path: '/station-operations/stock-level-monitor',
+    name: 'stationOperationsStockLevelMonitor',
+    component: () => import('@/views/StationOperations/StockLevelMonitor.vue')
+  }
+  ,
+  {
+    path: '/station-operations/daily-meter-readings',
+    name: 'stationOperationsDailyMeterReadings',
+    component: () => import('@/views/StationOperations/DailyMeterReadings.vue')
+  }, {
+    path: '/station-operations/dip-readings',
+    name: 'stationOperationsDIPReadings',
+    component: () => import('@/views/StationOperations/DIPReadings.vue')
+  }
+  ,
+  {
+    path: '/station-operations/approvals-station',
+    name: 'stationOperationsApprovalsStation',
+    component: () => import('@/views/StationOperations/ApprovalsStation.vue')
   }
   ,
   {
@@ -16,7 +77,7 @@ const routes = [
   }
   ,
   { path: '/operations/attendance-ops', name: 'operationsAttendanceOps', component: () => import('@/views/Operations/AttendaceOps.vue') },
-  { path: '/operations/daily-reading-ops', name: 'operationsDailyReadingOps', component: () => import('@/views/Operations/DailyReadingOps.vue') },
+  // { path: '/operations/daily-reading-ops', name: 'operationsDailyReadingOps', component: () => import('@/views/Operations/DailyReadingOps.vue') },
   { path: '/operations/cash-ops', name: 'operationsCashOps', component: () => import('@/views/Operations/CashOps.vue') },
   { path: '/operations/station-ops', name: 'operationsStationOps', component: () => import('@/views/Operations/StationOps.vue') },
   { path: '/operations/shift-ops', name: 'operationsShiftOps', component: () => import('@/views/Operations/ShiftOps.vue') },

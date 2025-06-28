@@ -751,7 +751,7 @@ import { ref, reactive, computed, watch, onMounted } from 'vue'
 import Swal from 'sweetalert2'
 
 // Fix the API base URL
-const API_BASE = 'http://localhost:4000/api/records/v1'
+const API_BASE = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT = localStorage.getItem('jwt') || ''
 
 // Wizard state

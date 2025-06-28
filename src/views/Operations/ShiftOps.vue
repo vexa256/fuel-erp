@@ -59,7 +59,9 @@
                 <span class="path3"></span>
               </i>
               <div>
-                <p class="text-warning fs-6 fw-bold mb-0">${{ currentCashDrawer?.ActualCash || '0.00' }}</p>
+                <p class="text-warning fs-6 fw-bold mb-0">
+                  ${{ currentCashDrawer?.ActualCash || '0.00' }}
+                </p>
                 <p class="text-gray-600 fs-8 mb-0">Cash on Hand</p>
               </div>
             </div>
@@ -76,8 +78,11 @@
       <div class="card-body">
         <div class="row g-3">
           <div class="col-6" v-if="!isClockeedIn">
-            <button @click="clockIn" :disabled="loading"
-              class="btn btn-light-success w-100 h-60px d-flex flex-column justify-content-center">
+            <button
+              @click="clockIn"
+              :disabled="loading"
+              class="btn btn-light-success w-100 h-60px d-flex flex-column justify-content-center"
+            >
               <i class="ki-duotone ki-entrance-right fs-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -86,8 +91,11 @@
             </button>
           </div>
           <div class="col-6" v-if="isClockeedIn">
-            <button @click="clockOut" :disabled="loading"
-              class="btn btn-light-danger w-100 h-60px d-flex flex-column justify-content-center">
+            <button
+              @click="clockOut"
+              :disabled="loading"
+              class="btn btn-light-danger w-100 h-60px d-flex flex-column justify-content-center"
+            >
               <i class="ki-duotone ki-entrance-left fs-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -96,8 +104,11 @@
             </button>
           </div>
           <div class="col-6" v-if="!isShiftOpen">
-            <button @click="openShift" :disabled="loading"
-              class="btn btn-light-primary w-100 h-60px d-flex flex-column justify-content-center">
+            <button
+              @click="openShift"
+              :disabled="loading"
+              class="btn btn-light-primary w-100 h-60px d-flex flex-column justify-content-center"
+            >
               <i class="ki-duotone ki-bank fs-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -106,8 +117,11 @@
             </button>
           </div>
           <div class="col-6" v-if="isShiftOpen">
-            <button @click="closeShift" :disabled="loading"
-              class="btn btn-light-info w-100 h-60px d-flex flex-column justify-content-center">
+            <button
+              @click="closeShift"
+              :disabled="loading"
+              class="btn btn-light-info w-100 h-60px d-flex flex-column justify-content-center"
+            >
               <i class="ki-duotone ki-safe-home fs-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -151,19 +165,25 @@
           <div class="col-6">
             <div class="bg-light-success rounded p-3">
               <p class="text-success fs-7 fw-bold mb-1">Opening Balance</p>
-              <p class="text-dark fs-5 fw-bold mb-0">${{ currentCashDrawer?.OpeningBalance || '0.00' }}</p>
+              <p class="text-dark fs-5 fw-bold mb-0">
+                ${{ currentCashDrawer?.OpeningBalance || '0.00' }}
+              </p>
             </div>
           </div>
           <div class="col-6">
             <div class="bg-light-warning rounded p-3">
               <p class="text-warning fs-7 fw-bold mb-1">Expected Cash</p>
-              <p class="text-dark fs-5 fw-bold mb-0">${{ currentCashDrawer?.ExpectedCash || '0.00' }}</p>
+              <p class="text-dark fs-5 fw-bold mb-0">
+                ${{ currentCashDrawer?.ExpectedCash || '0.00' }}
+              </p>
             </div>
           </div>
           <div class="col-6">
             <div class="bg-light-info rounded p-3">
               <p class="text-info fs-7 fw-bold mb-1">Actual Cash</p>
-              <p class="text-dark fs-5 fw-bold mb-0">${{ currentCashDrawer?.ActualCash || '0.00' }}</p>
+              <p class="text-dark fs-5 fw-bold mb-0">
+                ${{ currentCashDrawer?.ActualCash || '0.00' }}
+              </p>
             </div>
           </div>
           <div class="col-6">
@@ -217,9 +237,11 @@
     </div>
 
     <!-- Loading Overlay -->
-    <div v-if="loading"
+    <div
+      v-if="loading"
       class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-50"
-      style="z-index: 1050;">
+      style="z-index: 1050"
+    >
       <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
@@ -233,7 +255,7 @@ import Swal from 'sweetalert2'
 import Chart from 'chart.js/auto'
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN = localStorage.getItem('kigrama_auth_token') || 'demo_token'
 
 // Component State
@@ -257,11 +279,11 @@ const apiCall = async (endpoint, options = {}) => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       headers: {
-        'Authorization': `Bearer ${JWT_TOKEN}`,
+        Authorization: `Bearer ${JWT_TOKEN}`,
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options.headers,
       },
-      ...options
+      ...options,
     })
 
     if (!response.ok) {
@@ -278,9 +300,9 @@ const apiCall = async (endpoint, options = {}) => {
 
 // Computed Properties
 const isClockeedIn = computed(() => {
-  return currentAttendance.value &&
-    currentAttendance.value.TimeIn &&
-    !currentAttendance.value.TimeOut
+  return (
+    currentAttendance.value && currentAttendance.value.TimeIn && !currentAttendance.value.TimeOut
+  )
 })
 
 const isShiftOpen = computed(() => {
@@ -335,7 +357,8 @@ const fetchUserStations = async () => {
 
     // Get primary station details
     if (userStations.value.length > 0) {
-      const primaryStation = userStations.value.find(us => us.IsPrimary === '1') || userStations.value[0]
+      const primaryStation =
+        userStations.value.find((us) => us.IsPrimary === '1') || userStations.value[0]
       const stationResponse = await apiCall(`/Stations/${primaryStation.StationID}`)
       currentStation.value = stationResponse
     }
@@ -345,7 +368,7 @@ const fetchUserStations = async () => {
       title: 'Error!',
       text: 'Failed to load station data',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   }
 }
@@ -357,7 +380,9 @@ const fetchCurrentAttendance = async () => {
     if (!userId || !stationId) return
 
     const today = new Date().toISOString().split('T')[0]
-    const response = await apiCall(`/Attendance?UserID=${userId}&StationID=${stationId}&AttendanceDate=${today}`)
+    const response = await apiCall(
+      `/Attendance?UserID=${userId}&StationID=${stationId}&AttendanceDate=${today}`,
+    )
 
     if (response.records && response.records.length > 0) {
       currentAttendance.value = response.records[0]
@@ -377,7 +402,9 @@ const fetchCurrentCashDrawer = async () => {
     if (!userId || !stationId) return
 
     const today = new Date().toISOString().split('T')[0]
-    const response = await apiCall(`/CashDrawers?StationID=${stationId}&ShiftDate=${today}&AttendantID=${userId}`)
+    const response = await apiCall(
+      `/CashDrawers?StationID=${stationId}&ShiftDate=${today}&AttendantID=${userId}`,
+    )
 
     if (response.records && response.records.length > 0) {
       currentCashDrawer.value = response.records[0]
@@ -396,7 +423,7 @@ const loadRecentActivity = () => {
       description: 'Clock-in recorded successfully',
       timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
       icon: 'ki-entrance-right',
-      color: 'success'
+      color: 'success',
     },
     {
       id: 2,
@@ -404,7 +431,7 @@ const loadRecentActivity = () => {
       description: 'Opening balance: $500.00',
       timestamp: new Date(Date.now() - 1.5 * 60 * 60 * 1000),
       icon: 'ki-bank',
-      color: 'primary'
+      color: 'primary',
     },
     {
       id: 3,
@@ -412,7 +439,7 @@ const loadRecentActivity = () => {
       description: '45.5L Gasoline - $58.50',
       timestamp: new Date(Date.now() - 45 * 60 * 1000),
       icon: 'ki-arrow-up-right',
-      color: 'info'
+      color: 'info',
     },
     {
       id: 4,
@@ -420,8 +447,8 @@ const loadRecentActivity = () => {
       description: 'Interim count: $1,250.75',
       timestamp: new Date(Date.now() - 30 * 60 * 1000),
       icon: 'ki-dollar',
-      color: 'warning'
-    }
+      color: 'warning',
+    },
   ]
 }
 
@@ -438,12 +465,12 @@ const clockIn = async () => {
       AttendanceDate: today,
       TimeIn: now,
       Status: 'Present',
-      Notes: 'Clock-in via mobile app'
+      Notes: 'Clock-in via mobile app',
     }
 
     await apiCall('/Attendance', {
       method: 'POST',
-      body: JSON.stringify(attendanceData)
+      body: JSON.stringify(attendanceData),
     })
 
     await Swal.fire({
@@ -453,7 +480,7 @@ const clockIn = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     await fetchCurrentAttendance()
@@ -463,7 +490,7 @@ const clockIn = async () => {
       title: 'Clock In Failed!',
       text: error.message,
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -477,7 +504,7 @@ const clockOut = async () => {
     icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'Yes, Clock Out',
-    confirmButtonColor: '#f1416c'
+    confirmButtonColor: '#f1416c',
   })
 
   if (!result.isConfirmed) return
@@ -490,8 +517,8 @@ const clockOut = async () => {
       method: 'PATCH',
       body: JSON.stringify({
         TimeOut: now,
-        Status: 'Completed'
-      })
+        Status: 'Completed',
+      }),
     })
 
     await Swal.fire({
@@ -501,7 +528,7 @@ const clockOut = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     currentAttendance.value = null
@@ -512,7 +539,7 @@ const clockOut = async () => {
       title: 'Clock Out Failed!',
       text: error.message,
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -527,11 +554,11 @@ const openShift = async () => {
     inputAttributes: {
       min: 0,
       step: 0.01,
-      placeholder: '0.00'
+      placeholder: '0.00',
     },
     showCancelButton: true,
     confirmButtonText: 'Open Shift',
-    confirmButtonColor: '#3699ff'
+    confirmButtonColor: '#3699ff',
   })
 
   if (!openingBalance && openingBalance !== 0) return
@@ -551,12 +578,12 @@ const openShift = async () => {
       Status: 'Open',
       OpenedBy: userData.value.user.id,
       OpenedAt: new Date().toISOString(),
-      Notes: 'Shift opened via mobile app'
+      Notes: 'Shift opened via mobile app',
     }
 
     await apiCall('/CashDrawers', {
       method: 'POST',
-      body: JSON.stringify(drawerData)
+      body: JSON.stringify(drawerData),
     })
 
     await Swal.fire({
@@ -566,7 +593,7 @@ const openShift = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     await fetchCurrentCashDrawer()
@@ -576,7 +603,7 @@ const openShift = async () => {
       title: 'Open Shift Failed!',
       text: error.message,
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -591,11 +618,11 @@ const closeShift = async () => {
     inputAttributes: {
       min: 0,
       step: 0.01,
-      placeholder: currentCashDrawer.value?.ExpectedCash || '0.00'
+      placeholder: currentCashDrawer.value?.ExpectedCash || '0.00',
     },
     showCancelButton: true,
     confirmButtonText: 'Close Shift',
-    confirmButtonColor: '#f1416c'
+    confirmButtonColor: '#f1416c',
   })
 
   if (!actualCash && actualCash !== 0) return
@@ -607,11 +634,13 @@ const closeShift = async () => {
       body: JSON.stringify({
         ActualCash: parseFloat(actualCash).toFixed(2),
         ClosingBalance: parseFloat(actualCash).toFixed(2),
-        Variance: (parseFloat(actualCash) - parseFloat(currentCashDrawer.value.ExpectedCash)).toFixed(2),
+        Variance: (
+          parseFloat(actualCash) - parseFloat(currentCashDrawer.value.ExpectedCash)
+        ).toFixed(2),
         Status: 'Closed',
         ClosedBy: userData.value.user.id,
-        ClosedAt: new Date().toISOString()
-      })
+        ClosedAt: new Date().toISOString(),
+      }),
     })
 
     const variance = parseFloat(actualCash) - parseFloat(currentCashDrawer.value.ExpectedCash)
@@ -623,7 +652,7 @@ const closeShift = async () => {
       toast: true,
       position: 'top-end',
       timer: 4000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     await fetchCurrentCashDrawer()
@@ -633,7 +662,7 @@ const closeShift = async () => {
       title: 'Close Shift Failed!',
       text: error.message,
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -646,7 +675,7 @@ const showCashDrawerModal = async () => {
       title: 'No Active Drawer',
       text: 'Please open a shift first',
       icon: 'info',
-      confirmButtonColor: '#3699ff'
+      confirmButtonColor: '#3699ff',
     })
     return
   }
@@ -658,10 +687,10 @@ const showCashDrawerModal = async () => {
     inputValue: currentCashDrawer.value.ActualCash,
     inputAttributes: {
       min: 0,
-      step: 0.01
+      step: 0.01,
     },
     showCancelButton: true,
-    confirmButtonText: 'Update'
+    confirmButtonText: 'Update',
   })
 
   if (!cashCount && cashCount !== 0) return
@@ -672,8 +701,10 @@ const showCashDrawerModal = async () => {
       method: 'PATCH',
       body: JSON.stringify({
         ActualCash: parseFloat(cashCount).toFixed(2),
-        Variance: (parseFloat(cashCount) - parseFloat(currentCashDrawer.value.ExpectedCash)).toFixed(2)
-      })
+        Variance: (
+          parseFloat(cashCount) - parseFloat(currentCashDrawer.value.ExpectedCash)
+        ).toFixed(2),
+      }),
     })
 
     await Swal.fire({
@@ -683,7 +714,7 @@ const showCashDrawerModal = async () => {
       toast: true,
       position: 'top-end',
       timer: 2000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     await fetchCurrentCashDrawer()
@@ -693,7 +724,7 @@ const showCashDrawerModal = async () => {
       title: 'Update Failed!',
       text: error.message,
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -705,7 +736,7 @@ const formatTime = (date) => {
   return new Date(date).toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-    second: '2-digit'
+    second: '2-digit',
   })
 }
 
@@ -716,7 +747,7 @@ const addActivity = (title, description, color, icon) => {
     description,
     timestamp: new Date(),
     color,
-    icon
+    icon,
   })
 
   // Keep only last 10 activities
@@ -728,10 +759,7 @@ const addActivity = (title, description, color, icon) => {
 const refreshData = async () => {
   loading.value = true
   try {
-    await Promise.all([
-      fetchCurrentAttendance(),
-      fetchCurrentCashDrawer()
-    ])
+    await Promise.all([fetchCurrentAttendance(), fetchCurrentCashDrawer()])
 
     await Swal.fire({
       title: 'Refreshed!',
@@ -740,7 +768,7 @@ const refreshData = async () => {
       toast: true,
       position: 'top-end',
       timer: 2000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
   } catch (error) {
     console.error('Refresh error:', error)
@@ -764,22 +792,24 @@ const setupPerformanceChart = () => {
       type: 'doughnut',
       data: {
         labels: ['Completed', 'Remaining'],
-        datasets: [{
-          data: [todaysSales.value, 100 - todaysSales.value],
-          backgroundColor: ['#50cd89', '#e4e6ef'],
-          borderWidth: 0
-        }]
+        datasets: [
+          {
+            data: [todaysSales.value, 100 - todaysSales.value],
+            backgroundColor: ['#50cd89', '#e4e6ef'],
+            borderWidth: 0,
+          },
+        ],
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: false
-          }
+            display: false,
+          },
         },
-        cutout: '70%'
-      }
+        cutout: '70%',
+      },
     })
   })
 }
@@ -798,10 +828,7 @@ onMounted(async () => {
   try {
     await fetchUserStations()
     if (currentStation.value) {
-      await Promise.all([
-        fetchCurrentAttendance(),
-        fetchCurrentCashDrawer()
-      ])
+      await Promise.all([fetchCurrentAttendance(), fetchCurrentCashDrawer()])
     }
     loadRecentActivity()
     setupPerformanceChart()
@@ -811,7 +838,7 @@ onMounted(async () => {
       title: 'Initialization Error',
       text: 'Failed to load shift data',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false

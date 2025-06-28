@@ -4,9 +4,7 @@
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
       <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-          <h1
-            class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0"
-          >
+          <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
             Supplier Dashboard
           </h1>
           <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -53,9 +51,7 @@
                 <div class="card-header pt-5 border-0">
                   <h3 class="card-title align-items-start flex-column">
                     <span class="card-label fw-bold text-white fs-2">System Performance</span>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Real-time supplier network status</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Real-time supplier network status</span>
                   </h3>
                 </div>
                 <div class="card-body pt-2 border-0">
@@ -82,10 +78,7 @@
                             <span class="fs-7">{{ getCoveragePercentage().toFixed(1) }}%</span>
                           </div>
                           <div class="progress h-4px bg-white bg-opacity-25">
-                            <div
-                              class="progress-bar bg-warning"
-                              :style="`width: ${getCoveragePercentage()}%`"
-                            ></div>
+                            <div class="progress-bar bg-warning" :style="`width: ${getCoveragePercentage()}%`"></div>
                           </div>
                         </div>
 
@@ -95,29 +88,22 @@
                             <span class="fs-7">{{ getActivePercentage().toFixed(1) }}%</span>
                           </div>
                           <div class="progress h-4px bg-white bg-opacity-25">
-                            <div
-                              class="progress-bar bg-success"
-                              :style="`width: ${getActivePercentage()}%`"
-                            ></div>
+                            <div class="progress-bar bg-success" :style="`width: ${getActivePercentage()}%`"></div>
                           </div>
                         </div>
 
                         <div>
                           <div class="d-flex justify-content-between text-white mb-1">
                             <span class="fs-7">Global Coverage</span>
-                            <span class="fs-7"
-                              >{{
-                                ((metrics.globalSuppliers / metrics.totalSuppliers) * 100).toFixed(
-                                  1,
-                                )
-                              }}%</span
-                            >
+                            <span class="fs-7">{{
+                              ((metrics.globalSuppliers / metrics.totalSuppliers) * 100).toFixed(
+                              1,
+                              )
+                              }}%</span>
                           </div>
                           <div class="progress h-4px bg-white bg-opacity-25">
-                            <div
-                              class="progress-bar bg-info"
-                              :style="`width: ${(metrics.globalSuppliers / metrics.totalSuppliers) * 100}%`"
-                            ></div>
+                            <div class="progress-bar bg-info"
+                              :style="`width: ${(metrics.globalSuppliers / metrics.totalSuppliers) * 100}%`"></div>
                           </div>
                         </div>
                       </div>
@@ -184,9 +170,7 @@
                 <div class="card-header pt-5 border-0">
                   <h3 class="card-title align-items-start flex-column">
                     <span class="card-label fw-bold text-white fs-2">Key Insights</span>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Network optimization tips</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Network optimization tips</span>
                   </h3>
                 </div>
                 <div class="card-body pt-2 border-0">
@@ -206,9 +190,9 @@
                       </div>
                       <div class="text-white opacity-75 fs-7 ms-10">
                         {{
-                          getActivePercentage() > 80
-                            ? 'Excellent supplier activation rate'
-                            : 'Consider activating more suppliers'
+                        getActivePercentage() > 80
+                        ? 'Excellent supplier activation rate'
+                        : 'Consider activating more suppliers'
                         }}
                       </div>
                     </div>
@@ -227,9 +211,9 @@
                       </div>
                       <div class="text-white opacity-75 fs-7 ms-10">
                         {{
-                          getCoveragePercentage() > 75
-                            ? 'Good station coverage achieved'
-                            : 'Focus on expanding station coverage'
+                        getCoveragePercentage() > 75
+                        ? 'Good station coverage achieved'
+                        : 'Focus on expanding station coverage'
                         }}
                       </div>
                     </div>
@@ -250,9 +234,9 @@
                       </div>
                       <div class="text-white opacity-75 fs-7 ms-10">
                         {{
-                          metrics.pendingApprovals > 0
-                            ? `${metrics.pendingApprovals} items need attention`
-                            : 'All approvals up to date'
+                        metrics.pendingApprovals > 0
+                        ? `${metrics.pendingApprovals} items need attention`
+                        : 'All approvals up to date'
                         }}
                       </div>
                     </div>
@@ -288,8 +272,7 @@
             <!--begin::Total Suppliers-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
               <div
-                class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-50px bg-gradient-primary border-0 shadow-lg"
-              >
+                class="card card-flush bgi-no-repeat bgi-size-contain bgi-position-x-end h-md-50px bg-gradient-primary border-0 shadow-lg">
                 <div class="card-header pt-5 border-0">
                   <div class="card-title d-flex flex-column">
                     <div class="d-flex align-items-center">
@@ -299,16 +282,12 @@
                         <span class="path3"></span>
                         <span class="path4"></span>
                       </i>
-                      <span class="fs-4 fw-semibold text-white opacity-75 me-1 align-self-start"
-                        >Total</span
-                      >
+                      <span class="fs-4 fw-semibold text-white opacity-75 me-1 align-self-start">Total</span>
                       <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{
                         metrics.totalSuppliers
-                      }}</span>
+                        }}</span>
                     </div>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Registered Suppliers</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Registered Suppliers</span>
                   </div>
                 </div>
                 <div class="card-body d-flex align-items-end pt-0 border-0">
@@ -317,18 +296,13 @@
                       <span class="fw-bolder fs-6 text-white">Active Now</span>
                       <span class="fw-bold fs-6 text-white opacity-75">{{
                         metrics.activeSuppliers
-                      }}</span>
+                        }}</span>
                     </div>
                     <div class="h-8px mx-3 w-100 bg-white bg-opacity-25 rounded">
-                      <div
-                        class="bg-white rounded h-8px shadow-sm"
-                        :style="`width: ${getActivePercentage()}%`"
-                      ></div>
+                      <div class="bg-white rounded h-8px shadow-sm" :style="`width: ${getActivePercentage()}%`"></div>
                     </div>
                     <div class="text-center mt-2">
-                      <span class="badge badge-light-success"
-                        >{{ getActivePercentage().toFixed(1) }}% Active Rate</span
-                      >
+                      <span class="badge badge-light-success">{{ getActivePercentage().toFixed(1) }}% Active Rate</span>
                     </div>
                   </div>
                 </div>
@@ -345,19 +319,15 @@
                         <span class="path1"></span>
                         <span class="path2"></span>
                       </i>
-                      <span class="fs-4 fw-semibold text-white opacity-75 me-1 align-self-start"
-                        >Active</span
-                      >
+                      <span class="fs-4 fw-semibold text-white opacity-75 me-1 align-self-start">Active</span>
                       <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{
                         metrics.activeSuppliers
-                      }}</span>
+                        }}</span>
                       <span class="badge badge-light-white fs-base">
                         {{ getActivePercentage().toFixed(1) }}%
                       </span>
                     </div>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Active Suppliers</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Active Suppliers</span>
                   </div>
                 </div>
                 <div class="card-body d-flex align-items-end pt-0 border-0">
@@ -367,7 +337,7 @@
                         <div class="bg-white bg-opacity-20 rounded p-3 mb-2">
                           <span class="fw-bolder fs-3 text-white d-block">{{
                             metrics.globalSuppliers
-                          }}</span>
+                            }}</span>
                           <span class="text-white opacity-75 fs-7">Global</span>
                         </div>
                       </div>
@@ -375,7 +345,7 @@
                         <div class="bg-white bg-opacity-20 rounded p-3 mb-2">
                           <span class="fw-bolder fs-3 text-white d-block">{{
                             metrics.localSuppliers
-                          }}</span>
+                            }}</span>
                           <span class="text-white opacity-75 fs-7">Local</span>
                         </div>
                       </div>
@@ -397,47 +367,38 @@
                       </i>
                       <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{
                         metrics.totalStations
-                      }}</span>
+                        }}</span>
                       <span class="badge badge-light-white fs-base">
                         {{ getCoveragePercentage().toFixed(1) }}%
                       </span>
                     </div>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Station Coverage</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Station Coverage</span>
                   </div>
                 </div>
                 <div class="card-body d-flex align-items-end pt-0 border-0">
                   <div class="d-flex align-items-center flex-column mt-3 w-100">
                     <div class="d-flex justify-content-between w-100 mt-auto mb-2">
                       <span class="fw-bolder fs-6 text-white">Covered</span>
-                      <span class="fw-bold fs-6 text-white opacity-75"
-                        >{{ metrics.coveredStations }}/{{ metrics.totalStations }}</span
-                      >
+                      <span class="fw-bold fs-6 text-white opacity-75">{{ metrics.coveredStations }}/{{
+                        metrics.totalStations }}</span>
                     </div>
                     <div class="h-8px mx-3 w-100 bg-white bg-opacity-25 rounded">
-                      <div
-                        class="bg-white rounded h-8px shadow-sm"
-                        :style="`width: ${getCoveragePercentage()}%`"
-                      ></div>
+                      <div class="bg-white rounded h-8px shadow-sm" :style="`width: ${getCoveragePercentage()}%`"></div>
                     </div>
                     <div class="text-center mt-2">
-                      <span
-                        class="badge"
-                        :class="
+                      <span class="badge" :class="
                           getCoveragePercentage() > 80
                             ? 'badge-light-success'
                             : getCoveragePercentage() > 60
                               ? 'badge-light-warning'
                               : 'badge-light-danger'
-                        "
-                      >
+                        ">
                         {{
-                          getCoveragePercentage() > 80
-                            ? 'Excellent'
-                            : getCoveragePercentage() > 60
-                              ? 'Good'
-                              : 'Needs Attention'
+                        getCoveragePercentage() > 80
+                        ? 'Excellent'
+                        : getCoveragePercentage() > 60
+                        ? 'Good'
+                        : 'Needs Attention'
                         }}
                       </span>
                     </div>
@@ -448,10 +409,8 @@
 
             <!--begin::Pending Items-->
             <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-              <div
-                class="card card-flush h-md-50px border-0 shadow-lg"
-                :class="metrics.pendingApprovals > 5 ? 'bg-gradient-danger' : 'bg-gradient-warning'"
-              >
+              <div class="card card-flush h-md-50px border-0 shadow-lg"
+                :class="metrics.pendingApprovals > 5 ? 'bg-gradient-danger' : 'bg-gradient-warning'">
                 <div class="card-header pt-5 border-0">
                   <div class="card-title d-flex flex-column">
                     <div class="d-flex align-items-center">
@@ -463,13 +422,10 @@
                       </i>
                       <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{
                         metrics.pendingApprovals
-                      }}</span>
-                      <span
-                        class="badge fs-base"
-                        :class="
+                        }}</span>
+                      <span class="badge fs-base" :class="
                           metrics.pendingApprovals > 5 ? 'badge-light-white' : 'badge-light-white'
-                        "
-                      >
+                        ">
                         {{ metrics.pendingApprovals > 5 ? 'Urgent' : 'Normal' }}
                       </span>
                     </div>
@@ -480,8 +436,7 @@
                   <div class="d-flex align-items-center flex-column mt-3 w-100">
                     <div class="w-100">
                       <div
-                        class="d-flex justify-content-between align-items-center mb-2 p-3 bg-white bg-opacity-20 rounded"
-                      >
+                        class="d-flex justify-content-between align-items-center mb-2 p-3 bg-white bg-opacity-20 rounded">
                         <span class="fw-bolder fs-6 text-white">
                           <i class="ki-duotone ki-check fs-4 me-1">
                             <span class="path1"></span>
@@ -511,14 +466,11 @@
                 <div class="card-header pt-5 border-0">
                   <h3 class="card-title align-items-start flex-column">
                     <span class="card-label fw-bold text-primary fs-2">Quick Actions Hub</span>
-                    <span class="text-primary opacity-75 pt-1 fw-semibold fs-6"
-                      >Streamlined supplier operations at your fingertips</span
-                    >
+                    <span class="text-primary opacity-75 pt-1 fw-semibold fs-6">Streamlined supplier operations at your
+                      fingertips</span>
                   </h3>
                   <div class="card-toolbar">
-                    <span class="badge badge-primary fs-7"
-                      >{{ metrics.totalSuppliers }} Total Suppliers</span
-                    >
+                    <span class="badge badge-primary fs-7">{{ metrics.totalSuppliers }} Total Suppliers</span>
                   </div>
                 </div>
                 <div class="card-body pt-5 border-0">
@@ -526,8 +478,7 @@
                     <div class="col-6 col-md-3">
                       <div
                         class="card card-flush bg-gradient-primary border-0 shadow-sm h-100 cursor-pointer hover-elevate-up"
-                        @click="navigateToAddSupplier"
-                      >
+                        @click="navigateToAddSupplier">
                         <div class="card-body text-center p-6">
                           <div class="mb-4">
                             <i class="ki-duotone ki-plus-circle fs-3x text-white">
@@ -552,8 +503,7 @@
                     <div class="col-6 col-md-3">
                       <div
                         class="card card-flush bg-gradient-success border-0 shadow-sm h-100 cursor-pointer hover-elevate-up"
-                        @click="navigateToStationCoverage"
-                      >
+                        @click="navigateToStationCoverage">
                         <div class="card-body text-center p-6">
                           <div class="mb-4">
                             <i class="ki-duotone ki-map fs-3x text-white">
@@ -580,8 +530,7 @@
                     <div class="col-6 col-md-3">
                       <div
                         class="card card-flush bg-gradient-warning border-0 shadow-sm h-100 cursor-pointer hover-elevate-up"
-                        @click="navigateToSupplierList"
-                      >
+                        @click="navigateToSupplierList">
                         <div class="card-body text-center p-6">
                           <div class="mb-4">
                             <i class="ki-duotone ki-profile-user fs-3x text-white">
@@ -612,8 +561,7 @@
                     <div class="col-6 col-md-3">
                       <div
                         class="card card-flush bg-gradient-info border-0 shadow-sm h-100 cursor-pointer hover-elevate-up"
-                        @click="navigateToReports"
-                      >
+                        @click="navigateToReports">
                         <div class="card-body text-center p-6">
                           <div class="mb-4">
                             <i class="ki-duotone ki-chart-line-up fs-3x text-white">
@@ -641,31 +589,22 @@
                   <div class="row g-3 mt-5">
                     <div class="col-12">
                       <div class="d-flex flex-wrap gap-3 justify-content-center">
-                        <button
-                          class="btn btn-outline btn-outline-primary btn-sm"
-                          @click="refreshData"
-                          :disabled="loading"
-                        >
+                        <button class="btn btn-outline btn-outline-primary btn-sm" @click="refreshData"
+                          :disabled="loading">
                           <i class="ki-duotone ki-arrows-circle fs-6 me-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
                           </i>
                           {{ loading ? 'Refreshing...' : 'Refresh Data' }}
                         </button>
-                        <button
-                          class="btn btn-outline btn-outline-success btn-sm"
-                          @click="exportData"
-                        >
+                        <button class="btn btn-outline btn-outline-success btn-sm" @click="exportData">
                           <i class="ki-duotone ki-file-down fs-6 me-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
                           </i>
                           Export Report
                         </button>
-                        <button
-                          class="btn btn-outline btn-outline-info btn-sm"
-                          @click="viewSettings"
-                        >
+                        <button class="btn btn-outline btn-outline-info btn-sm" @click="viewSettings">
                           <i class="ki-duotone ki-setting-3 fs-6 me-1">
                             <span class="path1"></span>
                             <span class="path2"></span>
@@ -688,31 +627,22 @@
                 <div class="card-header pt-5">
                   <h3 class="card-title align-items-start flex-column">
                     <span class="card-label fw-bold text-white">Supplier Distribution</span>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Active vs Inactive suppliers</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Active vs Inactive suppliers</span>
                   </h3>
                   <div class="card-toolbar">
-                    <span class="badge badge-light-success"
-                      >{{ getActivePercentage().toFixed(1) }}% Active</span
-                    >
+                    <span class="badge badge-light-success">{{ getActivePercentage().toFixed(1) }}% Active</span>
                   </div>
                 </div>
                 <div class="card-body pt-2 pb-4">
                   <!--begin::Visual Donut Replacement-->
                   <div class="d-flex justify-content-center mb-6">
                     <div class="position-relative">
-                      <div
-                        class="bg-white bg-opacity-25 rounded-circle"
-                        style="width: 150px; height: 150px; position: relative"
-                      >
-                        <div
-                          class="bg-success rounded-circle position-absolute"
-                          :style="`width: ${getActivePercentage()}px; height: ${getActivePercentage()}px; top: ${(150 - getActivePercentage()) / 2}px; left: ${(150 - getActivePercentage()) / 2}px;`"
-                        ></div>
-                        <div
-                          class="position-absolute top-50 start-50 translate-middle text-white text-center"
-                        >
+                      <div class="bg-white bg-opacity-25 rounded-circle"
+                        style="width: 150px; height: 150px; position: relative">
+                        <div class="bg-success rounded-circle position-absolute"
+                          :style="`width: ${getActivePercentage()}px; height: ${getActivePercentage()}px; top: ${(150 - getActivePercentage()) / 2}px; left: ${(150 - getActivePercentage()) / 2}px;`">
+                        </div>
+                        <div class="position-absolute top-50 start-50 translate-middle text-white text-center">
                           <div class="fs-2 fw-bolder">{{ getActivePercentage().toFixed(0) }}%</div>
                           <div class="fs-7 opacity-75">Active</div>
                         </div>
@@ -748,9 +678,7 @@
                 <div class="card-header pt-5">
                   <h3 class="card-title align-items-start flex-column">
                     <span class="card-label fw-bold text-white">Station Coverage Analytics</span>
-                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6"
-                      >Real-time coverage distribution</span
-                    >
+                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Real-time coverage distribution</span>
                   </h3>
                 </div>
                 <div class="card-body pt-2">
@@ -760,8 +688,7 @@
                       <div class="position-relative me-4">
                         <div
                           class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center"
-                          style="width: 100px; height: 100px"
-                        >
+                          style="width: 100px; height: 100px">
                           <div class="text-center text-white">
                             <div class="fs-1 fw-bolder">{{ metrics.totalStations }}</div>
                             <div class="fs-7 opacity-75">Total</div>
@@ -771,8 +698,7 @@
                       <div class="position-relative">
                         <div
                           class="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center"
-                          style="width: 100px; height: 100px"
-                        >
+                          style="width: 100px; height: 100px">
                           <div class="text-center text-white">
                             <div class="fs-1 fw-bolder">{{ metrics.coveredStations }}</div>
                             <div class="fs-7 opacity-75">Covered</div>
@@ -797,10 +723,7 @@
                       <div class="flex-grow-1">
                         <div class="text-white fw-bold fs-6 mb-1">Covered Stations</div>
                         <div class="progress h-6px bg-white bg-opacity-25">
-                          <div
-                            class="progress-bar bg-success"
-                            :style="`width: ${getCoveragePercentage()}%`"
-                          ></div>
+                          <div class="progress-bar bg-success" :style="`width: ${getCoveragePercentage()}%`"></div>
                         </div>
                       </div>
                       <div class="text-white fw-bolder ms-3">
@@ -820,10 +743,7 @@
                       <div class="flex-grow-1">
                         <div class="text-white fw-bold fs-6 mb-1">Uncovered Stations</div>
                         <div class="progress h-6px bg-white bg-opacity-25">
-                          <div
-                            class="progress-bar bg-danger"
-                            :style="`width: ${100 - getCoveragePercentage()}%`"
-                          ></div>
+                          <div class="progress-bar bg-danger" :style="`width: ${100 - getCoveragePercentage()}%`"></div>
                         </div>
                       </div>
                       <div class="text-white fw-bolder ms-3">
@@ -833,8 +753,7 @@
 
                     <!--begin::Summary Stats-->
                     <div
-                      class="d-flex justify-content-between align-items-center mt-4 p-4 bg-white bg-opacity-10 rounded"
-                    >
+                      class="d-flex justify-content-between align-items-center mt-4 p-4 bg-white bg-opacity-10 rounded">
                       <div class="text-center">
                         <div class="text-white fs-2 fw-bolder">{{ metrics.totalStations }}</div>
                         <div class="text-white opacity-75 fs-7">Total Stations</div>
@@ -869,306 +788,306 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, nextTick } from 'vue'
+  import { ref, onMounted, computed, nextTick } from 'vue'
 
-// ==========================================
-// REACTIVE STATE
-// ==========================================
-const loading = ref(false)
-const dataLoaded = ref(false)
-const apiError = ref('')
+  // ==========================================
+  // REACTIVE STATE
+  // ==========================================
+  const loading = ref(false)
+  const dataLoaded = ref(false)
+  const apiError = ref('')
 
-// Core metrics from database
-const metrics = ref({
-  totalSuppliers: 0,
-  activeSuppliers: 0,
-  inactiveSuppliers: 0,
-  globalSuppliers: 0,
-  localSuppliers: 0,
-  totalStations: 0,
-  coveredStations: 0,
-  pendingApprovals: 0,
-})
-
-// Raw data arrays
-const suppliers = ref([])
-const supplierStations = ref([])
-const stations = ref([])
-const approvals = ref([])
-
-// ==========================================
-// COMPUTED PROPERTIES
-// ==========================================
-const getActivePercentage = () => {
-  if (metrics.value.totalSuppliers === 0) return 0
-  return (metrics.value.activeSuppliers / metrics.value.totalSuppliers) * 100
-}
-
-const getCoveragePercentage = () => {
-  if (metrics.value.totalStations === 0) return 0
-  return (metrics.value.coveredStations / metrics.value.totalStations) * 100
-}
-
-// ==========================================
-// API CONFIGURATION
-// ==========================================
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
-const AUTH_TOKEN =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJhaUJJYWVGSVJ0dTFON1VDakEwQmNBPT0iLCJpYXQiOjE3NTAxOTc4OTEsImV4cCI6MTc1MDIwMTQ5MSwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiSDBLQ1UxRHlmM2tTdDBNYmRRb2EifQ.nhsjRuTTMn0BN5oGsaVTbgzDR-dp8UZBs0ti2dG9wFNJ432NNKSgP5lxR6n04dCjcHwLOYwKfq50SZzha3ZLAA'
-
-const getHeaders = () => ({
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${AUTH_TOKEN}`,
-})
-
-// ==========================================
-// API FUNCTIONS
-// ==========================================
-const fetchSuppliers = async () => {
-  const response = await fetch(`${API_BASE_URL}/Suppliers`, {
-    method: 'GET',
-    headers: getHeaders(),
+  // Core metrics from database
+  const metrics = ref({
+    totalSuppliers: 0,
+    activeSuppliers: 0,
+    inactiveSuppliers: 0,
+    globalSuppliers: 0,
+    localSuppliers: 0,
+    totalStations: 0,
+    coveredStations: 0,
+    pendingApprovals: 0,
   })
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch suppliers: ${response.status} ${response.statusText}`)
+  // Raw data arrays
+  const suppliers = ref([])
+  const supplierStations = ref([])
+  const stations = ref([])
+  const approvals = ref([])
+
+  // ==========================================
+  // COMPUTED PROPERTIES
+  // ==========================================
+  const getActivePercentage = () => {
+    if (metrics.value.totalSuppliers === 0) return 0
+    return (metrics.value.activeSuppliers / metrics.value.totalSuppliers) * 100
   }
 
-  const data = await response.json()
-  return Array.isArray(data) ? data : data.records || data.data || []
-}
+  const getCoveragePercentage = () => {
+    if (metrics.value.totalStations === 0) return 0
+    return (metrics.value.coveredStations / metrics.value.totalStations) * 100
+  }
 
-const fetchSupplierStations = async () => {
-  const response = await fetch(`${API_BASE_URL}/SupplierStations`, {
-    method: 'GET',
-    headers: getHeaders(),
+  // ==========================================
+  // API CONFIGURATION
+  // ==========================================
+  const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
+  const AUTH_TOKEN =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJhaUJJYWVGSVJ0dTFON1VDakEwQmNBPT0iLCJpYXQiOjE3NTAxOTc4OTEsImV4cCI6MTc1MDIwMTQ5MSwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiSDBLQ1UxRHlmM2tTdDBNYmRRb2EifQ.nhsjRuTTMn0BN5oGsaVTbgzDR-dp8UZBs0ti2dG9wFNJ432NNKSgP5lxR6n04dCjcHwLOYwKfq50SZzha3ZLAA'
+
+  const getHeaders = () => ({
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${AUTH_TOKEN}`,
   })
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch supplier stations: ${response.status} ${response.statusText}`)
-  }
-
-  const data = await response.json()
-  return Array.isArray(data) ? data : data.records || data.data || []
-}
-
-const fetchStations = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/Stations`, {
+  // ==========================================
+  // API FUNCTIONS
+  // ==========================================
+  const fetchSuppliers = async () => {
+    const response = await fetch(`${API_BASE_URL}/Suppliers`, {
       method: 'GET',
       headers: getHeaders(),
     })
 
     if (!response.ok) {
-      // If Stations table doesn't exist, estimate from SupplierStations
-      return []
+      throw new Error(`Failed to fetch suppliers: ${response.status} ${response.statusText}`)
     }
 
     const data = await response.json()
     return Array.isArray(data) ? data : data.records || data.data || []
-  } catch (error) {
-    console.warn('Stations table not available:', error)
-    return []
   }
-}
 
-const fetchApprovals = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/Approvals`, {
+  const fetchSupplierStations = async () => {
+    const response = await fetch(`${API_BASE_URL}/SupplierStations`, {
       method: 'GET',
       headers: getHeaders(),
     })
 
     if (!response.ok) {
-      return []
+      throw new Error(`Failed to fetch supplier stations: ${response.status} ${response.statusText}`)
     }
 
     const data = await response.json()
     return Array.isArray(data) ? data : data.records || data.data || []
-  } catch (error) {
-    console.warn('Approvals table not available:', error)
-    return []
-  }
-}
-
-// ==========================================
-// DATA PROCESSING FUNCTIONS
-// ==========================================
-const processSupplierMetrics = (suppliersData) => {
-  metrics.value.totalSuppliers = suppliersData.length
-
-  // Count active suppliers (Status = 'Active' or Status = 1 or IsActive field)
-  metrics.value.activeSuppliers = suppliersData.filter((supplier) => {
-    return (
-      supplier.Status === 'Active' ||
-      supplier.Status === 1 ||
-      supplier.status === 'Active' ||
-      supplier.status === 1 ||
-      supplier.IsActive === true ||
-      supplier.is_active === true
-    )
-  }).length
-
-  metrics.value.inactiveSuppliers = metrics.value.totalSuppliers - metrics.value.activeSuppliers
-
-  // Count global suppliers
-  metrics.value.globalSuppliers = suppliersData.filter((supplier) => {
-    return (
-      supplier.IsGlobal === true ||
-      supplier.is_global === true ||
-      supplier.Type === 'Global' ||
-      supplier.type === 'Global'
-    )
-  }).length
-
-  metrics.value.localSuppliers = metrics.value.activeSuppliers - metrics.value.globalSuppliers
-}
-
-const processStationCoverage = (stationsData, supplierStationsData) => {
-  if (stationsData.length > 0) {
-    metrics.value.totalStations = stationsData.length
-  } else {
-    // Estimate from unique StationIDs in SupplierStations
-    const uniqueStations = new Set(supplierStationsData.map((ss) => ss.StationID || ss.station_id))
-    metrics.value.totalStations = uniqueStations.size
   }
 
-  // Count covered stations (stations that have at least one supplier assignment)
-  const coveredStations = new Set(supplierStationsData.map((ss) => ss.StationID || ss.station_id))
-  metrics.value.coveredStations = coveredStations.size
-}
+  const fetchStations = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/Stations`, {
+        method: 'GET',
+        headers: getHeaders(),
+      })
 
-const processApprovals = (approvalsData) => {
-  // Count pending approvals
-  metrics.value.pendingApprovals = approvalsData.filter((approval) => {
-    return (
-      approval.Status === 'Pending' ||
-      approval.status === 'Pending' ||
-      approval.ApprovalStatus === 'Pending' ||
-      approval.approval_status === 'Pending'
-    )
-  }).length
-}
+      if (!response.ok) {
+        // If Stations table doesn't exist, estimate from SupplierStations
+        return []
+      }
 
-// ==========================================
-// MAIN DATA FETCH FUNCTION
-// ==========================================
-const fetchDashboardData = async () => {
-  try {
-    loading.value = true
-    apiError.value = ''
-
-    // Fetch all data in parallel
-    const [suppliersData, supplierStationsData, stationsData, approvalsData] = await Promise.all([
-      fetchSuppliers(),
-      fetchSupplierStations(),
-      fetchStations(),
-      fetchApprovals(),
-    ])
-
-    // Store raw data
-    suppliers.value = suppliersData
-    supplierStations.value = supplierStationsData
-    stations.value = stationsData
-    approvals.value = approvalsData
-
-    // Process metrics
-    processSupplierMetrics(suppliersData)
-    processStationCoverage(stationsData, supplierStationsData)
-    processApprovals(approvalsData)
-
-    dataLoaded.value = true
-
-    // Initialize charts after data is loaded
-    await nextTick()
-    initCharts()
-  } catch (error) {
-    console.error('Error fetching dashboard data:', error)
-    apiError.value = `Failed to load dashboard data: ${error.message}`
-    dataLoaded.value = false
-  } finally {
-    loading.value = false
-  }
-}
-
-// ==========================================
-// CHART FUNCTIONS (REMOVED - REPLACED WITH CSS VISUALS)
-// ==========================================
-const initCharts = () => {
-  // Charts replaced with pure CSS/HTML visuals
-  console.log('Visual elements loaded successfully')
-}
-
-// ==========================================
-// NAVIGATION FUNCTIONS
-// ==========================================
-const navigateToAddSupplier = () => {
-  console.log('Navigate to Add Supplier')
-  // Example: router.push('/suppliers/add')
-}
-
-const navigateToStationCoverage = () => {
-  console.log('Navigate to Station Coverage')
-  // Example: router.push('/suppliers/coverage')
-}
-
-const navigateToSupplierList = () => {
-  console.log('Navigate to Supplier List')
-  // Example: router.push('/suppliers/list')
-}
-
-const navigateToReports = () => {
-  console.log('Navigate to Reports')
-  // Example: router.push('/suppliers/reports')
-}
-
-const navigateToApprovals = () => {
-  console.log('Navigate to Approvals')
-  // Example: router.push('/approvals')
-}
-
-const exportData = () => {
-  console.log('Export dashboard data')
-  // Implement export functionality
-  const data = {
-    suppliers: suppliers.value,
-    stations: supplierStations.value,
-    metrics: metrics.value,
-    exportDate: new Date().toISOString(),
-  }
-
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a')
-  link.href = url
-  link.download = `supplier-dashboard-${new Date().toISOString().split('T')[0]}.json`
-  link.click()
-  URL.revokeObjectURL(url)
-}
-
-const viewSettings = () => {
-  console.log('View settings')
-  // Example: router.push('/settings/suppliers')
-}
-
-// ==========================================
-// REFRESH FUNCTION
-// ==========================================
-const refreshData = async () => {
-  await fetchDashboardData()
-}
-
-// ==========================================
-// LIFECYCLE HOOKS
-// ==========================================
-onMounted(async () => {
-  await fetchDashboardData()
-
-  // Set up auto-refresh every 5 minutes
-  setInterval(() => {
-    if (!loading.value) {
-      refreshData()
+      const data = await response.json()
+      return Array.isArray(data) ? data : data.records || data.data || []
+    } catch (error) {
+      console.warn('Stations table not available:', error)
+      return []
     }
-  }, 300000) // 5 minutes
-})
+  }
+
+  const fetchApprovals = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/Approvals`, {
+        method: 'GET',
+        headers: getHeaders(),
+      })
+
+      if (!response.ok) {
+        return []
+      }
+
+      const data = await response.json()
+      return Array.isArray(data) ? data : data.records || data.data || []
+    } catch (error) {
+      console.warn('Approvals table not available:', error)
+      return []
+    }
+  }
+
+  // ==========================================
+  // DATA PROCESSING FUNCTIONS
+  // ==========================================
+  const processSupplierMetrics = (suppliersData) => {
+    metrics.value.totalSuppliers = suppliersData.length
+
+    // Count active suppliers (Status = 'Active' or Status = 1 or IsActive field)
+    metrics.value.activeSuppliers = suppliersData.filter((supplier) => {
+      return (
+        supplier.Status === 'Active' ||
+        supplier.Status === 1 ||
+        supplier.status === 'Active' ||
+        supplier.status === 1 ||
+        supplier.IsActive === true ||
+        supplier.is_active === true
+      )
+    }).length
+
+    metrics.value.inactiveSuppliers = metrics.value.totalSuppliers - metrics.value.activeSuppliers
+
+    // Count global suppliers
+    metrics.value.globalSuppliers = suppliersData.filter((supplier) => {
+      return (
+        supplier.IsGlobal === true ||
+        supplier.is_global === true ||
+        supplier.Type === 'Global' ||
+        supplier.type === 'Global'
+      )
+    }).length
+
+    metrics.value.localSuppliers = metrics.value.activeSuppliers - metrics.value.globalSuppliers
+  }
+
+  const processStationCoverage = (stationsData, supplierStationsData) => {
+    if (stationsData.length > 0) {
+      metrics.value.totalStations = stationsData.length
+    } else {
+      // Estimate from unique StationIDs in SupplierStations
+      const uniqueStations = new Set(supplierStationsData.map((ss) => ss.StationID || ss.station_id))
+      metrics.value.totalStations = uniqueStations.size
+    }
+
+    // Count covered stations (stations that have at least one supplier assignment)
+    const coveredStations = new Set(supplierStationsData.map((ss) => ss.StationID || ss.station_id))
+    metrics.value.coveredStations = coveredStations.size
+  }
+
+  const processApprovals = (approvalsData) => {
+    // Count pending approvals
+    metrics.value.pendingApprovals = approvalsData.filter((approval) => {
+      return (
+        approval.Status === 'Pending' ||
+        approval.status === 'Pending' ||
+        approval.ApprovalStatus === 'Pending' ||
+        approval.approval_status === 'Pending'
+      )
+    }).length
+  }
+
+  // ==========================================
+  // MAIN DATA FETCH FUNCTION
+  // ==========================================
+  const fetchDashboardData = async () => {
+    try {
+      loading.value = true
+      apiError.value = ''
+
+      // Fetch all data in parallel
+      const [suppliersData, supplierStationsData, stationsData, approvalsData] = await Promise.all([
+        fetchSuppliers(),
+        fetchSupplierStations(),
+        fetchStations(),
+        fetchApprovals(),
+      ])
+
+      // Store raw data
+      suppliers.value = suppliersData
+      supplierStations.value = supplierStationsData
+      stations.value = stationsData
+      approvals.value = approvalsData
+
+      // Process metrics
+      processSupplierMetrics(suppliersData)
+      processStationCoverage(stationsData, supplierStationsData)
+      processApprovals(approvalsData)
+
+      dataLoaded.value = true
+
+      // Initialize charts after data is loaded
+      await nextTick()
+      initCharts()
+    } catch (error) {
+      console.error('Error fetching dashboard data:', error)
+      apiError.value = `Failed to load dashboard data: ${error.message}`
+      dataLoaded.value = false
+    } finally {
+      loading.value = false
+    }
+  }
+
+  // ==========================================
+  // CHART FUNCTIONS (REMOVED - REPLACED WITH CSS VISUALS)
+  // ==========================================
+  const initCharts = () => {
+    // Charts replaced with pure CSS/HTML visuals
+    console.log('Visual elements loaded successfully')
+  }
+
+  // ==========================================
+  // NAVIGATION FUNCTIONS
+  // ==========================================
+  const navigateToAddSupplier = () => {
+    console.log('Navigate to Add Supplier')
+    // Example: router.push('/suppliers/add')
+  }
+
+  const navigateToStationCoverage = () => {
+    console.log('Navigate to Station Coverage')
+    // Example: router.push('/suppliers/coverage')
+  }
+
+  const navigateToSupplierList = () => {
+    console.log('Navigate to Supplier List')
+    // Example: router.push('/suppliers/list')
+  }
+
+  const navigateToReports = () => {
+    console.log('Navigate to Reports')
+    // Example: router.push('/suppliers/reports')
+  }
+
+  const navigateToApprovals = () => {
+    console.log('Navigate to Approvals')
+    // Example: router.push('/approvals')
+  }
+
+  const exportData = () => {
+    console.log('Export dashboard data')
+    // Implement export functionality
+    const data = {
+      suppliers: suppliers.value,
+      stations: supplierStations.value,
+      metrics: metrics.value,
+      exportDate: new Date().toISOString(),
+    }
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = `supplier-dashboard-${new Date().toISOString().split('T')[0]}.json`
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const viewSettings = () => {
+    console.log('View settings')
+    // Example: router.push('/settings/suppliers')
+  }
+
+  // ==========================================
+  // REFRESH FUNCTION
+  // ==========================================
+  const refreshData = async () => {
+    await fetchDashboardData()
+  }
+
+  // ==========================================
+  // LIFECYCLE HOOKS
+  // ==========================================
+  onMounted(async () => {
+    await fetchDashboardData()
+
+    // Set up auto-refresh every 5 minutes
+    setInterval(() => {
+      if (!loading.value) {
+        refreshData()
+      }
+    }, 300000) // 5 minutes
+  })
 </script>

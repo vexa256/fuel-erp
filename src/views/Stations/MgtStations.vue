@@ -554,7 +554,7 @@ import Swal from 'sweetalert2'
 /* 1 · Enhanced API instance with better error handling               */
 /* ------------------------------------------------------------------ */
 const api = axios.create({
-  baseURL: 'http://localhost:4000/api/records/v1',
+  baseURL: 'https://backend.cloudfuelstationmis.com/api/records/v1',
   headers: {
     Authorization: `Bearer ${localStorage.getItem('jwt') ?? ''}`,
     'Content-Type': 'application/json',

@@ -493,7 +493,7 @@ import { ref, onMounted, watch } from 'vue'
 import Swal from 'sweetalert2'
 
 // ==== CONSTANTS ====
-const API = 'http://localhost:4000/api/records/v1'
+const API = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT = localStorage.getItem('jwt') || ''
 const USER_ID = Number(localStorage.getItem('user_id')) || 4782875
 

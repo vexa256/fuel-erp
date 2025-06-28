@@ -448,7 +448,7 @@
 import { ref, computed, onMounted } from 'vue'
 import Swal from 'sweetalert2'
 
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN = localStorage.getItem('jwt') || ''
 
 const loading = ref(false)

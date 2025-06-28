@@ -1,0 +1,488 @@
+<!-- CUSTOMER MANAGEMENT -->
+<div class="menu-item pt-5">
+    <div class="menu-content">
+        <span class="menu-heading fw-bold text-uppercase fs-7">Customer Mgmt</span>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-people fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+                <span class="path4"></span>
+                <span class="path5"></span>
+            </i>
+        </span>
+        <span class="menu-title">Customers</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/registry">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Customer Registry</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/credit-accounts">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Credit Accounts</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/credit-monitoring">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Credit Monitoring</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/payments">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Payment Processing</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/statements">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Statement Generation</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/aging-analysis">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Aging Analysis</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/customers/analytics">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Customer Analytics</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+<!-- WORKFLOW & FINANCE -->
+<div class="menu-item pt-5">
+    <div class="menu-content">
+        <span class="menu-heading fw-bold text-uppercase fs-7">Workflow & Finance</span>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-check-square fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+            </i>
+        </span>
+        <span class="menu-title">Approval Workflows</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/my-pending">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">My Pending Approvals</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/my-requests">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">My Requests</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/purchase-orders">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Purchase Orders</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/station-operations/inventory-adjustement">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Inventory Adjustments</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/transfer-approvals">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Transfer Approvals</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/price-changes">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Price Changes</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/workflow-tracking">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Workflow Tracking</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/approvals/escalation-management">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Escalation Management</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-calculator fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+                <span class="path4"></span>
+            </i>
+        </span>
+        <span class="menu-title">Financial Operations</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/reconciliation/daily">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Daily Reconciliation</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/ledger/entries">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Ledger Entries</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/transactions/audit">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Transaction Audit</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/month-end/closing">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Month-End Closing</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/cost/analysis">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Cost Analysis</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/variance/analysis">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Financial Variance</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/finance/profitability/dashboard">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Profitability Dashboard</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+<!-- COMPLIANCE & WORKFORCE -->
+<div class="menu-item pt-5">
+    <div class="menu-content">
+        <span class="menu-heading fw-bold text-uppercase fs-7">Compliance</span>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-security-user fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+            </i>
+        </span>
+        <span class="menu-title">Tax & Compliance</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/tax/calculation">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Tax Calculation</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/tax/filing">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">URA Tax Filing</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/tax/records">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Tax Records</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/audit/logs">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Audit Logs</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/audit/trail">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Audit Trail</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/regulatory/reports">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Regulatory Reports</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/compliance/daily/checks">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Daily Compliance Checks</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-profile-user fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+                <span class="path4"></span>
+            </i>
+        </span>
+        <span class="menu-title">HR Operations</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/attendance/clock-system">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Clock In/Out System</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/attendance/tracking">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Attendance Tracking</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/positions/transfers">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Position Transfers</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/career/paths">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Career Path Guidance</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/certifications/tracking">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Certification Tracking</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/hr/performance/tracking">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Performance Tracking</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+<!-- ANALYTICS & MONITORING -->
+<div class="menu-item pt-5">
+    <div class="menu-content">
+        <span class="menu-heading fw-bold text-uppercase fs-7">Analytics</span>
+    </div>
+</div>
+
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-chart-line fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+            </i>
+        </span>
+        <span class="menu-title">Dashboards & Reports</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/executive/dashboard">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Executive Dashboard</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/operations/dashboard">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Operations Dashboard</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/financial/dashboard">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Financial Dashboard</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/inventory/variance">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Inventory Variance</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/cash/variance">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Cash Variance Analysis</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/sales/performance">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Sales Performance</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/analytics/station/performance">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Station Performance</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+    <span class="menu-link">
+        <span class="menu-icon">
+            <i class="ki-duotone ki-dollar fs-1">
+                <span class="path1"></span>
+                <span class="path2"></span>
+                <span class="path3"></span>
+            </i>
+        </span>
+        <span class="menu-title">Cash Management</span>
+        <span class="menu-arrow"></span>
+    </span>
+    <div class="menu-sub menu-sub-accordion">
+        <div class="menu-item">
+            <router-link class="menu-link" to="/station/cash/drawer-management">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Cash Drawer Manager</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/station/cash/reconciliation">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Cash Reconciliation</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/station/cash/shift-handover">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Shift Handover</span>
+            </router-link>
+        </div>
+        <div class="menu-item">
+            <router-link class="menu-link" to="/station/cash/variance-resolution">
+                <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                <span class="menu-title">Variance Resolution</span>
+            </router-link>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                  <span class="menu-link">
+                    <span class="menu-icon">
+                      <i class="ki-duotone ki-arrow-up-down fs-1">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                      </i>
+                    </span>
+                    <span class="menu-title">Inter-Station Transfers</span>
+                    <span class="menu-arrow"></span>
+                  </span>
+                  <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/initiate">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Initiate Transfer</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/pending-approvals">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Pending Approvals</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/in-transit">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">In Transit</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/receiving">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Receiving Station</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/reconciliation">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Transfer Reconciliation</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/variance-handling">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Variance Handling</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/tracking">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Transfer Tracking</span>
+                      </router-link>
+                    </div>
+                    <div class="menu-item">
+                      <router-link class="menu-link" to="/transfers/documentation">
+                        <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                        <span class="menu-title">Transfer Documentation</span>
+                      </router-link>
+                    </div>
+                  </div>
+                </div> -->
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════════ -->
+<!-- END ADDITIONAL MENU SECTIONS -->
+<!-- ═══════════════════════════════════════════════════════════════════════════════════ -->

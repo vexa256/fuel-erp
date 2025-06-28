@@ -14,7 +14,7 @@ app.use(router)
 app.mount('#app')
 
 
-window.SERVER_URL = " http://localhost:4000/";
+window.SERVER_URL = " https://backend.cloudfuelstationmis.com/";
 
 
 // Self-Executing Authentication Logic for main.js

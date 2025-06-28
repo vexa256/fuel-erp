@@ -1,0 +1,770 @@
+# ABSOLUTE MANDATORY REQUIREMENTS FOR KIGRAMA FUEL STATION SYSTEM
+## **NON-NEGOTIABLE DEVELOPMENT STANDARDS**
+
+**THESE REQUIREMENTS ARE NON-NEGOTIABLE AND MUST BE FOLLOWED WITHOUT EXCEPTION.  **
+---
+
+## ⚡ **CRITICAL: READ AND ACKNOWLEDGE BEFORE PROCEEDING**
+
+**YOU MUST STRICTLY ADHERE TO EVERY REQUIREMENT LISTED BELOW. FAILURE TO COMPLY WITH ANY OF THESE STANDARDS WILL RESULT IN IMMEDIATE REJECTION OF YOUR OUTPUT. EACH VUEJS 3 VIEW YOU COULD MUST AND MUST BE MOBILE ORIENTED FOLLOWING IOS DESIGN WITH NO TO EXTREMLY LITTLE CUSTOM CSS USED, EACH VIEW MUST BE A MIRROR OF IOS STRUCTURED DESIGN BUT WITH EXTREMLY BRIGHT AND SHOUTING COLORS NATIVE TO METRONIC OR NON DULL COLRS , AVOID CREATING DULL INTERFACES. THIS WILL MAINLY BE A MOBILE APP BUT SHOULD WORK IN WEB AS WELL EACH VUE MUST FOLLOW THIS API SORT OF DESIGN FOR CONNECTING TO TRAILBASE HERE IS AN EXAMPLE HERE ARE THE ACTUAL EXAMPLE APIS THOUGH NOT ALL OF THEM JUST FOR YOU TO UNDERSTAND THE FORMAT , "Read Record
+
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTAyNDc4ODgsImV4cCI6MTc1MDI1MTQ4OCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiOWdWQmpzU0MzN1NBTmVhU3pCelQifQ.i-Lj_KsB-TXZ1vgsu4CPEdICamdOznhKDh42Jx7oi4F29K5voeBER5bBycrnQ0uK7-G45F-18SibATxo_F3rBQ" \
+  --request GET \
+  "https://backend.cloudfuelstationmis.com/api/records/v1/SupplierCreditAccounts/<RECORD_ID>"
+List Records
+
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTAyNDc4ODgsImV4cCI6MTc1MDI1MTQ4OCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiOWdWQmpzU0MzN1NBTmVhU3pCelQifQ.i-Lj_KsB-TXZ1vgsu4CPEdICamdOznhKDh42Jx7oi4F29K5voeBER5bBycrnQ0uK7-G45F-18SibATxo_F3rBQ" \
+  --request GET \
+  "https://backend.cloudfuelstationmis.com/api/records/v1/SupplierCreditAccounts"
+Create Record
+
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTAyNDc4ODgsImV4cCI6MTc1MDI1MTQ4OCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiOWdWQmpzU0MzN1NBTmVhU3pCelQifQ.i-Lj_KsB-TXZ1vgsu4CPEdICamdOznhKDh42Jx7oi4F29K5voeBER5bBycrnQ0uK7-G45F-18SibATxo_F3rBQ" \
+  --request POST \
+  --data '{"CreditAccountID":null,"SupplierID":0,"StationID":0,"CreditLimit":null,"CurrentBalance":null,"AvailableCredit":null,"PaymentTermsDays":null,"LastPaymentDate":"","LastPaymentAmount":null,"IsActive":null,"CreatedAt":null,"UpdatedAt":null}' \
+  "https://backend.cloudfuelstationmis.com/api/records/v1/SupplierCreditAccounts"
+Update Record
+
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTAyNDc4ODgsImV4cCI6MTc1MDI1MTQ4OCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiOWdWQmpzU0MzN1NBTmVhU3pCelQifQ.i-Lj_KsB-TXZ1vgsu4CPEdICamdOznhKDh42Jx7oi4F29K5voeBER5bBycrnQ0uK7-G45F-18SibATxo_F3rBQ" \
+  --request PATCH \
+  --data '{"CreditAccountID":null,"SupplierID":0,"StationID":0,"CreditLimit":null,"CurrentBalance":null,"AvailableCredit":null,"PaymentTermsDays":null,"LastPaymentDate":"","LastPaymentAmount":null,"IsActive":null,"CreatedAt":null,"UpdatedAt":null}' \
+  "https://backend.cloudfuelstationmis.com/api/records/v1/SupplierCreditAccounts/<RECORD_ID>"
+Delete Record
+
+curl \
+  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTAyNDc4ODgsImV4cCI6MTc1MDI1MTQ4OCwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiOWdWQmpzU0MzN1NBTmVhU3pCelQifQ.i-Lj_KsB-TXZ1vgsu4CPEdICamdOznhKDh42Jx7oi4F29K5voeBER5bBycrnQ0uK7-G45F-18SibATxo_F3rBQ" \
+  --request DELETE \
+  "https://backend.cloudfuelstationmis.com/api/records/v1/SupplierCreditAccounts/<RECORD_ID>"
+This api format and logic applies to all tables, Take not of end point table name its the exact case as the table.  Always use exact TABLE name and spelling and case no alterations to table names, Consult the DB schema all the time for the right column names **
+
+---
+
+## 🛠 **MANDATORY TECH STACK - NO EXCEPTIONS**
+
+### **FRONTEND REQUIREMENTS (ABSOLUTE)**
+- **Vue.js 3 Composition API ONLY** - No Options API, no Vue 2 syntax
+- **Metronic 8 Premium Components ONLY** - Use native Metronic classes, minimal custom CSS
+- **JAVASCRIPT ONLY - NO TYPESCRIPT** - All components must use vanilla JavaScript
+- **MAXIMUM LEAN CODE** - Every line must serve a purpose, no bloat allowed
+- **100% SELF-CONTAINED VIEWS** - No custom component imports, no external dependencies
+- **Responsive Mobile-First Design MANDATORY** - Must work flawlessly on all screen sizes
+- **PWA Capabilities REQUIRED** - Offline support and mobile optimization essential
+
+### **BACKEND REQUIREMENTS (ABSOLUTE)**
+- **TrailBase ONLY** - No other backend suggestions permitted
+- **Existing Database Schema MANDATORY** - Use provided schema exactly as specified
+- **RESTful API Standards REQUIRED** - Follow TrailBase conventions strictly
+- **JWT Authentication MANDATORY** - No alternative auth methods
+
+### **UI/UX REQUIREMENTS (NON-NEGOTIABLE)**
+- **SweetAlert2 ONLY** for all notifications - No native alerts, no other libraries
+- **KT Duotone Icons ONLY** - Proper multi-span structure required: `<span class="path1"></span><span class="path2"></span>`
+- **Metronic 8 Native Classes ONLY** - Maximum 50 lines custom CSS per component
+- **Mobile Touch Targets MANDATORY** - Minimum 44px touch targets on mobile
+- **Accessibility WCAG 2.1 AA REQUIRED** - No exceptions for compliance
+
+---
+
+## 📋 **DEVELOPMENT STANDARDS (ABSOLUTE COMPLIANCE)**
+
+### **CODE QUALITY (MANDATORY)**
+```
+✅ MUST USE: Vue 3 Composition API with <script setup>
+✅ MUST USE: JavaScript ONLY - NO TypeScript allowed
+✅ MUST USE: Metronic 8 utility classes over custom CSS
+✅ MUST USE: MAXIMUM LEAN CODE - Every line must serve a purpose
+✅ MUST USE: 100% SELF-CONTAINED VIEWS - No custom imports/components
+✅ MUST USE: Proper error handling with try/catch blocks
+✅ MUST USE: Loading states for all async operations
+✅ MUST USE: Form validation with real-time feedback
+✅ MUST USE: ZERO ERRORS - Code must be bug-free and production-ready
+```
+
+### **COMPONENT STRUCTURE (REQUIRED)**
+```vue
+<!-- MANDATORY TEMPLATE STRUCTURE -->
+<template>
+  <div class="d-flex flex-column gap-5"> <!-- Metronic spacing only -->
+    <!-- Use Metronic native components ONLY -->
+    <!-- 100% self-contained - NO custom component imports -->
+    <!-- Mobile-responsive design mandatory -->
+  </div>
+</template>
+
+<script setup> // JavaScript ONLY - NO TypeScript
+import { ref, computed, onMounted } from 'vue'
+import Swal from 'sweetalert2' // ONLY allowed external import
+import axios from 'axios' // ONLY allowed external import
+
+// LEAN CODE ONLY - Every line must serve a purpose
+// 100% SELF-CONTAINED - No custom component imports
+// ZERO ERRORS - Must be production-ready
+</script>
+
+<style scoped>
+/* Maximum 30 lines - LEAN CODE MANDATORY */
+/* Use Metronic classes instead of custom CSS */
+</style>
+```
+
+### **ICON IMPLEMENTATION (ABSOLUTE)**
+```html
+<!-- MANDATORY KT ICON STRUCTURE - NO SHORTCUTS -->
+<i class="ki-duotone ki-icon-name fs-2">
+  <span class="path1"></span>
+  <span class="path2"></span>
+  <span class="path3"></span> <!-- Add paths as needed -->
+</i>
+```
+
+### **NOTIFICATION STANDARD (REQUIRED)**
+```javascript
+// MANDATORY SweetAlert2 Usage - NO EXCEPTIONS
+import Swal from 'sweetalert2'
+
+// Success notifications - LEAN CODE
+Swal.fire({
+  title: 'Success!',
+  text: 'Operation completed successfully',
+  icon: 'success',
+  toast: true,
+  position: 'top-end',
+  timer: 3000,
+  showConfirmButton: false
+})
+
+// Error notifications - LEAN CODE
+Swal.fire({
+  title: 'Error!',
+  text: 'Operation failed',
+  icon: 'error',
+  confirmButtonColor: '#f1416c'
+})
+```
+
+---
+
+## 🎯 **MVP FEATURE FOCUS (ABSOLUTE PRIORITY)**
+
+### **MUST IMPLEMENT FEATURES ONLY:**
+1. **Authentication & RBAC** - Multi-level access control
+2. **Station Management** - Master data with full CRUD
+3. **Inventory Tracking** - Real-time stock management
+4. **Transaction Processing** - POS with payment integration
+5. **Approval Workflows** - 7-tier approval matrix
+6. **Financial Reporting** - Double-entry ledger system
+7. **Compliance Monitoring** - URA tax integration
+8. **Mobile Optimization** - Touch-friendly interfaces
+
+### **FORBIDDEN FEATURES:**
+- ❌ No experimental features outside MVP scope
+- ❌ No alternative UI libraries or frameworks
+- ❌ No custom notification systems
+- ❌ No non-Metronic design patterns
+- ❌ No shortcuts on accessibility requirements
+- ❌ No TypeScript usage - JavaScript ONLY
+- ❌ No third-party AI integrations or API calls
+- ❌ No custom component imports between views
+- ❌ No code errors or bugs of any kind
+
+---
+
+## 🤖 **AI SIMULATION REQUIREMENTS (ABSOLUTE)**
+
+### **HARD-CODED AI LOGIC (MANDATORY)**
+```javascript
+// EXAMPLE: Simulated AI Demand Forecasting
+const simulateAIForecast = (historicalData) => {
+  // Hard-coded algorithm to mimic AI behavior
+  const trend = historicalData.slice(-7).reduce((sum, val) => sum + val, 0) / 7
+  const seasonality = Math.sin(Date.now() / (1000 * 60 * 60 * 24 * 7)) * 0.1
+  const forecast = trend * (1 + seasonality) + Math.random() * 0.05
+  
+  return {
+    forecast: Math.round(forecast),
+    confidence: 0.85 + Math.random() * 0.1,
+    insights: generateInsightText(forecast, trend)
+  }
+}
+
+// EXAMPLE: Simulated Fraud Detection
+const simulateFraudDetection = (transaction) => {
+  const riskFactors = {
+    unusualAmount: transaction.amount > 50000,
+    offHours: new Date().getHours() < 6 || new Date().getHours() > 22,
+    repetitivePattern: checkRecentTransactions(transaction),
+    locationAnomaly: checkLocationPattern(transaction)
+  }
+  
+  const riskScore = Object.values(riskFactors).filter(Boolean).length * 25
+  
+  return {
+    riskScore,
+    flagged: riskScore > 50,
+    reasons: Object.keys(riskFactors).filter(key => riskFactors[key])
+  }
+}
+```
+
+### **AI ACCURACY REQUIREMENTS (MANDATORY)**
+- **95%+ Realistic Behavior** - AI simulations must feel authentic
+- **Contextual Responses** - AI logic must consider real business context
+- **Consistent Patterns** - AI behavior must be predictable and logical
+- **Performance Optimized** - AI simulations must run in <100ms
+
+---
+
+## 📱 **MOBILE REQUIREMENTS (MANDATORY)**
+
+### **RESPONSIVE DESIGN (ABSOLUTE)**
+```css
+/* MANDATORY MOBILE-FIRST APPROACH */
+.component {
+  /* Mobile styles first (default) */
+}
+
+@media (min-width: 768px) {
+  /* Tablet styles */
+}
+
+@media (min-width: 992px) {
+  /* Desktop styles */
+}
+```
+
+### **TOUCH OPTIMIZATION (REQUIRED)**
+- **44px minimum** touch target size
+- **Swipe gestures** for mobile navigation
+- **Long-press menus** for mobile context actions
+- **Pull-to-refresh** functionality where appropriate
+- **Haptic feedback** for mobile interactions
+
+---
+
+## 🔐 **SECURITY STANDARDS (NON-NEGOTIABLE)**
+
+### **AUTHENTICATION (MANDATORY)**
+- **JWT tokens** with automatic refresh
+- **Role-based access control** at component level
+- **Route guards** for protected pages
+- **Session timeout** with proper handling
+- **Secure token storage** in httpOnly cookies
+
+### **DATA PROTECTION (REQUIRED)**
+- **Input validation** on all forms
+- **XSS protection** through proper escaping
+- **CSRF protection** on state-changing operations
+- **Audit logging** for all user actions
+- **Encrypted sensitive data** transmission
+
+---
+
+## 📊 **DATABASE INTEGRATION (ABSOLUTE)**
+
+### **SCHEMA COMPLIANCE (MANDATORY)**
+- **Use existing tables ONLY** - No schema modifications without approval
+- **Follow naming conventions** exactly as provided
+- **Implement all foreign key relationships** properly
+- **Use provided user roles and permissions** exactly
+- **Maintain referential integrity** at all times
+
+### **API PATTERNS (REQUIRED)**
+```javascript
+// MANDATORY API STRUCTURE - LEAN CODE ONLY
+const api = axios.create({
+  baseURL: 'https://backend.cloudfuelstationmis.com/api/records/v1',
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    'Content-Type': 'application/json'
+  },
+  timeout: 10000
+})
+
+// MANDATORY error handling - ZERO ERRORS ALLOWED
+try {
+  const response = await api.get('/endpoint')
+  return response.data.records
+} catch (error) {
+  console.error('API Error:', error)
+  showErrorNotification(error.message)
+  throw error
+}
+```
+
+---
+
+## 🎨 **UI STANDARDS (ABSOLUTE COMPLIANCE)**
+
+### **METRONIC 8 CLASSES (MANDATORY)**
+```html
+<!-- REQUIRED COMPONENT STRUCTURE -->
+<div class="card card-flush">
+  <div class="card-header">
+    <h3 class="card-title fw-bold">Title</h3>
+    <div class="card-toolbar">
+      <button class="btn btn-primary">
+        <i class="ki-duotone ki-plus fs-2">
+          <span class="path1"></span>
+          <span class="path2"></span>
+        </i>Action
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- Content with proper spacing -->
+  </div>
+</div>
+```
+
+### **FORM STANDARDS (REQUIRED)**
+```html
+<!-- MANDATORY FORM STRUCTURE -->
+<form @submit.prevent="handleSubmit" novalidate>
+  <div class="row g-5">
+    <div class="col-12 col-md-6">
+      <label class="required form-label">Field Name</label>
+      <input 
+        v-model="form.field"
+        type="text"
+        class="form-control form-control-lg"
+        :class="{ 'is-invalid': errors.field }"
+        required
+      />
+      <div v-if="errors.field" class="invalid-feedback">
+        {{ errors.field }}
+      </div>
+    </div>
+  </div>
+</form>
+```
+
+---
+
+## ⚡ **PERFORMANCE STANDARDS (MANDATORY)**
+
+### **LOADING REQUIREMENTS (ABSOLUTE)**
+- **Sub-500ms** initial page load on 3G
+- **Skeleton loading** for all async content
+- **Progressive enhancement** for slower connections
+- **Lazy loading** for images and heavy components
+- **Virtual scrolling** for large datasets
+
+### **OPTIMIZATION (REQUIRED)**
+- **Code splitting** by route and feature
+- **Tree shaking** to eliminate unused code
+- **Compression** for all static assets
+- **Caching strategies** for API responses
+- **Service worker** for offline functionality
+
+---
+
+## 🚨 **FAILURE CONDITIONS (IMMEDIATE REJECTION)**
+
+### **AUTOMATIC REJECTION IF:**
+- ❌ Uses any framework other than Vue 3 + Metronic 8 + TrailBase
+- ❌ Uses TypeScript instead of JavaScript
+- ❌ Implements custom notifications instead of SweetAlert2
+- ❌ Uses incorrect KT icon structure
+- ❌ Exceeds 30 lines of custom CSS per component
+- ❌ Imports custom components or views
+- ❌ Uses third-party AI integrations or API calls
+- ❌ Contains any code errors or bugs
+- ❌ Fails mobile responsiveness requirements
+- ❌ Violates accessibility standards
+- ❌ Implements features outside MVP scope
+- ❌ Modifies database schema without approval
+- ❌ Uses deprecated Vue.js patterns
+- ❌ Code is not lean and optimized
+
+---
+
+## ✅ **VALIDATION CHECKLIST (MANDATORY)**
+
+### **BEFORE SUBMITTING ANY CODE:**
+```
+□ Vue 3 Composition API with <script setup>
+□ JavaScript ONLY - NO TypeScript usage
+□ Metronic 8 native classes used exclusively
+□ SweetAlert2 for all notifications
+□ Proper KT icon multi-span structure
+□ MAXIMUM LEAN CODE - every line serves a purpose
+□ 100% SELF-CONTAINED VIEW - no custom imports
+□ NO third-party AI integrations or API calls
+□ Hard-coded AI logic with 95%+ accuracy
+□ ZERO ERRORS - bug-free production code
+□ Mobile-responsive on all screen sizes
+□ Error handling with try/catch blocks
+□ Loading states for async operations
+□ Form validation with real-time feedback
+□ Accessibility WCAG 2.1 AA compliance
+□ TrailBase API integration
+□ Database schema compliance
+□ Security best practices implemented
+□ Performance optimization applied
+□ MVP feature scope maintained
+```
+
+---
+
+## 🎯 **FINAL MANDATE**
+
+**ACKNOWLEDGE RECEIPT OF THESE REQUIREMENTS BY STATING: "I CONFIRM ABSOLUTE COMPLIANCE WITH ALL MANDATORY REQUIREMENTS FOR THE KIGRAMA FUEL STATION SYSTEM."**
+
+**ANY DEVIATION FROM THESE STANDARDS WILL RESULT IN IMMEDIATE WORK REJECTION AND REQUIREMENT TO START OVER.**
+
+**THESE REQUIREMENTS ARE NON-NEGOTIABLE AND MUST BE FOLLOWED WITHOUT EXCEPTION. INLCUDING THE ONES BELOW **
+
+
+Below is comprehensive document outlining the API interaction guidelines for TrailBase, tailored to your specific database schema and project requirements. This document is intended for another AI or developer to ensure consistent and correct implementation of Vue.js views and API calls for the Kigrama Fuel Station System .
+
+The document will emphasize:
+
+1. **Base API Endpoint Structure:** Consistent use of `https://backend.cloudfuelstationmis.com/api/records/v1/`.
+2. **Table Naming Conventions:** Strict adherence to the exact case and spelling of table names as defined in the database schema (e.g., `Suppliers`, `SupplierCreditAccounts`, `Transactions`).
+3. **HTTP Methods:** Correct usage of `GET` (list/read), `POST` (create), `PATCH` (update), and `DELETE` (delete).
+4. **Authentication:** Mandatory inclusion of the JWT `Authorization: Bearer <TOKEN>` header for all requests.
+5. **Headers:** Standard `Content-Type: application/json` for `POST` and `PATCH` requests.
+6. **Data Payloads:** JSON format for request bodies, matching the column names and data types of the respective tables.
+7. **Error Handling:** Anticipating API error responses and implementing appropriate user feedback (e.g., using SweetAlert2).
+8. **Specific Table Endpoints:** Examples for key tables to illustrate the pattern.
+9. **Vue.js Integration Best Practices:** How to structure `fetch` calls within Vue 3 `setup` script, manage loading states, and handle responses.
+10. **Mandatory Fields & Data Integrity:** Highlighting required fields for creation/updates based on common database constraints (though the schema itself is the ultimate source of truth).
+
+Here is the documentation:
+
+---
+
+## Kigrama Fuel Station System: TrailBase API Integration Guide for Vue.js Development
+
+**Version:** 1.0
+**Date:** June 18, 2025
+
+**Objective:** This document provides strict guidelines for interacting with the TrailBase backend API for the Kigrama Fuel Station System. Adherence to these guidelines is mandatory to ensure consistency, correctness, and maintainability of all Vue.js views and associated API calls.
+
+### 1. Core API Principles & Mandatory Requirements
+
+- **Base URL:** All API requests must target the following base endpoint:
+  `https://backend.cloudfuelstationmis.com/api/records/v1/`
+- **Table Naming:** API endpoints for specific tables MUST use the **exact table name** from the database schema, including capitalization. For example, for the `Suppliers` table, the endpoint is `/Suppliers`. For `SupplierCreditAccounts`, it is `/SupplierCreditAccounts`. **No alterations to table names are permitted.**
+- **Authentication:** Every API request MUST include an `Authorization` header with a valid JWT token:
+  `Authorization: Bearer <YOUR_JWT_TOKEN>`
+  The token should be retrieved from secure storage (e.g., `localStorage` or a Vuex store after login).
+- **Content-Type:** For `POST` and `PATCH` requests that include a JSON body, the `Content-Type` header MUST be set to:
+  `Content-Type: application/json`
+- **HTTP Methods:**
+
+- `GET`: To retrieve a list of records or a single record.
+- `POST`: To create a new record.
+- `PATCH`: To update an existing record.
+- `DELETE`: To delete a record.
+
+- **Data Format:** All request and response bodies are in JSON format. Field names in the JSON payload MUST exactly match the column names in the database schema.
+- **Error Handling:** All API calls within Vue components must be wrapped in `try...catch` blocks. User-facing errors should be displayed using `SweetAlert2`.
+- **Lean Code:** API interaction logic should be concise and purposeful. Avoid unnecessary complexity.
+
+### 2. Standard API Request Structures
+
+The following examples illustrate the standard request structure. Replace `<TABLE_NAME>` with the actual, case-sensitive table name and `<RECORD_ID>` with the specific record's primary key.
+
+#### 2.1. List Records (GET)
+
+- **Endpoint:** `GET /<TABLE_NAME>`
+- **Example (Suppliers):** `GET https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response:** A JSON object containing a `records` array.
+
+```json
+{
+  "records": [
+    { "SupplierID": 1, "Name": "FuelCo", ... },
+    { "SupplierID": 2, "Name": "OilMax", ... }
+  ]
+}
+```
+
+- **Query Parameters (Optional):**
+
+- `sort=<COLUMN_NAME>` or `sort=-<COLUMN_NAME>` for ascending/descending sort.
+- `limit=<NUMBER>`
+- `offset=<NUMBER>`
+- `<COLUMN_NAME>=<VALUE>` for filtering (exact match).
+
+#### 2.2. Read Single Record (GET)
+
+- **Endpoint:** `GET /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Supplier with ID 1):** `GET https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response:** A JSON object representing the single record.
+
+```json
+{ "SupplierID": 1, "Name": "FuelCo", "ContactPerson": "Jane Doe", ... }
+```
+
+#### 2.3. Create Record (POST)
+
+- **Endpoint:** `POST /<TABLE_NAME>`
+- **Example (Create Supplier):** `POST https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+- `Content-Type: application/json`
+
+- **Request Body (JSON):**
+
+```json
+{
+  "Name": "New Supplier Inc.",
+  "ContactPerson": "John Smith",
+  "Phone": "+256700123456",
+  "Email": "john.smith@newsupplier.com",
+  "Address": "123 Main St, Kampala",
+  "TaxIdentificationNumber": "TIN12345XYZ",
+  "IsGlobal": "0", // '0' for false/Local, '1' for true/Global
+  "Status": "Active"
+  // Include all relevant fields. TrailBase might auto-populate CreatedAt, UpdatedAt.
+  // "CreatedAt": "2025-06-18T12:00:00Z", // Often handled by backend
+  // "UpdatedAt": "2025-06-18T12:00:00Z"  // Often handled by backend
+}
+```
+
+- **Note:** Ensure all required fields as per the database schema are included. `CreatedAt` and `UpdatedAt` are typically handled by TrailBase automatically upon record creation/modification. If your TrailBase setup requires them explicitly on creation, include them.
+
+- **Response (Success - 201 Created):** Typically the newly created record object, including its assigned ID.
+
+#### 2.4. Update Record (PATCH)
+
+- **Endpoint:** `PATCH /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Update Supplier with ID 1):** `PATCH https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+- `Content-Type: application/json`
+
+- **Request Body (JSON):** Include only the fields to be updated.
+
+```json
+{
+  "ContactPerson": "Janet Smith",
+  "Phone": "+256700654321"
+  // "UpdatedAt": "2025-06-18T13:00:00Z" // Often handled by backend
+}
+```
+
+- **Note:** `UpdatedAt` is typically handled by TrailBase automatically.
+
+- **Response (Success - 200 OK):** Typically the updated record object.
+
+#### 2.5. Delete Record (DELETE)
+
+- **Endpoint:** `DELETE /<TABLE_NAME>/<RECORD_ID>`
+- **Example (Delete Supplier with ID 1):** `DELETE https://backend.cloudfuelstationmis.com/api/records/v1/Suppliers/1`
+- **Headers:**
+
+- `Authorization: Bearer <TOKEN>`
+
+- **Response (Success - 204 No Content or 200 OK with a confirmation message):** Varies by TrailBase configuration.
+
+### 3. Database Tables & Endpoints
+
+This is a non-exhaustive list of key tables. **Always refer to the complete database schema for all table names and their exact casing.**
+
+Attendance
+AuditLogs
+CareerPaths
+CashDrawers
+CustomerCreditAccounts
+CustomerCreditPayments
+Customers
+DailyReadings
+Departments
+EventLog
+FraudDetectionLogs
+FraudDetectionRules
+InventoryHistory
+JobGrades
+LedgerEntries
+Permissions
+PositionHistory
+PositionRequirements
+Positions
+Products
+PromotionRequests
+Pumps
+RolePermissions
+Roles
+StationInventory
+StationTransfers
+Stations
+SuccessionPlans
+SupplierCreditAccounts
+SupplierCreditTransactions
+SupplierInvoices
+SupplierPaymentAllocations
+SupplierPayments
+SupplierStations
+Suppliers
+Tanks
+TaxRecords
+TaxTypes
+TransactionItems
+Transactions
+TransferItems
+URAEFilingSubmissions
+UserCertifications
+UserLoginHistory
+UserPositions
+UserRoles
+UserStations
+error_logs
+notification_categories
+notification_channels
+notification_events
+notification_settings
+notification_templates
+users
+ _(and others as per the full schema)_
+
+### 4. Vue.js 3 Integration Example (`<script setup>`)
+
+```vue
+<script setup>
+import { ref, onMounted } from 'vue'
+import Swal from 'sweetalert2' // Mandatory for notifications
+
+const suppliers = ref([])
+const loading = ref(false)
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
+// Retrieve JWT from a secure source (e.g., localStorage, Pinia store)
+const JWT_TOKEN = localStorage.getItem('jwt') || 'YOUR_FALLBACK_TEST_TOKEN'
+
+const fetchSuppliers = async () => {
+  loading.value = true
+  try {
+    const response = await fetch(`${API_BASE_URL}/Suppliers`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${JWT_TOKEN}`,
+      },
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({})) // Try to parse error
+      throw new Error(errorData.message || `Failed to fetch suppliers. Status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    suppliers.value = data.records || []
+  } catch (error) {
+    console.error('Error fetching suppliers:', error)
+    Swal.fire({
+      title: 'Error!',
+      text: error.message || 'Could not load supplier data.',
+      icon: 'error',
+      confirmButtonColor: '#D9214E', // Use project's defined error color
+    })
+    suppliers.value = [] // Clear data on error
+  } finally {
+    loading.value = false
+  }
+}
+
+const createSupplier = async (supplierData) => {
+  loading.value = true
+  // Set indicator for Metronic button if applicable
+  // document.querySelector('[data-kt-indicator="on"]')?.setAttribute('data-kt-indicator', 'on');
+  try {
+    const response = await fetch(`${API_BASE_URL}/Suppliers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${JWT_TOKEN}`,
+      },
+      body: JSON.stringify(supplierData), // Ensure CreatedAt/UpdatedAt are handled as per TrailBase
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.message || `Failed to create supplier. Status: ${response.status}`)
+    }
+    // const newSupplier = await response.json(); // Get created record
+    Swal.fire({
+      title: 'Success!',
+      text: 'Supplier created successfully.',
+      icon: 'success',
+      toast: true, // iOS-like toast
+      position: 'top-end',
+      timer: 2000,
+      showConfirmButton: false,
+    })
+    await fetchSuppliers() // Refresh list
+  } catch (error) {
+    console.error('Error creating supplier:', error)
+    Swal.fire({
+      title: 'Creation Failed!',
+      text: error.message || 'Could not create the supplier.',
+      icon: 'error',
+      confirmButtonColor: '#D9214E',
+    })
+  } finally {
+    loading.value = false
+    // document.querySelector('[data-kt-indicator="on"]')?.setAttribute('data-kt-indicator', 'off');
+  }
+}
+
+onMounted(() => {
+  fetchSuppliers()
+})
+</script>
+```
+
+### 5. Data Integrity and Validation
+
+- **Client-Side Validation:** Implement basic client-side validation for required fields and data formats (e.g., email, phone) to provide immediate user feedback. This does NOT replace backend validation.
+- **Required Fields:** Consult the database schema for `NOT NULL` constraints. These fields are mandatory in `POST` requests.
+- **Data Types:** Ensure data sent to the API matches the expected data types of the table columns (e.g., strings, numbers, booleans represented as '0' or '1' if applicable, ISO date strings for date/time fields).
+
+### 6. iOS Design and Mobile-First Considerations
+
+- When fetching data, implement loading states (e.g., spinners, skeleton screens) that are visually consistent with iOS design patterns.
+- Error messages (via SweetAlert2) should be styled to be clear and non-disruptive on mobile screens.
+- API calls should be optimized to minimize data transfer for faster mobile performance. Request only necessary fields if possible (TrailBase may or may not support field selection).
+- Pagination (`limit`, `offset`) should be used for long lists to improve mobile load times and user experience.
+
+### 7. Final Checklist Before API Implementation
+
+1. Is the **Base URL** correct?
+2. Is the **Table Name** exactly matching the schema, including case?
+3. Is the `Authorization: Bearer <TOKEN>` header included?
+4. Is `Content-Type: application/json` set for `POST`/`PATCH`?
+5. Is the correct **HTTP Method** being used?
+6. Does the JSON payload (if any) match the **column names and data types**?
+7. Are all **mandatory fields** included for `POST` requests?
+8. Is there `try...catch` error handling?
+9. Is `SweetAlert2` used for user-facing notifications?
+10. Is the API call and subsequent UI update optimized for mobile performance?
+
+---
+
+
+
+## 🎯 **FINAL MANDATE**
+
+**ACKNOWLEDGE RECEIPT OF THESE REQUIREMENTS BY STATING: "I CONFIRM ABSOLUTE COMPLIANCE WITH ALL MANDATORY REQUIREMENTS FOR THE KIGRAMA FUEL STATION SYSTEM."**
+
+**ANY DEVIATION FROM THESE STANDARDS WILL RESULT IN IMMEDIATE WORK REJECTION AND REQUIREMENT TO START OVER.**
+
+**THESE REQUIREMENTS ARE NON-NEGOTIABLE AND MUST BE FOLLOWED WITHOUT EXCEPTION. **

@@ -1,9 +1,8 @@
 <template>
   <!-- Main Station Dashboard Container -->
   <div class="d-flex flex-column gap-5 p-4">
-    
     <!-- Station Selection Modal for Super Users and Multi-Station Users -->
-    <div 
+    <div
       v-if="showStationModal"
       class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
       style="background: rgba(0, 0, 0, 0.7); z-index: 9999"
@@ -24,16 +23,12 @@
             {{ isSuperUser ? 'Select a station to manage:' : 'Choose your working station:' }}
           </p>
           <div class="row g-3">
-            <div 
-              v-for="station in availableStations" 
-              :key="station.StationID"
-              class="col-12"
-            >
+            <div v-for="station in availableStations" :key="station.StationID" class="col-12">
               <button
                 @click="selectStation(station)"
                 :disabled="loading"
                 class="btn btn-light-primary btn-lg w-100 text-start d-flex align-items-center gap-3 p-4"
-                style="border-radius: 12px;"
+                style="border-radius: 12px"
               >
                 <div class="symbol symbol-50px">
                   <div class="symbol-label bg-primary">
@@ -83,10 +78,7 @@
             </div>
           </div>
           <div class="text-end">
-            <button
-              @click="showStationModal = true"
-              class="btn btn-white btn-sm mb-2"
-            >
+            <button @click="showStationModal = true" class="btn btn-white btn-sm mb-2">
               <i class="ki-duotone ki-switch fs-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -122,7 +114,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="col-6 col-lg-3">
         <div class="card card-flush bg-light-info h-100">
           <div class="card-body p-4 text-center">
@@ -149,10 +141,7 @@
               <span class="path2"></span>
               <span class="path3"></span>
             </i>
-            <button
-              @click="navigateToReadings"
-              class="btn btn-warning btn-lg w-100 fw-bold"
-            >
+            <button @click="navigateToReadings" class="btn btn-warning btn-lg w-100 fw-bold">
               Take Readings
             </button>
           </div>
@@ -167,10 +156,7 @@
               <span class="path2"></span>
               <span class="path3"></span>
             </i>
-            <button
-              @click="navigateToIncidents"
-              class="btn btn-danger btn-lg w-100 fw-bold"
-            >
+            <button @click="navigateToIncidents" class="btn btn-danger btn-lg w-100 fw-bold">
               Report Issue
             </button>
           </div>
@@ -239,7 +225,7 @@
             <div class="progress h-6px mt-2">
               <div
                 class="progress-bar bg-warning"
-                :style="`width: ${Math.min(100, Math.abs(todayStats.cashBalance) / 1000000 * 100)}%`"
+                :style="`width: ${Math.min(100, (Math.abs(todayStats.cashBalance) / 1000000) * 100)}%`"
               ></div>
             </div>
           </div>
@@ -261,7 +247,7 @@
               <div
                 class="progress-bar"
                 :class="`bg-${varianceColor}`"
-                :style="`width: ${Math.min(100, Math.abs(todayStats.variance) / 50000 * 100)}%`"
+                :style="`width: ${Math.min(100, (Math.abs(todayStats.variance) / 50000) * 100)}%`"
               ></div>
             </div>
           </div>
@@ -284,26 +270,24 @@
               Hourly Sales Performance
             </h3>
             <div class="card-toolbar">
-              <div class="badge badge-light-success fw-bold">
-                Peak: {{ peakSalesHour }}:00
-              </div>
+              <div class="badge badge-light-success fw-bold">Peak: {{ peakSalesHour }}:00</div>
             </div>
           </div>
           <div class="card-body">
             <div class="chart-container" style="height: 280px">
               <div class="d-flex align-items-end justify-content-between h-100 gap-1">
-                <div 
-                  v-for="hour in 24" 
-                  :key="hour-1" 
+                <div
+                  v-for="hour in 24"
+                  :key="hour - 1"
                   class="d-flex flex-column align-items-center"
-                  style="flex: 1;"
+                  style="flex: 1"
                 >
                   <div
                     class="bg-primary rounded-top mb-2 transition-all"
-                    :style="`height: ${getHourlyBarHeight(hour-1)}px; width: 100%; max-width: 20px;`"
-                    :class="{ 'bg-success': hour-1 === peakSalesHour }"
+                    :style="`height: ${getHourlyBarHeight(hour - 1)}px; width: 100%; max-width: 20px;`"
+                    :class="{ 'bg-success': hour - 1 === peakSalesHour }"
                   ></div>
-                  <small class="text-gray-600 fw-semibold">{{ hour-1 }}</small>
+                  <small class="text-gray-600 fw-semibold">{{ hour - 1 }}</small>
                 </div>
               </div>
             </div>
@@ -338,11 +322,7 @@
           <div class="card-body">
             <!-- Payment Method Visual Chart -->
             <div class="payment-chart mb-4">
-              <div 
-                v-for="(amount, method) in paymentMethods" 
-                :key="method"
-                class="mb-3"
-              >
+              <div v-for="(amount, method) in paymentMethods" :key="method" class="mb-3">
                 <div class="d-flex justify-content-between align-items-center mb-1">
                   <span class="fw-semibold text-gray-800">{{ method }}</span>
                   <span class="fw-bold text-gray-900">{{ formatCurrency(amount) }}</span>
@@ -404,11 +384,7 @@
               Fuel Dispensers ({{ stationPumps.length }})
             </h6>
             <div class="row g-2">
-              <div 
-                v-for="pump in stationPumps" 
-                :key="pump.PumpID" 
-                class="col-6 col-lg-4"
-              >
+              <div v-for="pump in stationPumps" :key="pump.PumpID" class="col-6 col-lg-4">
                 <div class="card card-flush bg-light-success h-100">
                   <div class="card-body p-3 text-center">
                     <i class="ki-duotone ki-abstract-26 fs-2x text-success mb-2">
@@ -418,7 +394,9 @@
                     <h6 class="fw-bold mb-1">{{ pump.PumpName }}</h6>
                     <span class="badge badge-success">{{ pump.Status }}</span>
                     <div class="mt-2">
-                      <small class="text-gray-600">{{ Math.round(85 + Math.random() * 15) }}% Uptime</small>
+                      <small class="text-gray-600"
+                        >{{ Math.round(85 + Math.random() * 15) }}% Uptime</small
+                      >
                     </div>
                   </div>
                 </div>
@@ -438,11 +416,7 @@
               Storage Tanks ({{ stationTanks.length }})
             </h6>
             <div class="row g-2">
-              <div 
-                v-for="tank in stationTanks" 
-                :key="tank.TankID" 
-                class="col-6 col-lg-4"
-              >
+              <div v-for="tank in stationTanks" :key="tank.TankID" class="col-6 col-lg-4">
                 <div class="card card-flush bg-light-info h-100">
                   <div class="card-body p-3 text-center">
                     <i class="ki-duotone ki-bucket fs-2x text-info mb-2">
@@ -481,7 +455,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -490,7 +463,7 @@ import { ref, reactive, computed, onMounted, watch } from 'vue'
 import Swal from 'sweetalert2'
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 
 // State Management
 const loading = ref(false)
@@ -513,7 +486,7 @@ const todayStats = reactive({
   totalSales: 0,
   totalTransactions: 0,
   cashBalance: 0,
-  variance: 0
+  variance: 0,
 })
 
 const paymentMethods = ref({})
@@ -554,7 +527,9 @@ const shiftActionClass = computed(() => {
 
 const shiftActionIcon = computed(() => {
   if (!activeShift.value.DrawerID) return 'ki-play text-success'
-  return activeShift.value.Status === 'Open' ? 'ki-stop text-danger' : 'ki-check-circle text-secondary'
+  return activeShift.value.Status === 'Open'
+    ? 'ki-stop text-danger'
+    : 'ki-check-circle text-secondary'
 })
 
 const shiftActionText = computed(() => {
@@ -591,14 +566,14 @@ const totalPayments = computed(() => {
 const peakSalesHour = computed(() => {
   let maxSales = 0
   let peakHour = 0
-  
+
   for (const [hour, sales] of Object.entries(hourlySalesData.value)) {
     if (sales > maxSales) {
       maxSales = sales
       peakHour = parseInt(hour)
     }
   }
-  
+
   return peakHour
 })
 
@@ -606,19 +581,19 @@ const aiInsight = computed(() => {
   const currentHour = new Date().getHours()
   const peakHour = peakSalesHour.value
   const variance = Math.abs(todayStats.variance)
-  
+
   if (variance > 100000) {
     return `Critical variance detected! Review transactions around ${peakHour}:00. Immediate supervisor notification required.`
   }
-  
+
   if (currentHour >= 6 && currentHour <= 9) {
     return `Morning peak detected at ${peakHour}:00. Recommend ensuring all dispensers operational for rush hour.`
   }
-  
+
   if (currentHour >= 17 && currentHour <= 19) {
     return `Evening rush approaching. Peak historical activity at ${peakHour}:00. Monitor cash levels closely.`
   }
-  
+
   return `Performance tracking normal. Peak sales historically at ${peakHour}:00. Current variance within acceptable limits.`
 })
 
@@ -626,8 +601,8 @@ const aiInsight = computed(() => {
 const getAuthHeaders = () => {
   const token = localStorage.getItem('kigrama_auth_token') || 'demo_token'
   return {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json'
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json',
   }
 }
 
@@ -635,13 +610,13 @@ const apiCall = async (endpoint, options = {}) => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       headers: getAuthHeaders(),
-      ...options
+      ...options,
     })
-    
+
     if (!response.ok) {
       throw new Error(`API Error: ${response.status}`)
     }
-    
+
     return await response.json()
   } catch (error) {
     console.error('API Call Error:', error)
@@ -657,12 +632,12 @@ const initializeUser = () => {
       const authData = JSON.parse(userData)
       currentUser.value = authData.user || {}
     }
-    
+
     if (!currentUser.value.id) {
       showError('Authentication Error', 'User not properly authenticated')
       return false
     }
-    
+
     return true
   } catch (error) {
     showError('Data Error', 'Failed to load user data')
@@ -680,12 +655,12 @@ const fetchAvailableStations = async () => {
       // Regular users see only their assigned stations
       const userStationsResponse = await apiCall(`/UserStations?UserID=${currentUser.value.id}`)
       const userStations = userStationsResponse.records || []
-      
+
       if (userStations.length === 0) {
         showError('No Stations', 'No stations assigned to your account. Contact your manager.')
         return
       }
-      
+
       // Fetch station details for each assigned station
       const stationPromises = userStations.map(async (us) => {
         try {
@@ -696,16 +671,18 @@ const fetchAvailableStations = async () => {
           return null
         }
       })
-      
+
       const stations = await Promise.all(stationPromises)
-      availableStations.value = stations.filter(station => station !== null)
+      availableStations.value = stations.filter((station) => station !== null)
     }
-    
+
     // Auto-select if user has primary station or only one station
     if (availableStations.value.length === 1) {
       await selectStation(availableStations.value[0])
     } else if (currentUser.value.PrimaryStationID && !isSuperUser.value) {
-      const primaryStation = availableStations.value.find(s => s.StationID === currentUser.value.PrimaryStationID)
+      const primaryStation = availableStations.value.find(
+        (s) => s.StationID === currentUser.value.PrimaryStationID,
+      )
       if (primaryStation) {
         await selectStation(primaryStation)
       } else {
@@ -714,7 +691,6 @@ const fetchAvailableStations = async () => {
     } else {
       showStationModal.value = true
     }
-    
   } catch (error) {
     console.error('Error fetching stations:', error)
     showError('Station Loading Error', 'Failed to load available stations')
@@ -723,22 +699,22 @@ const fetchAvailableStations = async () => {
 
 const selectStation = async (station) => {
   if (!station || loading.value) return
-  
+
   loading.value = true
   loadingMessage.value = `Loading ${station.StationName}...`
   showStationModal.value = false
-  
+
   try {
     selectedStation.value = station
-    
+
     // Initialize station data
     await Promise.all([
       fetchStationEquipment(),
       fetchActiveShift(),
       fetchTodayAttendance(),
-      fetchTodayStatistics()
+      fetchTodayStatistics(),
     ])
-    
+
     await Swal.fire({
       title: 'Station Selected!',
       text: `Now managing ${station.StationName}`,
@@ -746,9 +722,8 @@ const selectStation = async (station) => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
-    
   } catch (error) {
     console.error('Error selecting station:', error)
     showError('Station Selection Error', 'Failed to load station data')
@@ -761,12 +736,11 @@ const fetchStationEquipment = async () => {
   try {
     const [pumpsResponse, tanksResponse] = await Promise.all([
       apiCall(`/Pumps?StationID=${selectedStation.value.StationID}`),
-      apiCall(`/Tanks?StationID=${selectedStation.value.StationID}`)
+      apiCall(`/Tanks?StationID=${selectedStation.value.StationID}`),
     ])
-    
+
     stationPumps.value = pumpsResponse.records || []
     stationTanks.value = tanksResponse.records || []
-    
   } catch (error) {
     console.error('Error fetching station equipment:', error)
   }
@@ -775,14 +749,15 @@ const fetchStationEquipment = async () => {
 const fetchActiveShift = async () => {
   try {
     const today = new Date().toISOString().split('T')[0]
-    const response = await apiCall(`/CashDrawers?StationID=${selectedStation.value.StationID}&ShiftDate=${today}`)
-    
+    const response = await apiCall(
+      `/CashDrawers?StationID=${selectedStation.value.StationID}&ShiftDate=${today}`,
+    )
+
     if (response.records && response.records.length > 0) {
       activeShift.value = response.records[0]
     } else {
       activeShift.value = {}
     }
-    
   } catch (error) {
     console.error('Error fetching active shift:', error)
     activeShift.value = {}
@@ -792,15 +767,16 @@ const fetchActiveShift = async () => {
 const fetchTodayAttendance = async () => {
   try {
     const today = new Date().toISOString().split('T')[0]
-    const response = await apiCall(`/Attendance?UserID=${currentUser.value.id}&AttendanceDate=${today}`)
-    
+    const response = await apiCall(
+      `/Attendance?UserID=${currentUser.value.id}&AttendanceDate=${today}`,
+    )
+
     if (response.records && response.records.length > 0) {
       const attendance = response.records[0]
       attendanceStatus.value = attendance.Status || 'Not Clocked In'
     } else {
       attendanceStatus.value = 'Not Clocked In'
     }
-    
   } catch (error) {
     console.error('Error fetching attendance:', error)
     attendanceStatus.value = 'Not Clocked In'
@@ -810,31 +786,32 @@ const fetchTodayAttendance = async () => {
 const fetchTodayStatistics = async () => {
   try {
     const today = new Date().toISOString().split('T')[0]
-    const transactionsResponse = await apiCall(`/Transactions?StationID=${selectedStation.value.StationID}&TransactionDate=${today}`)
-    
+    const transactionsResponse = await apiCall(
+      `/Transactions?StationID=${selectedStation.value.StationID}&TransactionDate=${today}`,
+    )
+
     const transactions = transactionsResponse.records || []
-    
+
     // Calculate statistics
     todayStats.totalTransactions = transactions.length
     todayStats.totalSales = transactions.reduce((sum, t) => sum + parseFloat(t.TotalAmount || 0), 0)
     todayStats.cashBalance = parseFloat(activeShift.value.ActualCash || 0)
     todayStats.variance = parseFloat(activeShift.value.Variance || 0)
-    
+
     // Process payment methods
     const methods = {}
     const hourly = {}
-    
-    transactions.forEach(transaction => {
+
+    transactions.forEach((transaction) => {
       const method = transaction.PaymentMethod || 'Unknown'
       methods[method] = (methods[method] || 0) + parseFloat(transaction.TotalAmount || 0)
-      
+
       const hour = new Date(transaction.TransactionDate).getHours()
       hourly[hour] = (hourly[hour] || 0) + parseFloat(transaction.TotalAmount || 0)
     })
-    
+
     paymentMethods.value = methods
     hourlySalesData.value = hourly
-    
   } catch (error) {
     console.error('Error fetching today statistics:', error)
   }
@@ -857,14 +834,14 @@ const startShift = async () => {
     showCancelButton: true,
     confirmButtonText: 'Start Shift',
     cancelButtonText: 'Cancel',
-    confirmButtonColor: '#50cd89'
+    confirmButtonColor: '#50cd89',
   })
-  
+
   if (!result.isConfirmed) return
-  
+
   loading.value = true
   loadingMessage.value = 'Starting shift...'
-  
+
   try {
     const shiftData = {
       StationID: selectedStation.value.StationID,
@@ -879,16 +856,16 @@ const startShift = async () => {
       CashPayouts: '0',
       Status: 'Open',
       OpenedBy: currentUser.value.id,
-      OpenedAt: new Date().toISOString()
+      OpenedAt: new Date().toISOString(),
     }
-    
+
     const response = await apiCall('/CashDrawers', {
       method: 'POST',
-      body: JSON.stringify(shiftData)
+      body: JSON.stringify(shiftData),
     })
-    
+
     activeShift.value = response
-    
+
     await Swal.fire({
       title: 'Shift Started!',
       text: 'Your shift has been successfully started',
@@ -896,14 +873,13 @@ const startShift = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
-    
+
     // Auto clock in if not already
     if (attendanceStatus.value !== 'Present') {
       await handleClockInOut()
     }
-    
   } catch (error) {
     showError('Failed to start shift', error.message)
   } finally {
@@ -927,35 +903,34 @@ const endShift = async () => {
     showCancelButton: true,
     confirmButtonText: 'Yes, End Shift',
     cancelButtonText: 'Cancel',
-    confirmButtonColor: '#f1416c'
+    confirmButtonColor: '#f1416c',
   })
-  
+
   if (!result.isConfirmed) return
-  
+
   loading.value = true
   loadingMessage.value = 'Ending shift...'
-  
+
   try {
     const updateData = {
       Status: 'Closed',
       ClosedBy: currentUser.value.id,
-      ClosedAt: new Date().toISOString()
+      ClosedAt: new Date().toISOString(),
     }
-    
+
     await apiCall(`/CashDrawers/${activeShift.value.DrawerID}`, {
       method: 'PATCH',
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(updateData),
     })
-    
+
     activeShift.value.Status = 'Closed'
-    
+
     await Swal.fire({
       title: 'Shift Ended Successfully!',
       text: 'Your shift has been completed',
       icon: 'success',
-      confirmButtonColor: '#50cd89'
+      confirmButtonColor: '#50cd89',
     })
-    
   } catch (error) {
     showError('Failed to end shift', error.message)
   } finally {
@@ -966,7 +941,7 @@ const endShift = async () => {
 const handleClockInOut = async () => {
   loading.value = true
   loadingMessage.value = attendanceStatus.value === 'Present' ? 'Clocking out...' : 'Clocking in...'
-  
+
   try {
     if (attendanceStatus.value === 'Present') {
       // Clock out logic would go here
@@ -978,17 +953,17 @@ const handleClockInOut = async () => {
         UserID: currentUser.value.id,
         AttendanceDate: new Date().toISOString().split('T')[0],
         TimeIn: new Date().toISOString(),
-        Status: 'Present'
+        Status: 'Present',
       }
-      
+
       await apiCall('/Attendance', {
         method: 'POST',
-        body: JSON.stringify(attendanceData)
+        body: JSON.stringify(attendanceData),
       })
-      
+
       attendanceStatus.value = 'Present'
     }
-    
+
     await Swal.fire({
       title: attendanceStatus.value === 'Present' ? 'Clocked In!' : 'Clocked Out!',
       text: `You have been successfully ${attendanceStatus.value === 'Present' ? 'clocked in' : 'clocked out'}`,
@@ -996,9 +971,8 @@ const handleClockInOut = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
-    
   } catch (error) {
     showError('Clock in/out failed', error.message)
   } finally {
@@ -1009,10 +983,10 @@ const handleClockInOut = async () => {
 const refreshEquipmentStatus = async () => {
   loading.value = true
   loadingMessage.value = 'Refreshing equipment status...'
-  
+
   try {
     await fetchStationEquipment()
-    
+
     await Swal.fire({
       title: 'Status Updated!',
       text: 'Equipment status has been refreshed',
@@ -1020,9 +994,8 @@ const refreshEquipmentStatus = async () => {
       toast: true,
       position: 'top-end',
       timer: 2000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
-    
   } catch (error) {
     showError('Refresh failed', error.message)
   } finally {
@@ -1036,7 +1009,7 @@ const navigateToReadings = () => {
   Swal.fire({
     title: 'Navigate to Readings',
     text: 'This would navigate to the readings view',
-    icon: 'info'
+    icon: 'info',
   })
 }
 
@@ -1045,7 +1018,7 @@ const navigateToIncidents = () => {
   Swal.fire({
     title: 'Navigate to Incidents',
     text: 'This would navigate to the incident reporting view',
-    icon: 'info'
+    icon: 'info',
   })
 }
 
@@ -1069,10 +1042,10 @@ const getTankFillPercentage = (tank) => {
 
 const getPaymentMethodColor = (method) => {
   const colors = {
-    'Cash': 'bg-success',
-    'Card': 'bg-primary',
+    Cash: 'bg-success',
+    Card: 'bg-primary',
     'Mobile Money': 'bg-warning',
-    'Credit': 'bg-info'
+    Credit: 'bg-info',
   }
   return colors[method] || 'bg-secondary'
 }
@@ -1086,7 +1059,7 @@ const formatCurrency = (amount) => {
   return new Intl.NumberFormat('en-UG', {
     style: 'currency',
     currency: 'UGX',
-    minimumFractionDigits: 0
+    minimumFractionDigits: 0,
   }).format(amount || 0)
 }
 
@@ -1095,7 +1068,7 @@ const showError = (title, message) => {
     title: title,
     text: message,
     icon: 'error',
-    confirmButtonColor: '#f1416c'
+    confirmButtonColor: '#f1416c',
   })
 }
 
@@ -1107,18 +1080,21 @@ onMounted(async () => {
 })
 
 // Watch for station changes to refresh data
-watch(() => selectedStation.value.StationID, (newStationId) => {
-  if (newStationId) {
-    // Refresh data periodically
-    const interval = setInterval(async () => {
-      if (selectedStation.value.StationID === newStationId) {
-        await fetchTodayStatistics()
-      } else {
-        clearInterval(interval)
-      }
-    }, 30000) // Refresh every 30 seconds
-  }
-})
+watch(
+  () => selectedStation.value.StationID,
+  (newStationId) => {
+    if (newStationId) {
+      // Refresh data periodically
+      const interval = setInterval(async () => {
+        if (selectedStation.value.StationID === newStationId) {
+          await fetchTodayStatistics()
+        } else {
+          clearInterval(interval)
+        }
+      }, 30000) // Refresh every 30 seconds
+    }
+  },
+)
 </script>
 
 <style scoped>

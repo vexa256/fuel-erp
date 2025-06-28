@@ -1,0 +1,186 @@
+📱 ABSOLUTE DESIGN REQUIREMENTS (DO NOT DEVIATE):
+iOS-Native Only:
+
+Design MUST feel 100% like a native iOS app—NO Android, NO web themes.
+
+Every interaction, animation, and flow must reflect Apple’s Human Interface Guidelines for iOS 17+.
+
+Visual Standard:
+
+Ultra-premium, executive-first impression—fit for Fortune 100 leaders.
+
+Vivid, energetic color palette—NO dull, muted, or grayscale tones.
+
+Strictly use Metronic 8 color utilities (btn-light-success, bg-light-warning, text-primary, etc.).
+
+Zero images—all icons are KT Duotone SVG class icons with correct path nesting.
+
+Component Quality:
+
+Cards, containers, and buttons must have Apple-level roundedness, clear separation, high-contrast touch feedback.
+
+Typography must be sharply hierarchical—large, readable, and in perfect iOS weight/size order (fs-2, fw-bold, text-gray-700, etc.).
+
+Layout is mobile-first, single-column flow, always touch-optimized.
+
+Metronic 8 Exclusivity:
+
+Use only official Metronic 8 utility classes for ALL layout, spacing, responsiveness.
+
+Never exceed 30 lines of custom CSS (preferably zero).
+
+Logical Structure:
+
+Top-down stacking: sticky headers, prominent action bars, spaced cards, bold summaries.
+
+Use gap-*, p-*, d-flex, card, card-flush, form-control-lg, btn, text-* classes, and nothing else for structure.
+
+Clear UI groupings: headers, action buttons, analytics summaries, forms, data tables.
+
+Every button, input, and icon must be fat-finger friendly and pixel-perfectly aligned.
+
+📦 REQUIRED UI MODULES (INCLUDE WHERE RELEVANT):
+Apple-style headers with left/right action icons.
+
+Bright, bold CTA buttons with duotone icons (btn-light-primary, btn-outline-danger).
+
+KPI/summary cards—shadowed, rounded, using Metronic badge/indicator classes.
+
+Forms with form-control form-control-lg, prominent labels, big targets, large padding.
+
+Data displays in card-body with titles using fw-bold, fs-3, with badge/indicator for state.
+
+Tabular iOS data (e.g., recent activity) in responsive table align-middle table-row-dashed.
+
+Use badge indicators (badge-light-success, badge-light-warning) for all statuses.
+
+Divide logical areas with separator my-5—clear, visual section breaks.
+
+❌ FORBIDDEN — DO NOT VIOLATE:
+DO NOT use or reference images, photos, or illustrations.
+
+DO NOT import or register external components.
+
+DO NOT use any non-Metronic design framework, style, or dependency—STRICTLY Metronic 8 only.
+
+DO NOT add custom CSS except as an absolute last resort, max 30 lines.
+
+DO NOT break Apple’s HIG or touch target rules—minimum 44pt for any touch element.
+
+
+📱 APPLE THEMING & UI/UX COMPLIANCE GUIDELINES (MANDATORY)
+1. COLOR & THEME
+Follow Apple’s Light and Dark Mode paradigms: Ensure all color choices, backgrounds, and overlays adapt perfectly for both light and dark themes. Never hardcode backgrounds; always use Metronic 8 utilities that can be remapped for dark/light.
+
+Use Apple’s vibrancy and depth: Layer backgrounds with translucency using Metronic 8 classes (e.g., bg-light-* and overlay effects). Foreground elements must always stand out, with adequate shadow (shadow-sm, shadow-lg).
+
+Contrast: All text and icons must have WCAG AA/AAA-level contrast. Never allow faded or low-contrast UI.
+
+2. TYPOGRAPHY
+Follow iOS text hierarchy:
+
+Page Titles: fs-1 fw-bold text-gray-900
+
+Section Headers: fs-3 fw-bold text-gray-800
+
+Content: fs-5 text-gray-700
+
+Captions/hints: fs-7 text-gray-500
+
+Line height and spacing: Text must always be readable, never cramped. Use Metronic’s spacing utilities to ensure breathing room.
+
+NO text overflow or cut-off at any breakpoint. All copy should resize naturally, wrapping as needed.
+
+3. COMPONENTS & INTERACTIONS
+Touch Targets: Minimum size 44px × 44px (Apple’s standard). All buttons, form fields, and icons must meet or exceed this, using btn-lg, form-control-lg, and padding utilities.
+
+Feedback: Every touch interaction must provide visible feedback—use Metronic’s active, focus, and hover states. Button tap = visual state change.
+
+Gestures: Swipe actions (where applicable) must animate smoothly, never stutter.
+
+No non-standard popups or modals: Use iOS modal/card patterns only (Metronic 8 cards, drawers, or overlays).
+
+4. LAYOUT & NAVIGATION
+Single, stacked column flow (mobile-first). No sidebars.
+
+Sticky headers: Always visible, never scroll away key navigation or actions.
+
+Safe Area: Respect iOS safe area insets—never put controls under the notch, status bar, or home bar.
+
+Navigation: Use large, tappable nav bars, clear back buttons with duotone icons (ki-duotone).
+
+Tab bars: If used, they must be fixed to the bottom, high contrast, with clear active state.
+
+5. CARDS & CONTAINERS
+Apple Card Style: All cards must be rounded (rounded-2xl), shadowed (shadow), and separated by breathing space (mb-4, gap-4).
+
+Hierarchy: Important actions and summaries go in prominent cards at the top, less critical info below.
+
+Edge-to-edge: Content can go edge-to-edge, but padding (p-4, px-6) must be applied to every block for comfort.
+
+6. FORMS & INPUTS
+Label Above Input: Always use label-on-top, never inline or floating label.
+
+Huge inputs: form-control-lg, full width (w-100), generous vertical padding (py-3).
+
+Clear CTA separation: All actions should have enough space to avoid accidental taps.
+
+7. ICONOGRAPHY
+Use only KT Duotone icons with nested <span class="path1"></span> <span class="path2"></span> structure for Apple-like depth.
+
+Icon size: No smaller than 24px, ideally 28–32px for most touch targets.
+
+Color: Use vivid Metronic colors—text-primary, text-warning, etc.—never generic gray.
+
+8. ANIMATION & MOTION
+Motion must be subtle and purposeful: Use smooth transitions for card opening, list insertions, button taps (Metronic transition utilities or Apple’s spring-style easing).
+
+Reduce motion for accessibility: UI must remain fully usable with “reduce motion” settings.
+
+9. DATA & TABLES (FAVOUR CARDS FOR DATA RENDERING OVER TABLES AND AVOID THEM WHENEVER possible)
+Responsive, Apple-style tables: Use table align-middle table-row-dashed, bold headings, and never crowd the content.
+
+Status Badges: Use Metronic badges (badge-light-success, badge-light-warning) for all dynamic states.
+
+10. ACCESSIBILITY
+Full VoiceOver compliance: All controls must have aria-label and role attributes set.
+
+Keyboard navigation: All interactive elements must be reachable and usable via keyboard.
+
+Colorblind-friendly: Never rely on color alone for critical meaning—always use icons/badges/text together.
+
+🚨 STRICT ENFORCEMENT
+Any violation of these Apple and Metronic 8 rules is categorically rejected.
+
+All output must pass Apple HIG and Metronic 8 QA—no exceptions.
+
+If there is any ambiguity, default to Apple’s HIG and err on the side of clarity, accessibility, and tactile comfort.
+
+COMMAND:
+
+“OBEY every Apple iOS HIG and Metronic 8 class rule above. Build the UI as if it is to be demoed for an Apple executive and Metronic 8 design lead side-by-side—failure is not an option.” 
+
+🧠 INTENT AND OUTPUT MANDATE:
+Your result must be directly pluggable into any index.html-based Vue 3 app using Metronic 8—zero rewrite required.
+
+It must pass production review at Apple and Metronic simultaneously on first glance.
+
+The entire interface must scream “iOS Native” with supercharged Metronic flair—no compromise.
+
+Always cross-check with the attached absolute project instructions for this and every interaction.
+
+Any violation is unacceptable—this is the gold standard for enterprise iOS UI.
+
+
+
+
+COMMAND:
+
+“GENERATE a 100% iOS-native, ultra-modern, AI-powered UI layout using only Vue 3 and Metronic 8 classes, following Apple’s Human Interface Guidelines in all layout, spacing, color, and interaction, with no exceptions, no images, and absolutely no non-Metronic dependencies. Layout and all touch controls must be iOS-level elite. OBEY ALL ATTACHED PROJECT INSTRUCTIONS FULLY—WITHOUT FAIL.”
+
+
+
+
+
+
+

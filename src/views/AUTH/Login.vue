@@ -1,7 +1,10 @@
 <template>
   <!-- Full Screen Login Modal Overlay - Covers Everything -->
-  <div v-show="showLoginModal" class="login-modal-overlay position-fixed top-0 start-0 w-100 h-100 d-flex flex-column"
-    id="kt_login_modal">
+  <div
+    v-show="showLoginModal"
+    class="login-modal-overlay position-fixed top-0 start-0 w-100 h-100 d-flex flex-column"
+    id="kt_login_modal"
+  >
     <!-- Gradient Background -->
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-90"></div>
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-light-primary opacity-15"></div>
@@ -9,10 +12,15 @@
     <!-- Login Container -->
     <div class="d-flex flex-column flex-center flex-column-fluid position-relative">
       <!-- Main Login Card -->
-      <div class="card card-flush shadow-lg w-100 mx-5 mx-lg-0" style="max-width: 500px; border-radius: 20px">
+      <div
+        class="card card-flush shadow-lg w-100 mx-5 mx-lg-0"
+        style="max-width: 500px; border-radius: 20px"
+      >
         <!-- Header Section -->
-        <div class="card-header bg-primary d-flex flex-column align-items-center py-10"
-          style="border-radius: 20px 20px 0 0">
+        <div
+          class="card-header bg-primary d-flex flex-column align-items-center py-10"
+          style="border-radius: 20px 20px 0 0"
+        >
           <!-- Logo Icon -->
           <div class="symbol symbol-80px mb-5">
             <div class="symbol-label bg-light-primary">
@@ -40,12 +48,22 @@
           <form @submit.prevent="handleLogin" novalidate class="form w-100">
             <!-- Email Field -->
             <div class="mb-6">
-              <label class="form-label fw-semibold text-gray-900 fs-6 required">Email Address</label>
+              <label class="form-label fw-semibold text-gray-900 fs-6 required"
+                >Email Address</label
+              >
               <div class="position-relative">
-                <input v-model="loginForm.email" type="email" class="form-control form-control-lg form-control-solid"
-                  :class="{ 'is-invalid': errors.email }" placeholder="Enter your email" autocomplete="email"
-                  required />
-                <i class="ki-duotone ki-sms position-absolute top-50 end-0 translate-middle-y me-3 fs-2 text-gray-500">
+                <input
+                  v-model="loginForm.email"
+                  type="email"
+                  class="form-control form-control-lg form-control-solid"
+                  :class="{ 'is-invalid': errors.email }"
+                  placeholder="Enter your email"
+                  autocomplete="email"
+                  required
+                />
+                <i
+                  class="ki-duotone ki-sms position-absolute top-50 end-0 translate-middle-y me-3 fs-2 text-gray-500"
+                >
                   <span class="path1"></span>
                   <span class="path2"></span>
                 </i>
@@ -59,12 +77,24 @@
             <div class="mb-6">
               <label class="form-label fw-semibold text-gray-900 fs-6 required">Password</label>
               <div class="position-relative">
-                <input v-model="loginForm.password" :type="showPassword ? 'text' : 'password'"
-                  class="form-control form-control-lg form-control-solid" :class="{ 'is-invalid': errors.password }"
-                  placeholder="Enter your password" autocomplete="current-password" required />
-                <button type="button" @click="togglePassword"
-                  class="btn btn-sm btn-icon position-absolute top-50 end-0 translate-middle-y me-3">
-                  <i class="ki-duotone fs-2 text-gray-500" :class="showPassword ? 'ki-eye-slash' : 'ki-eye'">
+                <input
+                  v-model="loginForm.password"
+                  :type="showPassword ? 'text' : 'password'"
+                  class="form-control form-control-lg form-control-solid"
+                  :class="{ 'is-invalid': errors.password }"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  @click="togglePassword"
+                  class="btn btn-sm btn-icon position-absolute top-50 end-0 translate-middle-y me-3"
+                >
+                  <i
+                    class="ki-duotone fs-2 text-gray-500"
+                    :class="showPassword ? 'ki-eye-slash' : 'ki-eye'"
+                  >
                     <span class="path1"></span>
                     <span class="path2"></span>
                     <span class="path3"></span>
@@ -79,7 +109,12 @@
             <!-- Remember Me -->
             <div class="d-flex flex-stack flex-wrap gap-3 mb-8">
               <div class="form-check form-check-sm form-check-custom form-check-solid">
-                <input v-model="loginForm.rememberMe" class="form-check-input" type="checkbox" id="rememberMe" />
+                <input
+                  v-model="loginForm.rememberMe"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="rememberMe"
+                />
                 <label class="form-check-label text-gray-700 fs-6" for="rememberMe">
                   Remember me
                 </label>
@@ -92,8 +127,12 @@
 
             <!-- Login Button -->
             <div class="d-grid">
-              <button type="submit" class="btn btn-lg btn-primary fw-bolder" :class="{ disabled: loading }"
-                :disabled="loading">
+              <button
+                type="submit"
+                class="btn btn-lg btn-primary fw-bolder"
+                :class="{ disabled: loading }"
+                :disabled="loading"
+              >
                 <span v-if="!loading">
                   <i class="ki-duotone ki-entrance-right fs-2 me-2">
                     <span class="path1"></span>
@@ -122,7 +161,10 @@
         </div>
 
         <!-- Footer -->
-        <div class="card-footer bg-light-primary text-center py-5" style="border-radius: 0 0 20px 20px">
+        <div
+          class="card-footer bg-light-primary text-center py-5"
+          style="border-radius: 0 0 20px 20px"
+        >
           <p class="text-gray-600 fs-7 mb-2">© 2025 Kigrama Fuel Station Management System</p>
           <p class="text-gray-500 fs-8 mb-0">Powered by TrailBase & Vue.js</p>
         </div>
@@ -130,7 +172,10 @@
 
       <!-- System Status Indicator -->
       <div class="position-fixed bottom-0 end-0 m-5">
-        <div class="badge badge-circle badge-lg" :class="systemStatus.online ? 'badge-success' : 'badge-danger'">
+        <div
+          class="badge badge-circle badge-lg"
+          :class="systemStatus.online ? 'badge-success' : 'badge-danger'"
+        >
           <i class="ki-duotone ki-wifi fs-3">
             <span class="path1"></span>
             <span class="path2"></span>
@@ -207,442 +252,475 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, computed, onMounted, nextTick, watch } from 'vue'
+import { ref, reactive, onMounted, nextTick } from 'vue'
 import Swal from 'sweetalert2'
 
-// -- API Config --
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+// API Configuration
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 
-// -- Auth/Session --
-const getAuthData = () => {
-  try { const d = localStorage.getItem('kigrama_user_data'); return d ? JSON.parse(d) : null } catch { return null }
-}
-const getAuthToken = () => localStorage.getItem('kigrama_auth_token') || 'demo_token'
-
-// -- State (as per UI) --
+// Reactive State - FORCE MODAL TO SHOW
 const loading = ref(false)
-const processing = ref(false)
-const currentUser = ref(null)
-const currentStation = ref(null)
-const products = ref([])
-const productInventory = ref(new Map())
-const selectedCategory = ref('fuel')
-const productCategories = ref([
-  { id: 'fuel', name: 'Fuel', icon: 'ki-oil-barrel' },
-  { id: 'lubricants', name: 'Lubricants', icon: 'ki-oil' },
-  { id: 'gas', name: 'Gas', icon: 'ki-gas-station' },
-  { id: 'services', name: 'Services', icon: 'ki-wrench' }
-])
-const customerType = ref('walk-in')
-const selectedCustomer = ref(null)
-const showCustomerSearch = ref(false)
-const customerSearchQuery = ref('')
-const customerSearchResults = ref([])
-const cartItems = ref([])
-const taxRate = ref(18) // Uganda VAT
-const paymentMethod = ref('Cash')
-const cashReceived = ref(0)
-const paymentReference = ref('')
-const todayStats = reactive({ totalSales: 0, transactions: 0, revenue: 0, customers: 0 })
-const salesChart = ref(null)
-const showSettingsModal = ref(false)
-const searchDebounceTimer = ref(null)
-const MAX_QUANTITY = 10000
-const MIN_QUANTITY = 0.01
-const MAX_CASH_AMOUNT = 50000000
+const showPassword = ref(false)
+const systemStatus = ref({ online: true })
+const isAuthenticated = ref(false) // MUST start as false
+const showLoginModal = ref(true) // MUST start as true
 
-// -- Computed --
-const filteredProducts = computed(() => {
-  if (!products.value.length) return []
-  return products.value.filter(product => {
-    if (!product?.ProductType) return false
-    const category = selectedCategory.value.toLowerCase()
-    const type = product.ProductType.toLowerCase()
-    switch (category) {
-      case 'fuel': return type === 'fuel' || type.includes('petrol') || type.includes('diesel')
-      case 'lubricants': return type.includes('lubricant') || type.includes('oil')
-      case 'gas': return type.includes('gas') || type.includes('lpg')
-      default: return !['fuel', 'petrol', 'diesel', 'lubricant', 'oil', 'gas', 'lpg'].some(t => type.includes(t))
+// Form Data
+const loginForm = reactive({
+  email: '',
+  password: '',
+  rememberMe: false,
+})
+
+// Form Errors
+const errors = reactive({
+  email: '',
+  password: '',
+})
+
+// Auth Data Storage
+const AUTH_DATA = ref({
+  user: null,
+  roles: [],
+  permissions: [],
+  stations: [],
+  positions: [],
+  token: null,
+  loginTime: null,
+  sessionData: {},
+})
+
+// Force Modal Display Function
+const forceShowModal = () => {
+  isAuthenticated.value = false
+  showLoginModal.value = true
+  document.body.style.overflow = 'scroll'
+
+  // Double-check in next tick
+  nextTick(() => {
+    if (!showLoginModal.value) {
+      showLoginModal.value = true
     }
   })
-})
-const cartSubtotal = computed(() => cartItems.value.reduce((sum, item) => sum + (parseFloat(item.total) || 0), 0))
-const cartTax = computed(() => cartSubtotal.value * (taxRate.value / 100))
-const cartTotal = computed(() => cartSubtotal.value + cartTax.value)
-const canProcessSale = computed(() => {
-  if (!cartItems.value.length || processing.value) return false
-  switch (paymentMethod.value) {
-    case 'Cash': return cashReceived.value >= cartTotal.value && cashReceived.value <= MAX_CASH_AMOUNT
-    case 'Card':
-    case 'Mobile Money': return paymentReference.value.trim().length >= 3
-    default: return false
+}
+
+// Toggle Password Visibility
+const togglePassword = () => {
+  showPassword.value = !showPassword.value
+}
+
+// Form Validation
+const validateForm = () => {
+  errors.email = ''
+  errors.password = ''
+
+  let isValid = true
+
+  if (!loginForm.email) {
+    errors.email = 'Email is required'
+    isValid = false
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginForm.email)) {
+    errors.email = 'Please enter a valid email address'
+    isValid = false
   }
-})
-const getCashInputClass = computed(() => {
-  if (cashReceived.value === 0) return ''
-  if (cashReceived.value >= cartTotal.value) return 'border-success'
-  return 'border-danger'
-})
 
-// -- Helpers --
-const formatCurrency = amount => new Intl.NumberFormat('en-UG', { style: 'currency', currency: 'UGX', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(parseFloat(amount) || 0)
-const getProductIcon = type => {
-  if (!type) return 'ki-cube-2'
-  const t = type.toLowerCase()
-  if (t.includes('fuel') || t.includes('petrol') || t.includes('diesel')) return 'ki-oil-barrel'
-  if (t.includes('lubricant') || t.includes('oil')) return 'ki-oil'
-  if (t.includes('gas') || t.includes('lpg')) return 'ki-gas-station'
-  return 'ki-cube-2'
-}
-const getStockLevel = product => parseFloat(productInventory.value.get(product.ProductID) || 0)
-const getStockBadgeClass = stock => { const l = parseFloat(stock) || 0; if (l <= 100) return 'badge-light-danger'; if (l <= 500) return 'badge-light-warning'; return 'badge-light-success' }
-const getCustomerDisplayName = customer => customer.CompanyName || `${customer.FirstName || ''} ${customer.LastName || ''}`.trim() || customer.CustomerCode
-const validateNumber = (v, min = 0, max = Infinity) => { const n = parseFloat(v); return isNaN(n) ? min : Math.min(Math.max(n, min), max) }
-const logError = async (user, station, op, error, details={}) => {
-  // Log to AuditLogs and notify (never blocks UI)
-  try {
-    await apiCall('/AuditLogs', {
-      method: 'POST',
-      body: JSON.stringify({
-        UserID: user?.id || null,
-        StationID: station?.StationID || null,
-        Operation: op,
-        Message: (error && error.message) ? error.message : JSON.stringify(error),
-        Details: JSON.stringify(details),
-        CreatedAt: new Date().toISOString()
-      })
-    })
-  } catch (err) { console.error('Audit log failed:', err) }
+  if (!loginForm.password) {
+    errors.password = 'Password is required'
+    isValid = false
+  } else if (loginForm.password.length < 6) {
+    errors.password = 'Password must be at least 6 characters'
+    isValid = false
+  }
+
+  return isValid
 }
 
-// -- API: Strictly as per schema --
-const apiCall = async (endpoint, options = {}) => {
+// Direct Password Authentication
+const authenticateUser = async (email, password) => {
   try {
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 30000)
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      signal: controller.signal,
+    // Get all users and find the matching email
+    const usersResponse = await fetch(`${API_BASE_URL}/users`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${getAuthToken()}`,
-        ...options.headers
       },
-      ...options
     })
-    clearTimeout(timeoutId)
-    if (!response.ok) throw new Error(`API Error ${response.status}: ${await response.text().catch(() => 'Unknown error')}`)
-    return await response.json()
+
+    if (!usersResponse.ok) {
+      throw new Error('Unable to connect to authentication service')
+    }
+
+    const usersData = await usersResponse.json()
+    const user = usersData.records?.find((u) => u.email === email)
+
+    if (!user) {
+      throw new Error('Invalid email or password')
+    }
+
+    // Direct password comparison - no encryption/hashing
+    if (user.password !== password) {
+      throw new Error('Invalid email or password')
+    }
+
+    return user
   } catch (error) {
+    console.error('Authentication error:', error)
     throw error
   }
 }
 
-// -- Data Loaders --
-const loadUserData = async () => {
-  const authData = getAuthData()
-  if (!authData?.user) throw new Error('No authentication data found')
-  currentUser.value = authData.user
-  if (authData.stations?.length > 0) currentStation.value = authData.stations.find(s => s.IsPrimary === '1') || authData.stations[0]
-  else throw new Error('No stations assigned to user')
+// Fetch User Roles
+const fetchUserRoles = async (userId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/UserRoles?UserID=${userId}`)
+    if (response.ok) {
+      const data = await response.json()
+      return data.records || []
+    }
+    return []
+  } catch (error) {
+    console.error('Error fetching user roles:', error)
+    return []
+  }
 }
-const loadProducts = async () => {
+
+// Fetch Role Details
+const fetchRoleDetails = async (roleIds) => {
+  try {
+    const rolePromises = roleIds.map((roleId) =>
+      fetch(`${API_BASE_URL}/Roles/${roleId}`)
+        .then((res) => (res.ok ? res.json() : null))
+        .catch(() => null),
+    )
+
+    const roleResults = await Promise.all(rolePromises)
+    return roleResults.filter((role) => role !== null)
+  } catch (error) {
+    console.error('Error fetching role details:', error)
+    return []
+  }
+}
+
+// Fetch User Permissions
+const fetchUserPermissions = async (roleIds) => {
+  try {
+    const permissionPromises = roleIds.map(async (roleId) => {
+      const rolePermResponse = await fetch(`${API_BASE_URL}/RolePermissions?RoleID=${roleId}`)
+      if (rolePermResponse.ok) {
+        const rolePermData = await rolePermResponse.json()
+        return rolePermData.records || []
+      }
+      return []
+    })
+
+    const allRolePermissions = await Promise.all(permissionPromises)
+    const flatPermissions = allRolePermissions.flat()
+    const uniquePermissionIds = [...new Set(flatPermissions.map((p) => p.PermissionID))]
+
+    const permissionDetails = await Promise.all(
+      uniquePermissionIds.map((permId) =>
+        fetch(`${API_BASE_URL}/Permissions/${permId}`)
+          .then((res) => (res.ok ? res.json() : null))
+          .catch(() => null),
+      ),
+    )
+
+    return permissionDetails.filter((perm) => perm !== null)
+  } catch (error) {
+    console.error('Error fetching permissions:', error)
+    return []
+  }
+}
+
+// Fetch User Stations
+const fetchUserStations = async (userId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/UserStations?UserID=${userId}`)
+    if (response.ok) {
+      const data = await response.json()
+      const userStations = data.records || []
+
+      // Fetch station details
+      const stationDetails = await Promise.all(
+        userStations.map(async (us) => {
+          const stationResponse = await fetch(`${API_BASE_URL}/Stations/${us.StationID}`)
+          if (stationResponse.ok) {
+            const station = await stationResponse.json()
+            return { ...station, ...us }
+          }
+          return us
+        }),
+      )
+
+      return stationDetails
+    }
+    return []
+  } catch (error) {
+    console.error('Error fetching user stations:', error)
+    return []
+  }
+}
+
+// Fetch User Positions
+const fetchUserPositions = async (userId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/UserPositions?UserID=${userId}`)
+    if (response.ok) {
+      const data = await response.json()
+      const userPositions = data.records || []
+
+      // Fetch position details
+      const positionDetails = await Promise.all(
+        userPositions.map(async (up) => {
+          const positionResponse = await fetch(`${API_BASE_URL}/Positions/${up.PositionID}`)
+          if (positionResponse.ok) {
+            const position = await positionResponse.json()
+            return { ...position, ...up }
+          }
+          return up
+        }),
+      )
+
+      return positionDetails
+    }
+    return []
+  } catch (error) {
+    console.error('Error fetching user positions:', error)
+    return []
+  }
+}
+
+// Generate JWT Token (Simulated)
+const generateToken = (user) => {
+  const header = btoa(JSON.stringify({ typ: 'JWT', alg: 'HS256' }))
+  const payload = btoa(
+    JSON.stringify({
+      sub: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.Role,
+      iat: Math.floor(Date.now() / 1000),
+      exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60, // 24 hours
+    }),
+  )
+  const signature = btoa('simulated_signature_for_demo')
+
+  return `${header}.${payload}.${signature}`
+}
+
+// Main Login Handler
+const handleLogin = async () => {
+  if (!validateForm()) {
+    return
+  }
+
   loading.value = true
-  try {
-    const data = await apiCall('/Products')
-    products.value = (data.records || []).filter(p => p.Status === 'Active' && p.Name && p.ProductType)
-    await loadInventoryLevels()
-  } catch (error) {
-    await logError(currentUser.value, currentStation.value, 'loadProducts', error)
-    throw error
-  }
-  loading.value = false
-}
-const loadInventoryLevels = async () => {
-  if (!currentStation.value?.StationID || !products.value.length) return
-  try {
-    const data = await apiCall(`/StationInventory?StationID=${currentStation.value.StationID}`)
-    const inventory = data.records || []
-    productInventory.value.clear()
-    inventory.forEach(item => { if (item.ProductID && item.CurrentStock !== undefined) productInventory.value.set(item.ProductID, item.CurrentStock) })
-  } catch (error) {
-    await logError(currentUser.value, currentStation.value, 'loadInventoryLevels', error)
-    throw error
-  }
-}
-const loadTodayStats = async () => {
-  if (!currentStation.value?.StationID) return
-  try {
-    const today = new Date().toISOString().split('T')[0]
-    const data = await apiCall(`/Transactions?StationID=${currentStation.value.StationID}&TransactionDate=${today}`)
-    const tx = data.records || []
-    todayStats.totalSales = tx.length
-    todayStats.transactions = tx.length
-    todayStats.revenue = tx.reduce((sum, t) => sum + parseFloat(t.TotalAmount || 0), 0)
-    todayStats.customers = new Set(tx.map(t => t.CustomerID).filter(Boolean)).size
-  } catch (error) {
-    await logError(currentUser.value, currentStation.value, 'loadTodayStats', error)
-  }
-}
-
-// -- POS CORE: Transaction Handler (FULL COMPLIANCE) --
-const processSale = async () => {
-  processing.value = true
-  const opContext = { user: currentUser.value, station: currentStation.value, cart: cartItems.value }
-  const now = new Date()
-  const today = now.toISOString().split('T')[0]
-  let fraudFlagged = false
-  let fraudReasons = []
-  let transactionId = null
-  let auditId = null
-  let approvalId = null
 
   try {
-    // --- FRAUD/AI ---
-    // 1. Transaction flood
-    const recentSales = await apiCall(`/Transactions?StationID=${currentStation.value.StationID}&TransactionDate=${today}&HandledBy=${currentUser.value.id}&_sort=-CreatedAt&_limit=10`)
-    if ((recentSales.records || []).length >= 10) {
-      fraudFlagged = true; fraudReasons.push('Transaction flood')
-    }
-    // 2. Off-hours
-    if (now.getHours() < 5 || now.getHours() > 23) { fraudFlagged = true; fraudReasons.push('Off-hours sale') }
-    // 3. High-amount/quantity
-    if (cartTotal.value > 5000000 || cartItems.value.some(i => i.quantity > 1000)) {
-      fraudFlagged = true; fraudReasons.push('Unusually high value/quantity')
-    }
-    // 4. Role restriction
-    const roles = (getAuthData()?.roles || []).map(r => r.Name)
-    if (!roles.some(r => ['Sales', 'POS', 'Manager'].includes(r))) {
-      fraudFlagged = true; fraudReasons.push('Role not allowed for POS sales')
-    }
-    // 5. Invalid pricing
-    if (cartItems.value.some(item => item.unitPrice <= 0) || cartTax.value < 0) {
-      fraudFlagged = true; fraudReasons.push('Invalid pricing/tax')
-    }
-    if (fraudFlagged) {
-      await apiCall('/FraudDetectionLogs', {
-        method: 'POST',
-        body: JSON.stringify({
-          StationID: currentStation.value.StationID,
-          UserID: currentUser.value.id,
-          Reason: fraudReasons.join('; '),
-          DetectedAt: now.toISOString(),
-          TransactionPayload: JSON.stringify(cartItems.value),
-          Status: 'Flagged'
-        })
-      })
-      await Swal.fire({
-        title: 'Sale Blocked!',
-        text: `Fraud risk detected: ${fraudReasons.join(', ')}`,
-        icon: 'error', confirmButtonText: 'Close'
-      })
-      processing.value = false; return
+    // Step 1: Authenticate User
+    const user = await authenticateUser(loginForm.email, loginForm.password)
+
+    // Step 2: Fetch User Roles
+    const userRoles = await fetchUserRoles(user.id)
+    const roleIds = userRoles.map((ur) => ur.RoleID)
+
+    // Step 3: Fetch Role Details
+    const roles = await fetchRoleDetails(roleIds)
+
+    // Step 4: Fetch User Permissions
+    const permissions = await fetchUserPermissions(roleIds)
+
+    // Step 5: Fetch User Stations
+    const stations = await fetchUserStations(user.id)
+
+    // Step 6: Fetch User Positions
+    const positions = await fetchUserPositions(user.id)
+
+    // Step 7: Generate Token
+    const token = generateToken(user)
+
+    // Step 8: Compile AUTH_DATA
+    AUTH_DATA.value = {
+      user: user,
+      roles: roles,
+      permissions: permissions,
+      stations: stations,
+      positions: positions,
+      token: token,
+      loginTime: new Date().toISOString(),
+      sessionData: {
+        loginMethod: 'email_password',
+        rememberMe: loginForm.rememberMe,
+        userAgent: navigator.userAgent,
+        ipAddress: 'client_ip_placeholder',
+        deviceInfo: {
+          platform: navigator.platform,
+          language: navigator.language,
+          screen: `${screen.width}x${screen.height}`,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        },
+      },
     }
 
-    // --- Attendance record (auto-check-in if not today) ---
-    let attendanceId = null
-    const attToday = await apiCall(`/Attendance?UserID=${currentUser.value.id}&Date=${today}`)
-    if (!(attToday.records && attToday.records.length)) {
-      const attRes = await apiCall('/Attendance', {
-        method: 'POST',
-        body: JSON.stringify({
-          UserID: currentUser.value.id,
-          StationID: currentStation.value.StationID,
-          Date: today,
-          CheckInTime: now.toISOString(),
-          Status: 'Present'
-        })
-      })
-      attendanceId = attRes.AttendanceID || attRes.id || null
-    } else {
-      attendanceId = attToday.records[0].AttendanceID
-    }
+    // Step 9: Store in localStorage if remember me is checked
+    // Always store login for SPA, clear on logout
+    localStorage.setItem('kigrama_auth_token', token)
+    localStorage.setItem('kigrama_user_data', JSON.stringify(AUTH_DATA.value))
 
-    // --- DailyReadings (auto-log tank reading for every sale, simplified) ---
-    for (const item of cartItems.value) {
-      if (item.product.ProductType.toLowerCase().includes('fuel')) {
-        // Simulate reading (actual UI would use real tank/pump sensors)
-        await apiCall('/DailyReadings', {
-          method: 'POST',
-          body: JSON.stringify({
-            StationID: currentStation.value.StationID,
-            ProductID: item.product.ProductID,
-            ReadingDate: today,
-            MeasuredStock: getStockLevel(item.product) - item.quantity,
-            CapturedBy: currentUser.value.id
-          })
-        })
-      }
-    }
+    // Step 10: Console log all auth data
+    console.log('🔐 KIGRAMA AUTHENTICATION SUCCESSFUL')
+    console.log('👤 User Data:', AUTH_DATA.value.user)
+    console.log('🎭 User Roles:', AUTH_DATA.value.roles)
+    console.log('🔑 User Permissions:', AUTH_DATA.value.permissions)
+    console.log('🏢 User Stations:', AUTH_DATA.value.stations)
+    console.log('💼 User Positions:', AUTH_DATA.value.positions)
+    console.log('🎫 Auth Token:', AUTH_DATA.value.token)
+    console.log('📊 Complete AUTH_DATA:', AUTH_DATA.value)
 
-    // --- Approval Workflow: Trigger for large sales (above 5M or >1000L) ---
-    if (cartTotal.value > 5000000 || cartItems.value.some(i => i.quantity > 1000)) {
-      const approvalRes = await apiCall('/Approvals', {
-        method: 'POST',
-        body: JSON.stringify({
-          StationID: currentStation.value.StationID,
-          RequesterID: currentUser.value.id,
-          RequestType: 'POS Sale Approval',
-          Reference: `TXN-REQ-${Date.now()}`,
-          Status: 'Pending',
-          Amount: cartTotal.value,
-          CreatedAt: now.toISOString(),
-        })
-      })
-      approvalId = approvalRes.ApprovalID || approvalRes.id || null
-      await apiCall('/ApprovalActions', {
-        method: 'POST',
-        body: JSON.stringify({
-          ApprovalID: approvalId,
-          Action: 'Request',
-          UserID: currentUser.value.id,
-          Timestamp: now.toISOString(),
-          Comments: 'Auto-escalated by POS AI'
-        })
-      })
-    }
-
-    // --- Create Transaction (exact schema) ---
-    const transactionData = {
-      StationID: currentStation.value.StationID,
-      TransactionDate: today,
-      TransactionType: 'Sale',
-      TotalAmount: cartTotal.value.toFixed(2),
-      TaxAmount: cartTax.value.toFixed(2),
-      PaymentMethod: paymentMethod.value,
-      PaymentReference: paymentReference.value || `TXN-${Date.now()}`,
-      PaymentStatus: 'Paid',
-      Status: 'Completed',
-      HandledBy: currentUser.value.id,
-      CustomerID: selectedCustomer.value?.CustomerID || null,
-      Notes: approvalId ? `Approval: ${approvalId}` : 'POS Sale'
-    }
-    const transactionRes = await apiCall('/Transactions', { method: 'POST', body: JSON.stringify(transactionData) })
-    transactionId = transactionRes.TransactionID || transactionRes.id || null
-
-    // --- Create TransactionItems (one per product, exact schema) ---
-    for (const item of cartItems.value) {
-      const itemData = {
-        TransactionID: transactionId,
-        ProductID: item.product.ProductID,
-        Quantity: item.quantity.toString(),
-        UnitPrice: item.unitPrice.toFixed(2),
-        SellingPrice: item.unitPrice.toFixed(2),
-        TaxRate: taxRate.value.toString(),
-        Subtotal: item.total.toFixed(2)
-      }
-      await apiCall('/TransactionItems', { method: 'POST', body: JSON.stringify(itemData) })
-      // -- Inventory update (PATCH StationInventory exact) --
-      const inventoryData = await apiCall(`/StationInventory?StationID=${currentStation.value.StationID}&ProductID=${item.product.ProductID}`)
-      const inventory = inventoryData.records?.[0]
-      if (inventory) {
-        const newStock = Math.max(0, parseFloat(inventory.CurrentStock || 0) - item.quantity)
-        await apiCall(`/StationInventory/${inventory.InventoryID}`, { method: 'PATCH', body: JSON.stringify({ CurrentStock: newStock.toString(), LastUpdated: now.toISOString() }) })
-        productInventory.value.set(item.product.ProductID, newStock)
-      }
-    }
-
-    // --- LedgerEntries (double-entry: Debit Sales, Credit Inventory) ---
-    await apiCall('/LedgerEntries', {
-      method: 'POST',
-      body: JSON.stringify({
-        TransactionID: transactionId,
-        Account: 'Sales',
-        Debit: cartTotal.value.toFixed(2),
-        Credit: '0.00',
-        Narration: `POS Sale by ${currentUser.value.name}`,
-        CreatedAt: now.toISOString()
-      })
-    })
-    await apiCall('/LedgerEntries', {
-      method: 'POST',
-      body: JSON.stringify({
-        TransactionID: transactionId,
-        Account: 'Inventory',
-        Debit: '0.00',
-        Credit: cartTotal.value.toFixed(2),
-        Narration: `POS Sale by ${currentUser.value.name}`,
-        CreatedAt: now.toISOString()
-      })
-    })
-
-    // --- AuditLogs (record sale and all major events) ---
-    const auditRes = await apiCall('/AuditLogs', {
-      method: 'POST',
-      body: JSON.stringify({
-        UserID: currentUser.value.id,
-        StationID: currentStation.value.StationID,
-        Operation: 'POS Sale',
-        Message: `Sale completed: ${transactionId}`,
-        Details: JSON.stringify({ cart: cartItems.value, payment: paymentMethod.value, approvalId }),
-        CreatedAt: now.toISOString()
-      })
-    })
-    auditId = auditRes.AuditLogID || auditRes.id || null
-
-    // --- Notifications (to user/admin on big sale/approval) ---
-    if (approvalId) {
-      await apiCall('/Notifications', {
-        method: 'POST',
-        body: JSON.stringify({
-          UserID: currentUser.value.id,
-          StationID: currentStation.value.StationID,
-          Title: 'High-value sale requires approval',
-          Message: `POS sale of UGX ${formatCurrency(cartTotal.value)} is pending approval.`,
-          RelatedID: approvalId,
-          Type: 'Approval',
-          CreatedAt: now.toISOString()
-        })
-      })
-    }
-
-    // --- Final User Notification ---
+    // Step 11: Success notification
     await Swal.fire({
-      title: 'Sale Completed!',
-      html: `<div class="fw-bold fs-3 text-success mb-2">${formatCurrency(cartTotal.value)}</div><div class="text-gray-600">${paymentMethod.value} Payment</div>`,
+      title: 'Welcome Back!',
+      text: `Successfully logged in as ${user.name || user.email}`,
       icon: 'success',
       toast: true,
       position: 'top-end',
-      timer: 2500,
-      showConfirmButton: false
+      timer: 3000,
+      showConfirmButton: false,
+      background: '#f8f9fa',
+      color: '#1e1e2d',
     })
 
-    // --- UI reset/refresh ---
-    cartItems.value = []
-    await Promise.all([loadInventoryLevels(), loadTodayStats()])
+    // Step 12: Hide modal and mark as authenticated
+    isAuthenticated.value = true
+    showLoginModal.value = false
 
+    // Step 13: Restore body scroll
+    document.body.style.overflow = 'auto'
+
+    // Step 14: Navigate to dashboard (simulated)
+    setTimeout(() => {
+      console.log('🚀 User authenticated - Modal hidden, ready for app content')
+      // Emit event or call parent method to show main app
+      window.location.href = '/'
+    }, 500)
   } catch (error) {
-    await logError(currentUser.value, currentStation.value, 'POS Sale Failed', error, opContext)
-    await apiCall('/FraudDetectionLogs', {
-      method: 'POST',
-      body: JSON.stringify({
-        StationID: currentStation.value.StationID,
-        UserID: currentUser.value.id,
-        Reason: 'Transaction failed: ' + (error && error.message ? error.message : JSON.stringify(error)),
-        DetectedAt: new Date().toISOString(),
-        TransactionPayload: JSON.stringify(cartItems.value),
-        Status: 'Error'
-      })
+    console.error('Login error:', error)
+
+    await Swal.fire({
+      title: 'Login Failed!',
+      text: error.message || 'An error occurred during login',
+      icon: 'error',
+      confirmButtonColor: '#f1416c',
+      background: '#fff',
+      color: '#1e1e2d',
     })
-    await Swal.fire({ title: 'Sale Failed', text: error.message || 'Could not process sale', icon: 'error', confirmButtonText: 'Close' })
+  } finally {
+    loading.value = false
   }
-  processing.value = false
 }
 
-// --- Rest of UI logic: addToCart, removeFromCart, searchCustomers, payment/validation, and load lifecycle is as in previous scripts ---
-
-// -- Lifecycle/Init --
-onMounted(async () => {
+// Check System Status
+const checkSystemStatus = async () => {
   try {
-    await loadUserData()
-    await Promise.all([loadProducts(), loadTodayStats()])
-    await nextTick()
-    // You can include your ARM chart logic here
+    const response = await fetch(`${API_BASE_URL}/users?limit=1`)
+    systemStatus.value.online = response.ok
   } catch (error) {
-    await Swal.fire({
-      title: 'Initialization Failed', text: error.message || 'Unable to initialize POS system. Please contact support.',
-      icon: 'error', confirmButtonText: 'Reload Page'
-    }).then(() => { window.location.reload() })
+    systemStatus.value.online = false
   }
+}
+
+// Logout Function (for testing modal)
+const logout = async () => {
+  const result = await Swal.fire({
+    title: 'Logout Confirmation',
+    text: 'Are you sure you want to logout?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, Logout',
+    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#f1416c',
+    cancelButtonColor: '#3699ff',
+  })
+
+  if (result.isConfirmed) {
+    // Clear auth data
+    AUTH_DATA.value = {
+      user: null,
+      roles: [],
+      permissions: [],
+      stations: [],
+      positions: [],
+      token: null,
+      loginTime: null,
+      sessionData: {},
+    }
+
+    // Clear localStorage
+    localStorage.removeItem('kigrama_auth_token')
+    localStorage.removeItem('kigrama_user_data')
+
+    // Reset form
+    loginForm.email = ''
+    loginForm.password = ''
+    loginForm.rememberMe = false
+
+    // Force show modal again
+    forceShowModal()
+
+    await Swal.fire({
+      title: 'Logged Out',
+      text: 'You have been successfully logged out',
+      icon: 'success',
+      toast: true,
+      position: 'top-end',
+      timer: 2000,
+      showConfirmButton: false,
+    })
+
+    console.log('🚪 User logged out - Modal shown again')
+  }
+}
+
+// Initialize Component - GUARANTEED MODAL DISPLAY
+onMounted(async () => {
+  console.log('🔄 Login Modal Component Mounted - FORCING DISPLAY')
+
+  // FORCE MODAL TO SHOW - NO EXCEPTIONS
+  forceShowModal()
+
+  // Double-check system status
+  await checkSystemStatus()
+
+  // Clear any potential auto-login interference
+  // DO NOT AUTO-LOGIN - Always show modal first
+  console.log('✅ Login Modal FORCED to display - No auto-login interference')
+
+  // Additional safeguard - ensure modal stays visible
+  setTimeout(() => {
+    if (!showLoginModal.value) {
+      console.warn('⚠️ Modal was hidden - FORCING back to visible')
+      forceShowModal()
+    }
+  }, 100)
+
+  // Final safety check
+  nextTick(() => {
+    if (!showLoginModal.value || isAuthenticated.value) {
+      console.warn('⚠️ Modal state compromised - FORCING correct state')
+      forceShowModal()
+    }
+    console.log('🎯 Modal Display Status:', {
+      showLoginModal: showLoginModal.value,
+      isAuthenticated: isAuthenticated.value,
+      bodyOverflow: document.body.style.overflow,
+    })
+  })
+})
+
+// Export forced show function for external use if needed
+defineExpose({
+  forceShowModal,
+  showLoginModal,
+  isAuthenticated,
 })
 </script>
-

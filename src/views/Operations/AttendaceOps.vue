@@ -14,7 +14,9 @@
             </div>
             <div>
               <h2 class="fs-2 fw-bold text-gray-900 mb-0">Staff Attendance</h2>
-              <p class="fs-6 text-gray-600 mb-0">{{ currentStation?.StationName || 'Loading...' }}</p>
+              <p class="fs-6 text-gray-600 mb-0">
+                {{ currentStation?.StationName || 'Loading...' }}
+              </p>
             </div>
           </div>
           <div class="d-flex gap-2">
@@ -63,8 +65,11 @@
 
         <div class="row g-4 mb-6">
           <div class="col-6">
-            <button class="btn btn-lg btn-light-success w-100 h-75px d-flex flex-column justify-content-center"
-              @click="clockIn" :disabled="loading || (todayAttendance && todayAttendance.TimeIn)">
+            <button
+              class="btn btn-lg btn-light-success w-100 h-75px d-flex flex-column justify-content-center"
+              @click="clockIn"
+              :disabled="loading || (todayAttendance && todayAttendance.TimeIn)"
+            >
               <i class="ki-duotone ki-entrance-right fs-2x text-success mb-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -73,8 +78,11 @@
             </button>
           </div>
           <div class="col-6">
-            <button class="btn btn-lg btn-light-danger w-100 h-75px d-flex flex-column justify-content-center"
-              @click="clockOut" :disabled="loading || !todayAttendance || todayAttendance.TimeOut">
+            <button
+              class="btn btn-lg btn-light-danger w-100 h-75px d-flex flex-column justify-content-center"
+              @click="clockOut"
+              :disabled="loading || !todayAttendance || todayAttendance.TimeOut"
+            >
               <i class="ki-duotone ki-entrance-left fs-2x text-danger mb-2">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -85,10 +93,17 @@
         </div>
 
         <!-- Add Notes Section -->
-        <div class="mb-4" v-if="todayAttendance && todayAttendance.TimeIn && !todayAttendance.TimeOut">
+        <div
+          class="mb-4"
+          v-if="todayAttendance && todayAttendance.TimeIn && !todayAttendance.TimeOut"
+        >
           <label class="form-label fs-6 fw-semibold">Add Notes (Optional)</label>
-          <textarea v-model="attendanceNotes" class="form-control form-control-lg" rows="3"
-            placeholder="Add any relevant notes about your shift..."></textarea>
+          <textarea
+            v-model="attendanceNotes"
+            class="form-control form-control-lg"
+            rows="3"
+            placeholder="Add any relevant notes about your shift..."
+          ></textarea>
         </div>
 
         <!-- Today's Summary -->
@@ -184,7 +199,11 @@
         <h3 class="fs-4 fw-bold text-gray-900 mb-5">Recent Records</h3>
 
         <div class="timeline timeline-border-dashed" v-if="recentAttendance.length > 0">
-          <div class="timeline-item" v-for="record in recentAttendance.slice(0, 5)" :key="record.AttendanceID">
+          <div
+            class="timeline-item"
+            v-for="record in recentAttendance.slice(0, 5)"
+            :key="record.AttendanceID"
+          >
             <div class="timeline-line w-2px"></div>
             <div class="timeline-icon symbol symbol-30px">
               <div class="symbol-label" :class="getStatusColor(record.Status)">
@@ -196,7 +215,9 @@
             </div>
             <div class="timeline-content ms-3">
               <div class="d-flex align-items-center justify-content-between mb-1">
-                <span class="fs-6 fw-bold text-gray-900">{{ formatDate(record.AttendanceDate) }}</span>
+                <span class="fs-6 fw-bold text-gray-900">{{
+                  formatDate(record.AttendanceDate)
+                }}</span>
                 <div class="badge" :class="getStatusBadge(record.Status)">
                   {{ record.Status }}
                 </div>
@@ -248,13 +269,21 @@
             <div class="row g-3 mb-5">
               <div class="col-6">
                 <label class="form-label fs-6 fw-semibold">From Date</label>
-                <input type="date" class="form-control form-control-lg" v-model="historyFilter.startDate"
-                  @change="loadAttendanceHistory">
+                <input
+                  type="date"
+                  class="form-control form-control-lg"
+                  v-model="historyFilter.startDate"
+                  @change="loadAttendanceHistory"
+                />
               </div>
               <div class="col-6">
                 <label class="form-label fs-6 fw-semibold">To Date</label>
-                <input type="date" class="form-control form-control-lg" v-model="historyFilter.endDate"
-                  @change="loadAttendanceHistory">
+                <input
+                  type="date"
+                  class="form-control form-control-lg"
+                  v-model="historyFilter.endDate"
+                  @change="loadAttendanceHistory"
+                />
               </div>
             </div>
 
@@ -307,7 +336,9 @@
     <!-- Loading Overlay -->
     <div
       class="d-flex justify-content-center align-items-center position-fixed top-0 start-0 w-100 h-100 bg-black bg-opacity-25"
-      style="z-index: 9999;" v-if="loading">
+      style="z-index: 9999"
+      v-if="loading"
+    >
       <div class="card shadow-lg border-0">
         <div class="card-body p-5 text-center">
           <div class="spinner-border text-primary mb-3" role="status"></div>
@@ -323,8 +354,9 @@ import { ref, reactive, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import Swal from 'sweetalert2'
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
-const JWT_TOKEN = localStorage.getItem('kigrama_auth_token') || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.demo_token'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
+const JWT_TOKEN =
+  localStorage.getItem('kigrama_auth_token') || 'eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.demo_token'
 
 // Current User Context
 const currentUser = ref(JSON.parse(localStorage.getItem('kigrama_user_data') || '{}'))?.user || null
@@ -346,7 +378,7 @@ const weeklyStats = reactive({
   present: 0,
   late: 0,
   absent: 0,
-  avgHours: '0.0'
+  avgHours: '0.0',
 })
 
 // Chart Reference
@@ -356,7 +388,7 @@ let chartInstance = null
 // History Filter
 const historyFilter = reactive({
   startDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-  endDate: new Date().toISOString().split('T')[0]
+  endDate: new Date().toISOString().split('T')[0],
 })
 
 // Computed Properties
@@ -378,13 +410,13 @@ const updateCurrentTime = () => {
   currentTime.value = now.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: true
+    hour12: true,
   })
   currentDate.value = now.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   })
 }
 
@@ -394,10 +426,10 @@ const apiCall = async (endpoint, options = {}) => {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${JWT_TOKEN}`,
-        ...options.headers
+        Authorization: `Bearer ${JWT_TOKEN}`,
+        ...options.headers,
       },
-      ...options
+      ...options,
     })
 
     if (!response.ok) {
@@ -435,7 +467,9 @@ const loadTodayAttendance = async () => {
     if (!currentUser.value?.id || !currentStation.value?.StationID) return
 
     const today = new Date().toISOString().split('T')[0]
-    const response = await apiCall(`/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&AttendanceDate=${today}`)
+    const response = await apiCall(
+      `/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&AttendanceDate=${today}`,
+    )
     const records = response.records || []
 
     todayAttendance.value = records.length > 0 ? records[0] : null
@@ -449,7 +483,9 @@ const loadRecentAttendance = async () => {
   try {
     if (!currentUser.value?.id || !currentStation.value?.StationID) return
 
-    const response = await apiCall(`/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&sort=-AttendanceDate&limit=10`)
+    const response = await apiCall(
+      `/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&sort=-AttendanceDate&limit=10`,
+    )
     recentAttendance.value = response.records || []
   } catch (error) {
     console.error('Error loading recent attendance:', error)
@@ -460,9 +496,9 @@ const loadRecentAttendance = async () => {
 const calculateWeeklyStats = () => {
   const weekData = recentAttendance.value.slice(0, 7)
 
-  weeklyStats.present = weekData.filter(r => r.Status === 'Present').length
-  weeklyStats.late = weekData.filter(r => r.Status === 'Late').length
-  weeklyStats.absent = weekData.filter(r => r.Status === 'Absent').length
+  weeklyStats.present = weekData.filter((r) => r.Status === 'Present').length
+  weeklyStats.late = weekData.filter((r) => r.Status === 'Late').length
+  weeklyStats.absent = weekData.filter((r) => r.Status === 'Absent').length
 
   const totalHours = weekData.reduce((sum, record) => {
     const hours = parseFloat(calculateRecordHours(record)) || 0
@@ -483,7 +519,7 @@ const clockIn = async () => {
       confirmButtonText: 'Yes, Clock In',
       cancelButtonText: 'Cancel',
       confirmButtonColor: '#00a651',
-      cancelButtonColor: '#f1416c'
+      cancelButtonColor: '#f1416c',
     })
 
     if (!result.isConfirmed) return
@@ -497,12 +533,12 @@ const clockIn = async () => {
       AttendanceDate: new Date().toISOString().split('T')[0],
       TimeIn: new Date().toISOString(),
       Status: 'Present',
-      Notes: attendanceNotes.value || null
+      Notes: attendanceNotes.value || null,
     }
 
     await apiCall('/Attendance', {
       method: 'POST',
-      body: JSON.stringify(attendanceData)
+      body: JSON.stringify(attendanceData),
     })
 
     await Swal.fire({
@@ -512,7 +548,7 @@ const clockIn = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     attendanceNotes.value = ''
@@ -523,7 +559,7 @@ const clockIn = async () => {
       title: 'Clock In Failed',
       text: error.message || 'Unable to clock in. Please try again.',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -541,7 +577,7 @@ const clockOut = async () => {
       confirmButtonText: 'Yes, Clock Out',
       cancelButtonText: 'Cancel',
       confirmButtonColor: '#f1416c',
-      cancelButtonColor: '#3699ff'
+      cancelButtonColor: '#3699ff',
     })
 
     if (!result.isConfirmed) return
@@ -551,12 +587,12 @@ const clockOut = async () => {
 
     const updateData = {
       TimeOut: new Date().toISOString(),
-      Notes: attendanceNotes.value || todayAttendance.value.Notes
+      Notes: attendanceNotes.value || todayAttendance.value.Notes,
     }
 
     await apiCall(`/Attendance/${todayAttendance.value.AttendanceID}`, {
       method: 'PATCH',
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(updateData),
     })
 
     await Swal.fire({
@@ -566,7 +602,7 @@ const clockOut = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     attendanceNotes.value = ''
@@ -577,7 +613,7 @@ const clockOut = async () => {
       title: 'Clock Out Failed',
       text: error.message || 'Unable to clock out. Please try again.',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -589,11 +625,13 @@ const loadAttendanceHistory = async () => {
   try {
     if (!currentUser.value?.id || !currentStation.value?.StationID) return
 
-    const response = await apiCall(`/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&sort=-AttendanceDate`)
+    const response = await apiCall(
+      `/Attendance?UserID=${currentUser.value.id}&StationID=${currentStation.value.StationID}&sort=-AttendanceDate`,
+    )
     let records = response.records || []
 
     // Filter by date range
-    records = records.filter(record => {
+    records = records.filter((record) => {
       const recordDate = record.AttendanceDate
       return recordDate >= historyFilter.startDate && recordDate <= historyFilter.endDate
     })
@@ -610,7 +648,9 @@ const createAttendanceChart = async () => {
 
   try {
     // Import Chart.js dynamically
-    const { Chart, registerables } = await import('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js')
+    const { Chart, registerables } = await import(
+      'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js'
+    )
     Chart.register(...registerables)
 
     const ctx = attendanceChart.value.getContext('2d')
@@ -625,7 +665,7 @@ const createAttendanceChart = async () => {
       const dateStr = date.toISOString().split('T')[0]
       last7Days.push(date.toLocaleDateString('en-US', { weekday: 'short' }))
 
-      const dayRecord = recentAttendance.value.find(r => r.AttendanceDate === dateStr)
+      const dayRecord = recentAttendance.value.find((r) => r.AttendanceDate === dateStr)
       attendanceData.push(dayRecord ? 1 : 0)
     }
 
@@ -633,29 +673,31 @@ const createAttendanceChart = async () => {
       type: 'bar',
       data: {
         labels: last7Days,
-        datasets: [{
-          label: 'Attendance',
-          data: attendanceData,
-          backgroundColor: [
-            '#00a651',
-            '#00a651',
-            '#00a651',
-            '#00a651',
-            '#00a651',
-            '#ffc700',
-            '#f1416c'
-          ],
-          borderRadius: 6,
-          borderSkipped: false,
-        }]
+        datasets: [
+          {
+            label: 'Attendance',
+            data: attendanceData,
+            backgroundColor: [
+              '#00a651',
+              '#00a651',
+              '#00a651',
+              '#00a651',
+              '#00a651',
+              '#ffc700',
+              '#f1416c',
+            ],
+            borderRadius: 6,
+            borderSkipped: false,
+          },
+        ],
       },
       options: {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            display: false
-          }
+            display: false,
+          },
         },
         scales: {
           y: {
@@ -665,16 +707,16 @@ const createAttendanceChart = async () => {
               stepSize: 1,
               callback: function (value) {
                 return value === 1 ? 'Present' : 'Absent'
-              }
-            }
+              },
+            },
           },
           x: {
             grid: {
-              display: false
-            }
-          }
-        }
-      }
+              display: false,
+            },
+          },
+        },
+      },
     })
   } catch (error) {
     console.error('Error creating chart:', error)
@@ -688,7 +730,7 @@ const formatTimeIn = (timeString) => {
   return date.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: true
+    hour12: true,
   })
 }
 
@@ -698,7 +740,7 @@ const formatDate = (dateString) => {
   return date.toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
-    year: 'numeric'
+    year: 'numeric',
   })
 }
 
@@ -706,7 +748,9 @@ const calculateHoursWorked = () => {
   if (!todayAttendance.value?.TimeIn) return '0.0 hrs'
 
   const timeIn = new Date(todayAttendance.value.TimeIn)
-  const timeOut = todayAttendance.value.TimeOut ? new Date(todayAttendance.value.TimeOut) : new Date()
+  const timeOut = todayAttendance.value.TimeOut
+    ? new Date(todayAttendance.value.TimeOut)
+    : new Date()
 
   const diffMs = timeOut - timeIn
   const hours = diffMs / (1000 * 60 * 60)
@@ -727,19 +771,27 @@ const calculateRecordHours = (record) => {
 
 const getStatusColor = (status) => {
   switch (status) {
-    case 'Present': return 'bg-success'
-    case 'Late': return 'bg-warning'
-    case 'Absent': return 'bg-danger'
-    default: return 'bg-secondary'
+    case 'Present':
+      return 'bg-success'
+    case 'Late':
+      return 'bg-warning'
+    case 'Absent':
+      return 'bg-danger'
+    default:
+      return 'bg-secondary'
   }
 }
 
 const getStatusBadge = (status) => {
   switch (status) {
-    case 'Present': return 'badge-light-success'
-    case 'Late': return 'badge-light-warning'
-    case 'Absent': return 'badge-light-danger'
-    default: return 'badge-light-secondary'
+    case 'Present':
+      return 'badge-light-success'
+    case 'Late':
+      return 'badge-light-warning'
+    case 'Absent':
+      return 'badge-light-danger'
+    default:
+      return 'badge-light-secondary'
   }
 }
 
@@ -766,7 +818,7 @@ const refreshData = async () => {
       toast: true,
       position: 'top-end',
       timer: 2000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
   } catch (error) {
     console.error('Error refreshing data:', error)
@@ -800,7 +852,7 @@ onMounted(async () => {
       title: 'Loading Error',
       text: 'Unable to load attendance data. Please refresh the page.',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false

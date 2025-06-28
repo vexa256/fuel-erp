@@ -1008,7 +1008,7 @@ const aiAutoComplete = {
 // API CONFIGURATION - FIXED JSON PARSING
 // ============================================================================
 
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN = localStorage.getItem('jwt') || 'DEFAULT_DEV_TOKEN'
 
 const apiCall = async (endpoint, method = 'GET', data = null) => {

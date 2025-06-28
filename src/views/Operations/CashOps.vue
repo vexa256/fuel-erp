@@ -16,18 +16,28 @@
             </div>
             <div>
               <h1 class="text-dark fw-bold fs-2 mb-0">Cash Drawer</h1>
-              <span class="text-gray-600 fs-6">{{ selectedStation?.StationName || 'Select Station' }}</span>
+              <span class="text-gray-600 fs-6">{{
+                selectedStation?.StationName || 'Select Station'
+              }}</span>
             </div>
           </div>
           <div class="d-flex gap-2">
-            <button v-if="!hasOpenDrawer" @click="showOpenDrawerModal = true" class="btn btn-light-success btn-sm">
+            <button
+              v-if="!hasOpenDrawer"
+              @click="showOpenDrawerModal = true"
+              class="btn btn-light-success btn-sm"
+            >
               <i class="ki-duotone ki-plus fs-3">
                 <span class="path1"></span>
                 <span class="path2"></span>
               </i>
               Open Drawer
             </button>
-            <button v-if="hasOpenDrawer" @click="showCloseDrawerModal = true" class="btn btn-light-danger btn-sm">
+            <button
+              v-if="hasOpenDrawer"
+              @click="showCloseDrawerModal = true"
+              class="btn btn-light-danger btn-sm"
+            >
               <i class="ki-duotone ki-cross fs-3">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -39,12 +49,17 @@
 
         <!-- Station Selector -->
         <div v-if="userStations.length > 1" class="d-flex gap-2 flex-wrap">
-          <button v-for="station in userStations" :key="station.StationID" @click="switchStation(station)" :class="[
-            'btn btn-sm',
-            selectedStation?.StationID === station.StationID
-              ? 'btn-primary'
-              : 'btn-light-primary'
-          ]">
+          <button
+            v-for="station in userStations"
+            :key="station.StationID"
+            @click="switchStation(station)"
+            :class="[
+              'btn btn-sm',
+              selectedStation?.StationID === station.StationID
+                ? 'btn-primary'
+                : 'btn-light-primary',
+            ]"
+          >
             {{ station.StationName }}
           </button>
         </div>
@@ -56,9 +71,7 @@
       <div class="card-header">
         <h3 class="card-title fw-bold text-dark">Current Shift</h3>
         <div class="card-toolbar">
-          <span class="badge badge-light-success fs-7">
-            {{ currentDrawer.ShiftType }} - OPEN
-          </span>
+          <span class="badge badge-light-success fs-7"> {{ currentDrawer.ShiftType }} - OPEN </span>
         </div>
       </div>
       <div class="card-body p-6">
@@ -70,7 +83,9 @@
                 <span class="path1"></span>
                 <span class="path2"></span>
               </i>
-              <div class="fw-bold text-dark fs-4">{{ formatCurrency(currentDrawer.OpeningBalance) }}</div>
+              <div class="fw-bold text-dark fs-4">
+                {{ formatCurrency(currentDrawer.OpeningBalance) }}
+              </div>
               <div class="text-gray-600 fs-7">Opening</div>
             </div>
           </div>
@@ -83,7 +98,9 @@
                 <span class="path2"></span>
                 <span class="path3"></span>
               </i>
-              <div class="fw-bold text-dark fs-4">{{ formatCurrency(currentDrawer.CashSales) }}</div>
+              <div class="fw-bold text-dark fs-4">
+                {{ formatCurrency(currentDrawer.CashSales) }}
+              </div>
               <div class="text-gray-600 fs-7">Sales</div>
             </div>
           </div>
@@ -95,7 +112,9 @@
                 <span class="path1"></span>
                 <span class="path2"></span>
               </i>
-              <div class="fw-bold text-dark fs-4">{{ formatCurrency(currentDrawer.ExpectedCash) }}</div>
+              <div class="fw-bold text-dark fs-4">
+                {{ formatCurrency(currentDrawer.ExpectedCash) }}
+              </div>
               <div class="text-gray-600 fs-7">Expected</div>
             </div>
           </div>
@@ -144,16 +163,29 @@
           </div>
           <div class="card-body">
             <div class="chart-container">
-              <div v-for="(day, index) in chartData.dailyVariances" :key="index"
-                class="d-flex align-items-center justify-content-between mb-3">
+              <div
+                v-for="(day, index) in chartData.dailyVariances"
+                :key="index"
+                class="d-flex align-items-center justify-content-between mb-3"
+              >
                 <span class="text-gray-700 fw-semibold">{{ day.date }}</span>
                 <div class="d-flex align-items-center gap-2">
-                  <div class="progress" style="width: 100px; height: 8px;">
-                    <div class="progress-bar"
-                      :class="parseFloat(day.variance) <= 50 ? 'bg-success' : parseFloat(day.variance) <= 100 ? 'bg-warning' : 'bg-danger'"
-                      :style="`width: ${Math.min((parseFloat(day.variance) / 200) * 100, 100)}%`"></div>
+                  <div class="progress" style="width: 100px; height: 8px">
+                    <div
+                      class="progress-bar"
+                      :class="
+                        parseFloat(day.variance) <= 50
+                          ? 'bg-success'
+                          : parseFloat(day.variance) <= 100
+                            ? 'bg-warning'
+                            : 'bg-danger'
+                      "
+                      :style="`width: ${Math.min((parseFloat(day.variance) / 200) * 100, 100)}%`"
+                    ></div>
                   </div>
-                  <span class="badge badge-light-primary fs-8">{{ formatCurrency(day.variance) }}</span>
+                  <span class="badge badge-light-primary fs-8">{{
+                    formatCurrency(day.variance)
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -169,16 +201,22 @@
           </div>
           <div class="card-body">
             <div class="chart-container">
-              <div v-for="(day, index) in chartData.cashTrends" :key="index"
-                class="d-flex align-items-center justify-content-between mb-3">
+              <div
+                v-for="(day, index) in chartData.cashTrends"
+                :key="index"
+                class="d-flex align-items-center justify-content-between mb-3"
+              >
                 <span class="text-gray-700 fw-semibold">{{ day.date }}</span>
                 <div class="d-flex align-items-center gap-2">
-                  <div class="progress" style="width: 100px; height: 8px;">
-                    <div class="progress-bar bg-primary"
-                      :style="`width: ${Math.min((parseFloat(day.amount) / Math.max(...chartData.cashTrends.map(d => parseFloat(d.amount)))) * 100, 100)}%`">
-                    </div>
+                  <div class="progress" style="width: 100px; height: 8px">
+                    <div
+                      class="progress-bar bg-primary"
+                      :style="`width: ${Math.min((parseFloat(day.amount) / Math.max(...chartData.cashTrends.map((d) => parseFloat(d.amount)))) * 100, 100)}%`"
+                    ></div>
                   </div>
-                  <span class="badge badge-light-success fs-8">{{ formatCurrency(day.amount) }}</span>
+                  <span class="badge badge-light-success fs-8">{{
+                    formatCurrency(day.amount)
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -210,7 +248,9 @@
               <span class="path1"></span>
               <span class="path2"></span>
             </i>
-            <div class="fw-bold text-dark fs-3">{{ formatCurrency(statistics.weeklyVariance) }}</div>
+            <div class="fw-bold text-dark fs-3">
+              {{ formatCurrency(statistics.weeklyVariance) }}
+            </div>
             <div class="text-gray-600 fs-7">Avg Variance</div>
           </div>
         </div>
@@ -277,20 +317,26 @@
                 <td>{{ formatCurrency(drawer.ExpectedCash) }}</td>
                 <td>{{ formatCurrency(drawer.ActualCash) }}</td>
                 <td>
-                  <span :class="[
-                    'badge',
-                    parseFloat(drawer.Variance) === 0 ? 'badge-light-success' :
-                      Math.abs(parseFloat(drawer.Variance)) <= 50 ? 'badge-light-warning' :
-                        'badge-light-danger'
-                  ]">
+                  <span
+                    :class="[
+                      'badge',
+                      parseFloat(drawer.Variance) === 0
+                        ? 'badge-light-success'
+                        : Math.abs(parseFloat(drawer.Variance)) <= 50
+                          ? 'badge-light-warning'
+                          : 'badge-light-danger',
+                    ]"
+                  >
                     {{ formatCurrency(drawer.Variance) }}
                   </span>
                 </td>
                 <td>
-                  <span :class="[
-                    'badge',
-                    drawer.Status === 'Open' ? 'badge-light-success' : 'badge-light-primary'
-                  ]">
+                  <span
+                    :class="[
+                      'badge',
+                      drawer.Status === 'Open' ? 'badge-light-success' : 'badge-light-primary',
+                    ]"
+                  >
                     {{ drawer.Status }}
                   </span>
                 </td>
@@ -318,7 +364,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <h3 class="modal-title fw-bold">Open Cash Drawer</h3>
-            <button @click="showOpenDrawerModal = false" class="btn btn-icon btn-sm btn-active-light-primary">
+            <button
+              @click="showOpenDrawerModal = false"
+              class="btn btn-icon btn-sm btn-active-light-primary"
+            >
               <i class="ki-duotone ki-cross fs-1">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -331,7 +380,11 @@
                 <div class="col-12">
                   <label class="form-label required">Station</label>
                   <select v-model="openDrawerForm.stationId" class="form-select form-select-lg">
-                    <option v-for="station in userStations" :key="station.StationID" :value="station.StationID">
+                    <option
+                      v-for="station in userStations"
+                      :key="station.StationID"
+                      :value="station.StationID"
+                    >
                       {{ station.StationName }}
                     </option>
                   </select>
@@ -351,8 +404,13 @@
 
                 <div class="col-12">
                   <label class="form-label required">Opening Balance (UGX)</label>
-                  <input v-model="openDrawerForm.openingBalance" type="number" step="0.01"
-                    class="form-control form-control-lg" placeholder="0.00" />
+                  <input
+                    v-model="openDrawerForm.openingBalance"
+                    type="number"
+                    step="0.01"
+                    class="form-control form-control-lg"
+                    placeholder="0.00"
+                  />
                   <div v-if="errors.openDrawer.openingBalance" class="text-danger fs-7 mt-1">
                     {{ errors.openDrawer.openingBalance }}
                   </div>
@@ -360,8 +418,12 @@
 
                 <div class="col-12">
                   <label class="form-label">Notes</label>
-                  <textarea v-model="openDrawerForm.notes" class="form-control" rows="3"
-                    placeholder="Optional notes..."></textarea>
+                  <textarea
+                    v-model="openDrawerForm.notes"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Optional notes..."
+                  ></textarea>
                 </div>
               </div>
             </form>
@@ -383,7 +445,10 @@
         <div class="modal-content">
           <div class="modal-header">
             <h3 class="modal-title fw-bold">Close Cash Drawer</h3>
-            <button @click="showCloseDrawerModal = false" class="btn btn-icon btn-sm btn-active-light-primary">
+            <button
+              @click="showCloseDrawerModal = false"
+              class="btn btn-icon btn-sm btn-active-light-primary"
+            >
               <i class="ki-duotone ki-cross fs-1">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -399,8 +464,12 @@
                   <span class="path3"></span>
                 </i>
                 <div>
-                  <div class="fw-bold text-dark">Expected Cash: {{ formatCurrency(currentDrawer?.ExpectedCash) }}</div>
-                  <div class="text-gray-600 fs-7">Count your actual cash and enter the amount below</div>
+                  <div class="fw-bold text-dark">
+                    Expected Cash: {{ formatCurrency(currentDrawer?.ExpectedCash) }}
+                  </div>
+                  <div class="text-gray-600 fs-7">
+                    Count your actual cash and enter the amount below
+                  </div>
                 </div>
               </div>
             </div>
@@ -409,14 +478,23 @@
               <div class="row g-5">
                 <div class="col-12">
                   <label class="form-label required">Actual Cash Count (UGX)</label>
-                  <input v-model="closeDrawerForm.actualCash" type="number" step="0.01"
-                    class="form-control form-control-lg" placeholder="0.00" />
+                  <input
+                    v-model="closeDrawerForm.actualCash"
+                    type="number"
+                    step="0.01"
+                    class="form-control form-control-lg"
+                    placeholder="0.00"
+                  />
                 </div>
 
                 <div class="col-12">
                   <label class="form-label">Closing Notes</label>
-                  <textarea v-model="closeDrawerForm.notes" class="form-control" rows="3"
-                    placeholder="Any variance explanations or notes..."></textarea>
+                  <textarea
+                    v-model="closeDrawerForm.notes"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Any variance explanations or notes..."
+                  ></textarea>
                 </div>
               </div>
             </form>
@@ -437,8 +515,13 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title fw-bold">Record Cash {{ cashOperationType === 'sale' ? 'Sale' : 'Payout' }}</h3>
-            <button @click="showCashOperationModal = false" class="btn btn-icon btn-sm btn-active-light-primary">
+            <h3 class="modal-title fw-bold">
+              Record Cash {{ cashOperationType === 'sale' ? 'Sale' : 'Payout' }}
+            </h3>
+            <button
+              @click="showCashOperationModal = false"
+              class="btn btn-icon btn-sm btn-active-light-primary"
+            >
               <i class="ki-duotone ki-cross fs-1">
                 <span class="path1"></span>
                 <span class="path2"></span>
@@ -450,30 +533,48 @@
               <div class="row g-5">
                 <div class="col-12">
                   <label class="form-label required">Amount (UGX)</label>
-                  <input v-model="cashOperationForm.amount" type="number" step="0.01"
-                    class="form-control form-control-lg" placeholder="0.00" />
+                  <input
+                    v-model="cashOperationForm.amount"
+                    type="number"
+                    step="0.01"
+                    class="form-control form-control-lg"
+                    placeholder="0.00"
+                  />
                 </div>
 
                 <div class="col-12">
                   <label class="form-label required">Description</label>
-                  <input v-model="cashOperationForm.description" type="text" class="form-control form-control-lg"
-                    :placeholder="cashOperationType === 'sale' ? 'Fuel sale, convenience items, etc.' : 'Petty cash, refund, etc.'" />
+                  <input
+                    v-model="cashOperationForm.description"
+                    type="text"
+                    class="form-control form-control-lg"
+                    :placeholder="
+                      cashOperationType === 'sale'
+                        ? 'Fuel sale, convenience items, etc.'
+                        : 'Petty cash, refund, etc.'
+                    "
+                  />
                 </div>
 
                 <div class="col-12">
                   <label class="form-label">Reference</label>
-                  <input v-model="cashOperationForm.reference" type="text" class="form-control form-control-lg"
-                    placeholder="Receipt number, invoice, etc." />
+                  <input
+                    v-model="cashOperationForm.reference"
+                    type="text"
+                    class="form-control form-control-lg"
+                    placeholder="Receipt number, invoice, etc."
+                  />
                 </div>
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button @click="showCashOperationModal = false" class="btn btn-light">Cancel</button>
-            <button @click="recordCashOperation" :disabled="loading" :class="[
-              'btn',
-              cashOperationType === 'sale' ? 'btn-success' : 'btn-danger'
-            ]">
+            <button
+              @click="recordCashOperation"
+              :disabled="loading"
+              :class="['btn', cashOperationType === 'sale' ? 'btn-success' : 'btn-danger']"
+            >
               <span v-if="loading" class="spinner-border spinner-border-sm me-2"></span>
               Record {{ cashOperationType === 'sale' ? 'Sale' : 'Payout' }}
             </button>
@@ -498,7 +599,7 @@ import { ref, reactive, computed, onMounted, nextTick } from 'vue'
 import Swal from 'sweetalert2'
 
 // API Configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN = localStorage.getItem('kigrama_auth_token') || 'demo_token'
 
 // Get user data from localStorage
@@ -531,14 +632,14 @@ const statistics = ref({
   todaysCash: 0,
   weeklyVariance: 0,
   avgClosingTime: '00:00',
-  totalDrawers: 0
+  totalDrawers: 0,
 })
 
 // Chart Data
 const chartData = ref({
   dailyVariances: [],
   cashTrends: [],
-  closureTimes: []
+  closureTimes: [],
 })
 
 // Forms
@@ -546,25 +647,25 @@ const openDrawerForm = reactive({
   stationId: '',
   shiftType: 'Morning',
   openingBalance: '0.00',
-  notes: ''
+  notes: '',
 })
 
 const closeDrawerForm = reactive({
   actualCash: '0.00',
-  notes: ''
+  notes: '',
 })
 
 const cashOperationForm = reactive({
   amount: '0.00',
   description: '',
-  reference: ''
+  reference: '',
 })
 
 // Form Errors
 const errors = reactive({
   openDrawer: {},
   closeDrawer: {},
-  cashOperation: {}
+  cashOperation: {},
 })
 
 // Computed Properties
@@ -591,11 +692,11 @@ const apiCall = async (endpoint, options = {}) => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       headers: {
-        'Authorization': `Bearer ${JWT_TOKEN}`,
+        Authorization: `Bearer ${JWT_TOKEN}`,
         'Content-Type': 'application/json',
-        ...options.headers
+        ...options.headers,
       },
-      ...options
+      ...options,
     })
 
     if (!response.ok) {
@@ -634,7 +735,7 @@ const fetchUserStations = async () => {
       title: 'Error!',
       text: 'Could not load your assigned stations',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -646,7 +747,9 @@ const fetchCurrentDrawer = async () => {
   if (!selectedStation.value) return
 
   try {
-    const response = await apiCall(`/CashDrawers?StationID=${selectedStation.value.StationID}&Status=Open&AttendantID=${currentUser.id}`)
+    const response = await apiCall(
+      `/CashDrawers?StationID=${selectedStation.value.StationID}&Status=Open&AttendantID=${currentUser.id}`,
+    )
     const drawers = response.records || []
     currentDrawer.value = drawers.length > 0 ? drawers[0] : null
   } catch (error) {
@@ -659,7 +762,9 @@ const fetchDrawerHistory = async () => {
   if (!selectedStation.value) return
 
   try {
-    const response = await apiCall(`/CashDrawers?StationID=${selectedStation.value.StationID}&AttendantID=${currentUser.id}&limit=20&sort=-CreatedAt`)
+    const response = await apiCall(
+      `/CashDrawers?StationID=${selectedStation.value.StationID}&AttendantID=${currentUser.id}&limit=20&sort=-CreatedAt`,
+    )
     drawerHistory.value = response.records || []
     calculateStatistics()
   } catch (error) {
@@ -674,12 +779,19 @@ const calculateStatistics = () => {
   const today = new Date().toISOString().split('T')[0]
   const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
 
-  const todaysDrawers = drawerHistory.value.filter(d => d.ShiftDate === today)
-  statistics.value.todaysCash = todaysDrawers.reduce((sum, d) => sum + parseFloat(d.CashSales || 0), 0)
+  const todaysDrawers = drawerHistory.value.filter((d) => d.ShiftDate === today)
+  statistics.value.todaysCash = todaysDrawers.reduce(
+    (sum, d) => sum + parseFloat(d.CashSales || 0),
+    0,
+  )
 
-  const weeklyDrawers = drawerHistory.value.filter(d => d.ShiftDate >= weekAgo)
-  const totalVariance = weeklyDrawers.reduce((sum, d) => sum + Math.abs(parseFloat(d.Variance || 0)), 0)
-  statistics.value.weeklyVariance = weeklyDrawers.length > 0 ? (totalVariance / weeklyDrawers.length) : 0
+  const weeklyDrawers = drawerHistory.value.filter((d) => d.ShiftDate >= weekAgo)
+  const totalVariance = weeklyDrawers.reduce(
+    (sum, d) => sum + Math.abs(parseFloat(d.Variance || 0)),
+    0,
+  )
+  statistics.value.weeklyVariance =
+    weeklyDrawers.length > 0 ? totalVariance / weeklyDrawers.length : 0
 
   statistics.value.totalDrawers = drawerHistory.value.length
 
@@ -692,14 +804,16 @@ const generateChartData = () => {
   for (let i = 6; i >= 0; i--) {
     const date = new Date(Date.now() - i * 24 * 60 * 60 * 1000)
     const dateStr = date.toISOString().split('T')[0]
-    const dayDrawers = drawerHistory.value.filter(d => d.ShiftDate === dateStr)
-    const avgVariance = dayDrawers.length > 0
-      ? dayDrawers.reduce((sum, d) => sum + Math.abs(parseFloat(d.Variance || 0)), 0) / dayDrawers.length
-      : 0
+    const dayDrawers = drawerHistory.value.filter((d) => d.ShiftDate === dateStr)
+    const avgVariance =
+      dayDrawers.length > 0
+        ? dayDrawers.reduce((sum, d) => sum + Math.abs(parseFloat(d.Variance || 0)), 0) /
+          dayDrawers.length
+        : 0
 
     last7Days.push({
       date: date.toLocaleDateString('en-US', { weekday: 'short' }),
-      variance: avgVariance.toFixed(2)
+      variance: avgVariance.toFixed(2),
     })
   }
   chartData.value.dailyVariances = last7Days
@@ -708,12 +822,12 @@ const generateChartData = () => {
   for (let i = 6; i >= 0; i--) {
     const date = new Date(Date.now() - i * 24 * 60 * 60 * 1000)
     const dateStr = date.toISOString().split('T')[0]
-    const dayDrawers = drawerHistory.value.filter(d => d.ShiftDate === dateStr)
+    const dayDrawers = drawerHistory.value.filter((d) => d.ShiftDate === dateStr)
     const totalCash = dayDrawers.reduce((sum, d) => sum + parseFloat(d.CashSales || 0), 0)
 
     cashTrends.push({
       date: date.toLocaleDateString('en-US', { weekday: 'short' }),
-      amount: totalCash.toFixed(0)
+      amount: totalCash.toFixed(0),
     })
   }
   chartData.value.cashTrends = cashTrends
@@ -759,12 +873,12 @@ const openNewDrawer = async () => {
       CashPayouts: '0.00',
       Status: 'Open',
       OpenedBy: currentUser.id,
-      Notes: openDrawerForm.notes || null
+      Notes: openDrawerForm.notes || null,
     }
 
     await apiCall('/CashDrawers', {
       method: 'POST',
-      body: JSON.stringify(newDrawer)
+      body: JSON.stringify(newDrawer),
     })
 
     await Swal.fire({
@@ -774,7 +888,7 @@ const openNewDrawer = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     showOpenDrawerModal.value = false
@@ -786,7 +900,7 @@ const openNewDrawer = async () => {
       title: 'Error!',
       text: 'Could not open cash drawer',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -811,17 +925,20 @@ const closeDrawer = async () => {
       Status: 'Closed',
       ClosedBy: currentUser.id,
       ClosedAt: new Date().toISOString(),
-      Notes: closeDrawerForm.notes || null
+      Notes: closeDrawerForm.notes || null,
     }
 
     await apiCall(`/CashDrawers/${currentDrawer.value.DrawerID}`, {
       method: 'PATCH',
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(updateData),
     })
 
-    const varianceText = variance === 0 ? 'Perfect!' :
-      Math.abs(variance) <= 50 ? 'Small variance detected' :
-        'Large variance - please review'
+    const varianceText =
+      variance === 0
+        ? 'Perfect!'
+        : Math.abs(variance) <= 50
+          ? 'Small variance detected'
+          : 'Large variance - please review'
 
     await Swal.fire({
       title: 'Drawer Closed!',
@@ -830,7 +947,7 @@ const closeDrawer = async () => {
       toast: true,
       position: 'top-end',
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     showCloseDrawerModal.value = false
@@ -842,7 +959,7 @@ const closeDrawer = async () => {
       title: 'Error!',
       text: 'Could not close cash drawer',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -872,18 +989,18 @@ const recordCashOperation = async () => {
     if (cashOperationType.value === 'sale') {
       updateData = {
         CashSales: (currentCashSales + amount).toFixed(2),
-        ExpectedCash: (currentExpected + amount).toFixed(2)
+        ExpectedCash: (currentExpected + amount).toFixed(2),
       }
     } else {
       updateData = {
         CashPayouts: (currentCashPayouts + amount).toFixed(2),
-        ExpectedCash: (currentExpected - amount).toFixed(2)
+        ExpectedCash: (currentExpected - amount).toFixed(2),
       }
     }
 
     await apiCall(`/CashDrawers/${currentDrawer.value.DrawerID}`, {
       method: 'PATCH',
-      body: JSON.stringify(updateData)
+      body: JSON.stringify(updateData),
     })
 
     await Swal.fire({
@@ -893,7 +1010,7 @@ const recordCashOperation = async () => {
       toast: true,
       position: 'top-end',
       timer: 2000,
-      showConfirmButton: false
+      showConfirmButton: false,
     })
 
     showCashOperationModal.value = false
@@ -907,7 +1024,7 @@ const recordCashOperation = async () => {
       title: 'Error!',
       text: 'Could not record cash operation',
       icon: 'error',
-      confirmButtonColor: '#f1416c'
+      confirmButtonColor: '#f1416c',
     })
   } finally {
     loading.value = false
@@ -928,7 +1045,7 @@ const formatCurrency = (amount) => {
     style: 'currency',
     currency: 'UGX',
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   }).format(parseFloat(amount || 0))
 }
 
@@ -938,7 +1055,7 @@ const formatTime = (dateString) => {
   return new Date(dateString).toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: true
+    hour12: true,
   })
 }
 

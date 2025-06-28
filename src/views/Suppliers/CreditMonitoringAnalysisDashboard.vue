@@ -395,7 +395,7 @@ const payments = ref([])
 const creditTransactions = ref([])
 
 // API configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN = localStorage.getItem('jwt') || 'your-jwt-token'
 
 // AI Analysis state

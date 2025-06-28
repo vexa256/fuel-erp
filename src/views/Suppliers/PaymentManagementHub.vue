@@ -515,7 +515,7 @@ const paymentForm = ref({
 const errors = ref({})
 
 // API configuration
-const API_BASE_URL = 'http://localhost:4000/api/records/v1'
+const API_BASE_URL = 'https://backend.cloudfuelstationmis.com/api/records/v1'
 const JWT_TOKEN =
   localStorage.getItem('jwt') ||
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkMDc1QVZVSVNCcW9HN3dvZFV0MVZ3PT0iLCJpYXQiOjE3NTA1NDE0NzYsImV4cCI6MTc1MDU0NTA3NiwiZW1haWwiOiJhZG1pbkBsb2NhbGhvc3QiLCJjc3JmX3Rva2VuIjoiU096UjJaS2Z5ZkM1RU80TXFhaEEifQ.0o7bR0Ow7iTss_U_F8YkdclzknFMF2c6osVOExKvI8d-Jmx5dU-P2woXhJAItU29sxIG8i9pxWAgOUutCuT9Bg'

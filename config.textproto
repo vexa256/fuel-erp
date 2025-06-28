@@ -1,0 +1,310 @@
+# Auto-generated config.Config textproto
+email {
+  user_verification_template {
+    subject: "Verify your Email Address for {{ APP_NAME }}"
+    body: "<html>\n  <body>\n    <h1>Welcome {{ EMAIL }}</h1>\n\n    <p>\n      Thanks for joining {{ APP_NAME }}.\n    </p>\n\n    <p>\n      To be able to log in, first validate your email by clicking the link below.\n    </p>\n\n    <a class=\"btn\" href=\"{{ VERIFICATION_URL }}\">\n      {{ VERIFICATION_URL }}\n    </a>\n  </body>\n</html>"
+  }
+  password_reset_template {
+    subject: "Reset your Password for {{ APP_NAME }}"
+    body: "<html>\n  <body>\n    <h1>Password Reset</h1>\n\n    <p>\n      Click the link below to reset your password.\n    </p>\n\n    <a class=\"btn\" href=\"{{ VERIFICATION_URL }}\">\n      {{ VERIFICATION_URL }}\n    </a>\n  </body>\n</html>"
+  }
+  change_email_template {
+    subject: "Change your Email Address for {{ APP_NAME }}"
+    body: "<html>\n  <body>\n    <h1>Change E-Mail Address</h1>\n\n    <p>\n      Click the link below to verify your new E-mail address:\n    </p>\n\n    <a class=\"btn\" href=\"{{ VERIFICATION_URL }}\">\n      {{ VERIFICATION_URL }}\n    </a>\n  </body>\n</html>"
+  }
+}
+server {
+  application_name: "TrailBase"
+  logs_retention_sec: 604800
+}
+auth {
+  auth_token_ttl_sec: 3600
+  refresh_token_ttl_sec: 2592000
+}
+jobs {
+  system_jobs: [{
+    id: BACKUP
+    schedule: "@daily"
+  }]
+}
+record_apis: [{ name: "Attendance"
+  table_name: "Attendance"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "AuditLogs"
+  table_name: "AuditLogs"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "CareerPaths"
+  table_name: "CareerPaths"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "DailyReadings"
+  table_name: "DailyReadings"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Departments"
+  table_name: "Departments"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "FraudDetectionLogs"
+  table_name: "FraudDetectionLogs"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "FraudDetectionRules"
+  table_name: "FraudDetectionRules"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "InventoryHistory"
+  table_name: "InventoryHistory"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "JobGrades"
+  table_name: "JobGrades"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "LedgerEntries"
+  table_name: "LedgerEntries"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Permissions"
+  table_name: "Permissions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "PositionHistory"
+  table_name: "PositionHistory"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "PositionRequirements"
+  table_name: "PositionRequirements"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Positions"
+  table_name: "Positions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Products"
+  table_name: "Products"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "PromotionRequests"
+  table_name: "PromotionRequests"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Pumps"
+  table_name: "Pumps"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "RolePermissions"
+  table_name: "RolePermissions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Roles"
+  table_name: "Roles"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "StationInventory"
+  table_name: "StationInventory"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "StationTransfers"
+  table_name: "StationTransfers"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Stations"
+  table_name: "Stations"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SuccessionPlans"
+  table_name: "SuccessionPlans"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierStations"
+  table_name: "SupplierStations"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Suppliers"
+  table_name: "Suppliers"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Tanks"
+  table_name: "Tanks"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "TaxRecords"
+  table_name: "TaxRecords"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "TaxTypes"
+  table_name: "TaxTypes"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "TransactionItems"
+  table_name: "TransactionItems"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Transactions"
+  table_name: "Transactions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "TransferItems"
+  table_name: "TransferItems"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "URAEFilingSubmissions"
+  table_name: "URAEFilingSubmissions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "UserCertifications"
+  table_name: "UserCertifications"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "UserLoginHistory"
+  table_name: "UserLoginHistory"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "UserPositions"
+  table_name: "UserPositions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "UserRoles"
+  table_name: "UserRoles"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "UserStations"
+  table_name: "UserStations"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "users"
+  table_name: "users"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierCreditAccounts"
+  table_name: "SupplierCreditAccounts"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierPayments"
+  table_name: "SupplierPayments"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierPaymentAllocations"
+  table_name: "SupplierPaymentAllocations"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierCreditTransactions"
+  table_name: "SupplierCreditTransactions"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "Customers"
+  table_name: "Customers"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "CustomerCreditAccounts"
+  table_name: "CustomerCreditAccounts"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "CustomerCreditPayments"
+  table_name: "CustomerCreditPayments"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "CashDrawers"
+  table_name: "CashDrawers"
+  conflict_resolution: REPLACE
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}, {
+  name: "SupplierInvoices"
+  table_name: "SupplierInvoices"
+  acl_world: [CREATE, READ, UPDATE, DELETE, SCHEMA]
+  acl_authenticated: [SCHEMA, DELETE, UPDATE, READ, CREATE]
+}]
